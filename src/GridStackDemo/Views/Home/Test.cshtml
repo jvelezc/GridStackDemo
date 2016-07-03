@@ -4,32 +4,47 @@
 }
 @section scripts
 {
+
     <script src="~/jspm_packages/system.js"></script>
     <script src="~/config.js"></script>
     <script>
-            System.import("app/angularbootstrap").then(function () {
-                angular.bootstrap(document, ['slate']);
-            });
+        System.import("app/angularbootstrap").then(function () {
+            angular.bootstrap(document, ['slate']);
+        });
     </script>
-
 
 
 
 }
 <div ng-controller="dashBoardAngular as Vm" ng-cloak>
-   {{Vm.myVar}}
+    {{Vm.Widgets}}
+    <div gridstack class="grid-stack grid1" 
+         options="Vm.Options" 
+         on-change="Vm.onChange(event,items)" 
+         on-drag-start="Vm.onDragStart(event,ui)" 
+         on-drag-stop="Vm.onDragStop(event, ui)" 
+         on-resize-start="Vm.onResizeStart(event, ui)" 
+         on-resize-stop="Vm.onResizeStop(event, ui)">
 
-</div>
-<div class="grid-stack">
-    <div class="grid-stack-item"
-         data-gs-x="0" data-gs-y="0"
-         data-gs-width="4"
-         data-gs-height="2">
-        <div class="grid-stack-item-content"></div>
+        <div gridstack-item ng-repeat="w in Vm.Widgets" 
+             class="grid-stack-item" 
+             gs-item-x="w.x" 
+             gs-item-y="w.y"
+             gs-item-width="w.width" 
+             gs-item-height="w.height" 
+             gs-item-autopos="1" 
+             on-item-added="onItemAdded(item)" 
+             on-item-removed="onItemRemoved(item)">
+
+            <div class="grid-stack-item-content">
+                <h1>Hi</h1>
+                <h1>Hi</h1>
+                <h1>Hi</h1>
+                <h1>Hi</h1>
+                <a class="btn btn-primary" ng-click="Vm.removeWidget(w)" href="#">remove</a>
+            </div>
+        </div>
     </div>
-    <div class="grid-stack-item"
-         data-gs-x="4" data-gs-y="20"
-         data-gs-width="4" data-gs-height="4">
-        <div class="grid-stack-item-content">helo</div>
-    </div>
+
+
 </div>

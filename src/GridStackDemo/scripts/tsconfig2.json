@@ -12,9 +12,7 @@
   },
   "files": [
     "/wwwroot/app/**/*.ts",
-    "/typings/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
+    "../typings/index.d.ts"
   ]
+
 }

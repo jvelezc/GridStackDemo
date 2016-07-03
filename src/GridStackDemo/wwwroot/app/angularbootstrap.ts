@@ -1,9 +1,5 @@
-﻿/// <reference path="modules/slate.controller.module.ts" />
-'use strict'
-
-
-import  'angular' //import angular comes from the config.js located wwwroot config.js from the paths variable
-
+﻿'use strict'
+//import  'angular' //import angular comes from the config.js located wwwroot config.js from the paths variable
 /*
 That is,
 paths: {
@@ -18,13 +14,14 @@ import {names} from './angular.global';
 import './modules/slate.controller.module'
 import './modules/slate.directive.module'
 import './modules/slate.service.module'
-import './modules/slate.thirdpary.module'
    var app =  angular.module(names.Modules.slate,
         [
             names.Modules.slateServices,
             names.Modules.slateDirectives,
             names.Modules.slateControllers,
-            names.Modules.slateThirdPartyModules
+            "gridstack-angular"
+           // names.Modules.slateThirdPartyModules,
+          //  "gridstack-angular"
         ]);
 
    export default app;

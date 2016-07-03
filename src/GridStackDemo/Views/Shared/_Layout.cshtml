@@ -49,33 +49,33 @@
     </div>
 
     <environment names="Development">
-        <!--Core libraries-->
-        <script src="~/lib/lodash/dist/lodash.min.js"></script>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
-        <script src="~/lib/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!--Core libraries look for a way to bundle these together-->
+        <script type="text/javascript" src="~/lib/lodash/dist/lodash.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="~/lib/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--Core libraries end here-->
+        <script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="~/lib/gridstack/dist/gridstack.min.js"></script>
+        <script type="text/javascript" src="~/lib/gridstack-angular/dist/gridstack-angular.min.js"></script>
 
-        <script src="~/lib/gridstack/dist/gridstack.min.js"></script>
 
-  
-    
         @RenderSection("scripts", required: false)
     </environment>
 
     @*<environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        @RenderSection("scripts", required: false)
-    </environment>*@
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>
+            @RenderSection("scripts", required: false)
+        </environment>*@
 
-   
+
 </body>
 </html>

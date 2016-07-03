@@ -5,6 +5,7 @@
 /// <reference path="app/dashboard/DashboardAngular.js" />
 /// <reference path="app/dashboard/dashboardmain.js" />
 /// <reference path="app/dashboard/DashBoardService.js" />
+/// <reference path="app/dashboard/widget.js" />
 /// <reference path="app/modules/slate.controller.module.js" />
 /// <reference path="app/modules/slate.directive.module.js" />
 /// <reference path="app/modules/slate.service.module.js" />
