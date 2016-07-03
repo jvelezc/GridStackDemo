@@ -1,0 +1,36 @@
+﻿@section styles{
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
+}
+@section scripts
+{
+    <script src="~/jspm_packages/system.js"></script>
+    <script src="~/config.js"></script>
+    <script>
+            System.import("app/angularbootstrap").then(function () {
+                angular.bootstrap(document, ['slate']);
+            });
+    </script>
+
+
+
+
+}
+{{1+1}}
+<div ng-controller="Test as Vm" ng-cloak>
+   {{Vm.myVar}}
+
+</div>
+<div class="grid-stack">
+    <div class="grid-stack-item"
+         data-gs-x="0" data-gs-y="0"
+         data-gs-width="4"
+         data-gs-height="2">
+        <div class="grid-stack-item-content"></div>
+    </div>
+    <div class="grid-stack-item"
+         data-gs-x="4" data-gs-y="20"
+         data-gs-width="4" data-gs-height="4">
+        <div class="grid-stack-item-content">helo</div>
+    </div>
+</div>

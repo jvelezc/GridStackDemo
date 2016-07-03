@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3a5e413626448a6261a090596f45c40c696f065e/gridstack/gridstack.d.ts",
+    "raw": "registry:dt/gridstack#0.0.0+20160526134527",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3a5e413626448a6261a090596f45c40c696f065e/gridstack/gridstack.d.ts"
+  }
+}
