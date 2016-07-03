@@ -47,7 +47,8 @@
   },
 
   "scripts": {
-    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ],
+    "prepublish": [ "npm install", "bower install", "typings install && npm run build", "gulp clean", "gulp min" ],
+    "postbuild": ["npm install jspm -g", "jspm init" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }

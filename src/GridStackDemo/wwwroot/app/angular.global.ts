@@ -38,6 +38,7 @@ export module names {
         public static slateDirectives = "slate.directives";
         public static slateServices = "slate.service";
         public static slateControllers = "slate.controller";
+        public static slateThirdPartyModules = "slate.thirdPartyModules";
       //  public static helpFulLinkModule = "slate.HelpFulLinkModule";
       //  public static leftNavModule = "slate.LeftNavModule";
     };
@@ -47,7 +48,7 @@ export module names {
         public static helpfulLinksController = "HelpfulLinksController";
         public static leftNavController = "LeftNavController";
         public static modalInstanceController = "ModalInstanceController";
-        public static dashBoardAngular = "slate.dashboard.dashBoardAngular";
+        public static dashBoardAngular = "dashBoardAngular";
     };
 
     export class Services {
