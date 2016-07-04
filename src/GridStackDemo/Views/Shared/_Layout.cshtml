@@ -8,16 +8,21 @@
     <environment names="Development">
 
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/lib/kendo-ui/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="~/lib/kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
+        <link href="~/lib/kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
         @RenderSection("styles", required: false)
     </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        @RenderSection("styles", required: false)
-    </environment>
+
+
+    @*<environment names="Staging,Production">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+            @RenderSection("styles", required: false)
+        </environment>*@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -55,12 +60,17 @@
         <script type="text/javascript" src="~/lib/jquery-ui/jquery-ui.min.js"></script>
         <script type="text/javascript" src="~/lib/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
         <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!--Core libraries end here-->
-        <script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
         <script type="text/javascript" src="~/lib/gridstack/dist/gridstack.min.js"></script>
+
+        <!--Core libraries end here-->
+
+        <!--Angular 1x + Kendo-->
+        <script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.angular.min.js"></script>
         <script type="text/javascript" src="~/lib/gridstack-angular/dist/gridstack-angular.min.js"></script>
-
-
+      
         @RenderSection("scripts", required: false)
     </environment>
 

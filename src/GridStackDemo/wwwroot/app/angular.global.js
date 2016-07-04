@@ -36,6 +36,7 @@ var names;
         ModulesExternal.KENDO_DIRECTIVES = "kendo.directives";
         ModulesExternal.ANGULAR_LADDA = "angular-ladda";
         ModulesExternal.TOASTR = "toastr";
+        ModulesExternal.GRISTACKANGULAR = "gridstack-angular";
         return ModulesExternal;
     }());
     names.ModulesExternal = ModulesExternal;

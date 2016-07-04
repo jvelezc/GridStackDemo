@@ -16,8 +16,8 @@ interface IDashBoardAngular
 export class DashboardAngular implements IDashBoardAngular {
     public Widgets: Array<Widget> = [{ widgetName: "radialGauge", x: 0, y: 0, width: 1, height: 1 }, { widgetName: "chart", x: 0, y: 0, width: 3, height: 1 }];
     public Options: {} = {
-        cell_height: 150,
-        vertical_margin: 10,
+        cellHeight: 150,
+        verticalMargin: 10,
         alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     };
     constructor() { }

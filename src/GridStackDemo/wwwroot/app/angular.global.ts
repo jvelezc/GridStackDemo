@@ -25,6 +25,7 @@ export module names {
         public static KENDO_DIRECTIVES = "kendo.directives";
         public static ANGULAR_LADDA = "angular-ladda";
         public static TOASTR = "toastr";
+        public static GRISTACKANGULAR ="gridstack-angular";
     };
 
     export class ServicesExternal {
