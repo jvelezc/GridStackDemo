@@ -37,11 +37,18 @@
              on-item-removed="onItemRemoved(item)">
 
             <div class="grid-stack-item-content">
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <h1>Hi</h1>
-                <a class="btn btn-primary" ng-click="Vm.removeWidget(w)" href="#">remove</a>
+   
+          
+
+                <div ng-if="w.widgetName == 'chart' ? true :false ">
+                    <h1>Hello</h1>
+                    {{w.widgetName}}
+                    <a class="btn btn-primary" ng-click="Vm.removeWidget(w)" href="#">remove</a>
+                </div>
+                 
+     
+              </div>
+               
             </div>
         </div>
     </div>

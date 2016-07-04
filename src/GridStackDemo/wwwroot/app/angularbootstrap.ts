@@ -19,7 +19,6 @@ import './modules/slate.service.module'
             names.Modules.slateServices,
             names.Modules.slateDirectives,
             names.Modules.slateControllers,
-       
             names.ModulesExternal.GRISTACKANGULAR,
             names.ModulesExternal.KENDO_DIRECTIVES
            // names.Modules.slateThirdPartyModules,
