@@ -19,7 +19,7 @@ var app = angular.module(angular_global_1.names.Modules.slate, [
     angular_global_1.names.Modules.slateDirectives,
     angular_global_1.names.Modules.slateControllers,
     angular_global_1.names.ModulesExternal.GRISTACKANGULAR,
-    "kendo.directives",
+    angular_global_1.names.ModulesExternal.KENDO_DIRECTIVES
 ]);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = app;

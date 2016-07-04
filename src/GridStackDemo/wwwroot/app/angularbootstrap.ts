@@ -21,7 +21,7 @@ import './modules/slate.service.module'
             names.Modules.slateControllers,
        
             names.ModulesExternal.GRISTACKANGULAR,
-            "kendo.directives",
+            names.ModulesExternal.KENDO_DIRECTIVES
            // names.Modules.slateThirdPartyModules,
           //  "gridstack-angular"
         ]);
