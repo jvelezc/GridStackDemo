@@ -40,8 +40,8 @@ export module names {
         public static slateServices = "slate.service";
         public static slateControllers = "slate.controller";
         public static slateThirdPartyModules = "slate.thirdPartyModules";
-      //  public static helpFulLinkModule = "slate.HelpFulLinkModule";
-      //  public static leftNavModule = "slate.LeftNavModule";
+        public static thirdPartyModules = "third.party.modules";
+
     };
 
     export class Controllers {

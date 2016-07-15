@@ -1,17 +1,16 @@
-﻿import {names} from '../angular.global';
-import {Widget} from './Widget';
+﻿import {Widget} from "./Widget";
 
 interface IDashBoardAngular
 {
-    addWidget(); 
-    removeWidget(w: Widget);
-    onChange(event, items);
-    onDragStart(event, ui); 
-    onDragStop(event, ui); 
-    onResizeStart(event, ui);
-    onResizeStop(event, ui);
-    onItemAdded(item);
-    onItemRemoved(item); 
+    addWidget():void;
+    removeWidget(w: Widget):void;
+    onChange(event, items):void;
+    onDragStart(event, ui):void; 
+    onDragStop(event, ui):void; 
+    onResizeStart(event, ui):void;
+    onResizeStop(event, ui):void;
+    onItemAdded(item):void;
+    onItemRemoved(item):void; 
 }
 export class DashboardAngular implements IDashBoardAngular {
     public Widgets: Array<Widget> = [{ widgetName: "radialGauge", x: 0, y: 0, width: 1, height: 1 }, { widgetName: "chart", x: 0, y: 0, width: 3, height: 1 }];

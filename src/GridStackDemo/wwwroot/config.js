@@ -1,16 +1,14 @@
-
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "typescript",
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*",
-    "angular": "/lib/angular/angular.js",
-    "jquery": "/lib/jquery/dist/jquery.min.js"
+    "npm:*": "jspm_packages/npm/*"
   },
 
   map: {
+    "angular": "npm:angular@1.5.7",
     "jquery": "npm:jquery@3.0.0",
     "typescript": "npm:typescript@1.8.10",
     "github:jspm/nodelibs-assert@0.1.0": {

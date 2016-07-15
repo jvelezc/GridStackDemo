@@ -1,6 +1,6 @@
 {
   "globalDependencies": {
-    "angular": "registry:dt/angular#1.5.0+20160627105203",
+    "angular": "registry:dt/angular#1.5.0+20160709055139",
     "gridstack": "registry:dt/gridstack#0.0.0+20160526134527",
     "jquery": "registry:dt/jquery#1.10.0+20160628074423",
     "jqueryui": "registry:dt/jqueryui#1.9.0+20160627030821",

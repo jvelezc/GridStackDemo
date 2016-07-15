@@ -9,10 +9,6 @@
     "removeComments": false,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true
-  },
-  "files": [
-    "/wwwroot/app/**/*.ts",
-    "../typings/index.d.ts"
-  ]
+  }
 
 }

@@ -1,6 +1,5 @@
-"use strict";
-var DashboardAngular = (function () {
-    function DashboardAngular() {
+export class DashboardAngular {
+    constructor() {
         this.Widgets = [{ widgetName: "radialGauge", x: 0, y: 0, width: 1, height: 1 }, { widgetName: "chart", x: 0, y: 0, width: 3, height: 1 }];
         this.Options = {
             cellHeight: 150,
@@ -8,40 +7,38 @@ var DashboardAngular = (function () {
             alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
         };
     }
-    DashboardAngular.prototype.addWidget = function () {
-        var newWidget = { widgetName: "newItem", x: 0, y: 0, width: 1, height: 1 };
+    addWidget() {
+        let newWidget = { widgetName: "newItem", x: 0, y: 0, width: 1, height: 1 };
         this.Widgets.push(newWidget);
-    };
-    DashboardAngular.prototype.removeWidget = function (w) {
-        var index = this.Widgets.indexOf(w);
+    }
+    removeWidget(w) {
+        let index = this.Widgets.indexOf(w);
         this.Widgets.splice(index, 1);
-    };
-    DashboardAngular.prototype.onChange = function (event, items) {
+    }
+    onChange(event, items) {
         console.log("onChange event: " + event + " items:" + items);
-    };
+    }
     ;
-    DashboardAngular.prototype.onDragStart = function (event, ui) {
+    onDragStart(event, ui) {
         console.log("onDragStart event: " + event + " ui:" + ui);
-    };
+    }
     ;
-    DashboardAngular.prototype.onDragStop = function (event, ui) {
+    onDragStop(event, ui) {
         console.log("onDragStop event: " + event + " ui:" + ui);
-    };
-    DashboardAngular.prototype.onResizeStart = function (event, ui) {
+    }
+    onResizeStart(event, ui) {
         console.log("onResizeStart event: " + event + " ui:" + ui);
-    };
-    DashboardAngular.prototype.onResizeStop = function (event, ui) {
+    }
+    onResizeStop(event, ui) {
         console.log("onResizeStop event: " + event + " ui:" + ui);
-    };
+    }
     ;
-    DashboardAngular.prototype.onItemAdded = function (item) {
+    onItemAdded(item) {
         console.log("onItemAdded item: " + item);
-    };
+    }
     ;
-    DashboardAngular.prototype.onItemRemoved = function (item) {
+    onItemRemoved(item) {
         console.log("onItemRemoved item: " + item);
-    };
+    }
     ;
-    return DashboardAngular;
-}());
-exports.DashboardAngular = DashboardAngular;
+}
