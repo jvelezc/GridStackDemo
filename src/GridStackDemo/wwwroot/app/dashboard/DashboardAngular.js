@@ -11,10 +11,8 @@ const ChartDisplayStrategy_1 = require("./ChartDisplayStrategy");
 class DashboardAngular {
     constructor() {
         this.strategyContext = new StrategyContext_1.StrategyContext();
-        this.Widgets = [
-            { id: WidgetLookUp_1.WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
-            { id: WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 3, height: 1 }
-        ];
+        //This would only be filled up initially in the side of the 
+        this.Widgets = [];
         this.Options = {
             cellHeight: 150,
             verticalMargin: 10,
@@ -39,12 +37,11 @@ class DashboardAngular {
         this.ClaimsData.view();
     }
     AddClaimsChartWidget() {
-        //Check for duplicates 
-        if (!$("#gridsterGauge").length) {
-            svc.createGaugeWidget();
+        //Business rule do not create two widgets that are the same.  
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 50, height: 2 };
+            this.Widgets.push(newWidget);
         }
-        let newWidget = { id: WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 1, height: 1 };
-        this.Widgets.push(newWidget);
     }
     RemoveWidget(w) {
         let index = this.Widgets.indexOf(w);
@@ -62,7 +59,7 @@ class DashboardAngular {
     OnResizeStart(event, ui) {
     }
     OnResizeStop(event, ui) {
-        var item = ui.element.data('_gridstack_node');
+        let item = ui.element.data('_gridstack_node');
         if (item) {
             if (item.id === WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart) {
                 this.strategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
@@ -74,11 +71,9 @@ class DashboardAngular {
     }
     ;
     OnItemAdded(item) {
-        console.log("onItemAdded item: " + item);
     }
     ;
     OnItemRemoved(item) {
-        console.log("onItemRemoved item: " + item);
     }
     ;
 }

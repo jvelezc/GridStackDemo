@@ -30,9 +30,10 @@ export class DashboardAngular implements IDashBoardAngular {
     public Gridstacker: any;//gridstack handler
     public MyDashBoardClaimsChart: any; 
     public strategyContext = new StrategyContext();
+    //This would only be filled up initially in the side of the 
     public Widgets: Array<Widget> = [
-        { id: WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
-        { id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 3, height: 1 }
+        //{ id: WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
+        //{ id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 3, height: 1 }
     ];
    
 
@@ -68,14 +69,11 @@ export class DashboardAngular implements IDashBoardAngular {
   
     public AddClaimsChartWidget() {
         
-        //Check for duplicates 
-        if (!$("#gridsterGauge").length) {
-            svc.createGaugeWidget();
+        //Business rule do not create two widgets that are the same.  
+        if (!$("#" + WidgetLookUp.myDashBoardClaimsChart).length) {
+            let newWidget = { id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 50, height: 2 };
+            this.Widgets.push(newWidget);
         }
-        let newWidget = { id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 1, height: 1 };
-        this.Widgets.push(newWidget);
-
-    
     }
     public RemoveWidget(w: Widget)
     {
@@ -99,7 +97,7 @@ export class DashboardAngular implements IDashBoardAngular {
     }
 
     public OnResizeStop(event, ui) {
-        var item = ui.element.data('_gridstack_node');
+        let item = ui.element.data('_gridstack_node');
         if (item)
         {
             if (item.id === WidgetLookUp.myDashBoardClaimsChart) {
@@ -114,10 +112,10 @@ export class DashboardAngular implements IDashBoardAngular {
         }
     };
     public OnItemAdded(item) {
-        console.log("onItemAdded item: " + item);
+      
     };
     public OnItemRemoved(item) {
-        console.log("onItemRemoved item: " + item);
+      
     };
 
 
