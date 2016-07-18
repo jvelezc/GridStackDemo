@@ -1,4 +1,6 @@
-import { names } from "../angular.global";
+"use strict";
+const angular = require("angular");
+const angular_global_1 = require("../angular.global");
 angular.module("third.party.modules", [
-    names.ModulesExternal.GRISTACKANGULAR,
-    names.ModulesExternal.KENDO_DIRECTIVES]);
+    angular_global_1.names.ModulesExternal.GRISTACKANGULAR,
+    angular_global_1.names.ModulesExternal.KENDO_DIRECTIVES]);

@@ -1,4 +1,5 @@
-export var names;
+"use strict";
+var names;
 (function (names) {
     class AngularGlobal {
     }
@@ -85,5 +86,5 @@ export var names;
     Values.CurrentUser = "currentUser";
     names.Values = Values;
     ;
-})(names || (names = {}));
+})(names = exports.names || (exports.names = {}));
 ;

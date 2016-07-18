@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/lib/gridstack-angular/dist/gridstack-angular.min.js",
+    "inputFiles": [
+      "wwwroot/lib/gridstack-angular/dist/gridstack-angular.js"
+    ]
+  }
+]

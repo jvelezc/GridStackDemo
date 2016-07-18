@@ -5,6 +5,7 @@
     "jquery": "registry:dt/jquery#1.10.0+20160628074423",
     "jqueryui": "registry:dt/jqueryui#1.9.0+20160627030821",
     "kendo-ui": "registry:dt/kendo-ui#2016.1.314+20160620193355",
-    "lodash": "registry:dt/lodash#3.10.0+20160619033623"
+    "lodash": "registry:dt/lodash#3.10.0+20160619033623",
+    "underscore": "registry:dt/underscore#1.7.0+20160622050840"
   }
 }

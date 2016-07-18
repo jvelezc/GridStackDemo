@@ -1,4 +1,4 @@
-// Type definitions for Kendo UI Professional v2016.2.607
+// Type definitions for Kendo UI Professional v2016.2.714
 // Project: http://www.telerik.com/kendo-ui
 // Definitions by: Telerik <https://github.com/telerik/>
 
@@ -1531,6 +1531,7 @@ declare namespace kendo.geometry {
         radiusY: number;
         startAngle: number;
 
+        constructor(center: any | kendo.geometry.Point, options?: ArcOptions);
 
 
         bbox(matrix: kendo.geometry.Matrix): kendo.geometry.Rect;
@@ -1568,6 +1569,7 @@ declare namespace kendo.geometry {
         center: kendo.geometry.Point;
         radius: number;
 
+        constructor(center: any | kendo.geometry.Point, radius: number);
 
 
         bbox(matrix: kendo.geometry.Matrix): kendo.geometry.Rect;
@@ -5076,7 +5078,7 @@ declare namespace kendo.ui {
         refresh(): void;
         search(word: string): void;
         setDataSource(dataSource: kendo.data.DataSource): void;
-        toggle(toggle: boolean): void;
+        toggle(toggle?: boolean): void;
         value(): any;
         value(value: any): void;
         value(value: string): void;
@@ -7459,9 +7461,9 @@ declare namespace kendo.ui {
         dataItem(row: JQuery): kendo.data.TreeListModel;
         destroy(): void;
         editRow(row: JQuery): void;
-        expand(row: string): void;
-        expand(row: Element): void;
-        expand(row: JQuery): void;
+        expand(row: string): JQueryPromise<any>;
+        expand(row: Element): JQueryPromise<any>;
+        expand(row: JQuery): JQueryPromise<any>;
         itemFor(model: kendo.data.TreeListModel): JQuery;
         itemFor(model: any): JQuery;
         items(): any;
@@ -11221,6 +11223,7 @@ declare namespace kendo.dataviz.ui {
 
     interface DiagramSelectable {
         key?: string;
+        multiple?: boolean;
         stroke?: DiagramSelectableStroke;
     }
 
@@ -13487,6 +13490,7 @@ declare namespace kendo.dataviz.ui {
         refresh(): void;
         resize(force?: boolean): void;
         setDataSource(dataSource: kendo.data.DataSource): void;
+        setOptions(options: any): void;
         svg(): string;
         imageDataURL(): string;
 
@@ -15461,7 +15465,7 @@ declare namespace kendo.dataviz {
 
 
         select(): any;
-        select(from: Date, to: Date): void;
+        select(): void;
 
     }
 
@@ -17754,6 +17758,7 @@ declare namespace kendo.dataviz.geometry {
         radiusY: number;
         startAngle: number;
 
+        constructor(center: any | kendo.geometry.Point, options?: ArcOptions);
 
 
         bbox(matrix: kendo.geometry.Matrix): kendo.geometry.Rect;
@@ -17791,6 +17796,7 @@ declare namespace kendo.dataviz.geometry {
         center: kendo.geometry.Point;
         radius: number;
 
+        constructor(center: any | kendo.geometry.Point, radius: number);
 
 
         bbox(matrix: kendo.geometry.Matrix): kendo.geometry.Rect;

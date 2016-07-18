@@ -1,6 +1,23 @@
 ﻿@section styles{
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
+  <style>
+#dashBoarbMenu ul li{
+
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+#dashBoarbMenu ul li{
+  display:inline;
+}
+#dashBoarbMenu ul a{
+  display:inline-block;
+  padding:10px;
+}
+</style>
+
 }
 @section scripts
 {
@@ -18,41 +35,86 @@
 
 
 <div ng-controller="dashBoardAngular as Vm" ng-cloak>
-    {{Vm.Widgets}}
-    <div gridstack class="grid-stack grid1" 
+  
+    <section>
+        <h1>This section is for troubleshooting and testing</h1>
+        <pre>{{Vm.Widgets}}</pre>
+
+
+        <nav id="dashBoarbMenu" class="clearfix">
+            <ul>
+                <li ng-click="Vm.AddChartWidget()">Add Chart Widget |</li>
+                <li>Add Claims Grid | </li>
+                <li>Add Activity Grid | </li>
+                <li>Add Open Panel |</li>
+            </ul>
+        </nav>
+
+    </section>
+    <hr />
+    <h1>Actual demo below</h1>
+    <hr />
+    <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1" 
          options="Vm.Options" 
-         on-change="Vm.onChange(event,items)" 
-         on-drag-start="Vm.onDragStart(event,ui)" 
-         on-drag-stop="Vm.onDragStop(event, ui)" 
-         on-resize-start="Vm.onResizeStart(event, ui)" 
-         on-resize-stop="Vm.onResizeStop(event, ui)">
+         on-change="Vm.OnChange(event,items)" 
+         on-drag-start="Vm.OnDragStart(event,ui)" 
+         on-drag-stop="Vm.OnDragStop(event, ui)" 
+         on-resize-start="Vm.OnResizeStart(event, ui)" 
+         on-resize-stop="Vm.OnResizeStop(event, ui)">
 
         <div gridstack-item ng-repeat="w in Vm.Widgets" 
              class="grid-stack-item" 
+             gs-item-id="w.id" 
              gs-item-x="w.x" 
              gs-item-y="w.y"
              gs-item-width="w.width" 
              gs-item-height="w.height" 
              gs-item-autopos="1" 
-             on-item-added="onItemAdded(item)" 
-             on-item-removed="onItemRemoved(item)">
+             on-item-added="Vm.OnItemAdded(item)" 
+             on-item-removed="Vm.OnItemRemoved(item)">
 
             <div class="grid-stack-item-content">
-   
-          
+                <div ng-if="w.id === 'myDashBoardClaimsChart' ">
+                    <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChart"
+                         k-legend="{ position: 'bottom' }"
+                         k-series-defaults="{ type: 'line' }"
+                         k-series="[
+                                 { field: 'nuclear', name: 'Nuclear electricity' },
+                                 { field: 'hydro', name: 'Hydro electricity' },
+                                 { field: 'wind', name: 'Wind electricity' }
+                             ]"
+                         k-data-source="Vm.ClaimsData"
+                         style="height: 250px;">
+                    </div>
 
-                <div ng-if="w.widgetName == 'chart' ? true :false ">
-                    <h1>Hello</h1>
-                    {{w.widgetName}}
-                    <a class="btn btn-primary" ng-click="Vm.removeWidget(w)" href="#">remove</a>
+
+                    <div>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">remove</a>
+                    </div>
+
                 </div>
-                 
-     
+              
+
+
+                <div ng-if="w.id === 'radialGauge' ">
+
+                    <h1>Radial Gauge</h1>
+            
+
+
+                    <div>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">remove</a>
+                    </div>
+
+                </div>
               </div>
-               
+
+
+
+          
             </div>
         </div>
     </div>
 
 
-</div>
+

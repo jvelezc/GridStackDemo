@@ -8,9 +8,10 @@ System.config({
   },
 
   map: {
-    "angular": "npm:angular@1.5.7",
-    "jquery": "npm:jquery@3.0.0",
+    "angular": "github:angular/bower-angular@1.5.7",
+    "jquery": "npm:jquery@3.1.0",
     "typescript": "npm:typescript@1.8.10",
+    "underscore": "npm:underscore@1.8.3",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -46,7 +47,7 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:jquery@3.0.0": {
+    "npm:jquery@3.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {

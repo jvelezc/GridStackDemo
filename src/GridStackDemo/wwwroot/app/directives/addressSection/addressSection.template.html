@@ -1,0 +1,138 @@
+﻿<div class="ibox">
+    <div class="ibox-title form-ibox-title">
+        <h5>Addresses</h5>
+        <div class="ibox-tools">
+            <i class="fa fa-plus btn btn-primary btn-bitbucket" ng-show="vm.mode == 'view'" ng-click="vm.addAddress()"></i>
+        </div>
+    </div>
+    <div class="ibox-content form-ibox-content form-ibox-bg-clr">
+        <div ng-if="vm.mode == 'view'">
+            <div ng-repeat="address in vm.addresses track by $index" class="chat-element">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <i class="fa fa-home fa-3x pull-left"></i>
+                        <div class="media-body ">
+                            <div class="pull-right text-navy">
+                                <button class="btn btn-primary btn-bitbucket" type="button" ng-click="vm.editAddress($index)">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button class="btn btn-danger btn-bitbucket" type="button" ng-click="vm.deleteAddress($index)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                            <p>{{address.Address1}} {{address.Address2}}</p>
+                            <p>{{address.City}} {{address.State.name}} {{address.PostalCode}}</p>
+                            <p>{{address.County.name}} {{address.Country.name}}</p>
+                            <p>{{address.RefAddressType.name}}<span ng-if="address.IsPrimary">, Primary</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.mode != 'view'">
+            <form kendo-validator="addressFormKendoValidator">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group m-r-xs marg-top7">
+                            <label for="isPrimary">
+                                <input id="isPrimary" type="checkbox" class="i-checks"
+                                       ng-model="vm.currentAddress.IsPrimary"
+                                       check-box> Primary Address
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+                        <div class="form-group">
+                            <label for="addressType">Address Type*</label>
+                            <slate-drop-down slate-data-source="vm.addressTypeDataSource"
+                                             slate-selected-item="vm.currentAddress.RefAddressType"
+                                             name="addressType"
+                                             style="width: 100%;"
+                                             required validationMessage="Address Type is required"></slate-drop-down>
+                            <span class="k-invalid-msg" data-for="addressType"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                        <div class="form-group">
+                            <label for="addressLine1">Address Line 1*</label>
+                            <input type="text" class="form-control" name="addressLine1" ng-model="vm.currentAddress.Address1" required validationMessage="Address Line 1 is required" />
+                            <span class="k-invalid-msg" data-for="addressLine1"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                        <div class="form-group">
+                            <label for="addressLine2">Address Line 2</label>
+                            <input type="text" class="form-control" name="addressLine2" ng-model="vm.currentAddress.Address2" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+                        <div class="form-group">
+                            <label for="city">City*</label>
+                            <slate-autocomplete slate-data-source="vm.cityDataSource"
+                                                slate-selected-item="vm.currentAddress.City"
+                                                name="city"
+                                                style="width: 100%;"
+                                                required validationMessage="city is required">
+                            </slate-autocomplete>
+                            <span class="k-invalid-msg" data-for="city"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-3">
+                        <div class="form-group">
+                            <label for="state">State*</label>
+                            <slate-autocomplete slate-data-source="vm.stateDataSource"
+                                                slate-selected-item="vm.currentAddress.State"
+                                                name="state"
+                                                style="width: 100%;"
+                                                required validationMessage="State is required">
+                            </slate-autocomplete>
+                            <span class="k-invalid-msg" data-for="state"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4">
+                        <div class="form-group">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" class="form-control" name="postalCode" ng-model="vm.currentAddress.PostalCode" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+                        <div class="form-group">
+                            <label for="county">County</label>
+                            <slate-autocomplete slate-data-source="vm.countyDataSource"
+                                                slate-selected-item="vm.currentAddress.County"
+                                                name="county"
+                                                style="width: 100%;">
+                            </slate-autocomplete>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+                        <div class="form-group">
+                            <label for="country">Country*</label>
+                            <slate-autocomplete slate-data-source="vm.countryDataSource"
+                                                slate-selected-item="vm.currentAddress.Country"
+                                                name="country"
+                                                style="width: 100%;"
+                                                required validationMessage="Country is required">
+                            </slate-autocomplete>
+                            <span class="k-invalid-msg" data-for="country"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-right">
+                    <button type="button" class="btn btn-w-m btn-primary" ng-click="vm.saveAddress(addressFormKendoValidator)">Save</button>
+                    <button type="button" class="btn btn-w-m btn-danger" ng-click="vm.cancel()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div><!--/.ibox-content-->
+</div>
