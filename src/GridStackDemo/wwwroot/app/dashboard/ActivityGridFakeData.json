@@ -1,0 +1,21 @@
+﻿[
+
+  {
+    "ClaimNumber": "12345",
+    "Subject": "Reserve Increase Approval",
+    "Priority": "High",
+    "Due": "01/01/2016"
+  },
+  {
+    "ClaimNumber": "21456",
+    "Subject": "Reserve Increase Approval",
+    "Priority": "High",
+    "Due": "03/04/2016"
+  },
+  {
+    "ClaimNumber": "21456",
+    "Subject": "Denial Letter Approval",
+    "Priority": "Low",
+    "Due": "06/07/2016"
+  }
+]

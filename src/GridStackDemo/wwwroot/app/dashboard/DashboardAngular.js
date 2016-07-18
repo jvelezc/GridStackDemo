@@ -10,16 +10,11 @@ const StrategyContext_1 = require("../common/StrategyContext");
 const ChartDisplayStrategy_1 = require("./ChartDisplayStrategy");
 const GaugeDisplayStrategy_1 = require("./GaugeDisplayStrategy");
 class DashboardAngular {
-    constructor($scope) {
-        ////  This is a way to tap into the kendo instance.. but i dont need it. 
-        //  this.$scope.$on("kendoRendered", (event) => {
-        //      console.log("happened"); 
-        //      console.log(event); 
-        //      let radialGaugeInstance = this.RadialGaugeInstance;
-        this.$scope = $scope;
+    constructor() {
         this.RadialGaugeSelectedNumber = 10;
         this.StrategyContext = new StrategyContext_1.StrategyContext();
-        //This would only be filled up initially in the side of the 
+        // This would only be filled up initially  if someone has saved some data... I imagine I need a 
+        // page loader where I pass some data about the current user that fetches his current configuration. 
         this.Widgets = [];
         this.Options = {
             cellHeight: 150,
@@ -38,7 +33,32 @@ class DashboardAngular {
                 dir: "asc"
             }
         });
-        //  }); 
+        this.ActivityGridOptions = {
+            dataSource: {
+                transport: {
+                    read: "/app/dashboard/ActivityGridFakeData.json",
+                    dataType: "json"
+                },
+                schema: {
+                    model: {
+                        fields: {
+                            ClaimNumber: { type: "string" },
+                            Subject: { type: "string" },
+                            Priority: { type: "string" },
+                            Due: { type: "date" },
+                        }
+                    }
+                },
+                pagesize: 20
+            },
+            sortable: true,
+            columns: [
+                { field: "ClaimNumber" },
+                { field: "Subject" },
+                { field: "Priority" },
+                { field: "Due", format: "{0:MM-dd-yyyy}" },
+            ]
+        };
     }
     RefreshChart() {
         //Investigate if this actually refreshes data 
@@ -47,14 +67,20 @@ class DashboardAngular {
     }
     AddRadialGaugeWidget() {
         if (!$("#" + WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 10, height: 2 };
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddClaimsChartWidget() {
         //Business rule do not create two widgets that are the same.  
         if (!$("#" + WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 50, height: 2 };
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddActivityGridWidget() {
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ActivityGridInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
@@ -96,5 +122,4 @@ class DashboardAngular {
     }
     ;
 }
-DashboardAngular.$inject = ['$scope'];
 exports.DashboardAngular = DashboardAngular;

@@ -44,9 +44,9 @@
         <nav id="dashBoarbMenu" class="clearfix">
             <ul>
                 <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
-                <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Guage |</li>
+                <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
+                <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
                 <li>Add Claims Grid | </li>
-                <li>Add Activity Grid | </li>
                 <li>Add Open Panel |</li>
             </ul>
         </nav>
@@ -114,6 +114,23 @@
                     </div>
 
                 </div>
+
+
+
+
+                <div ng-if="w.id === 'ActivityGridInstance' ">
+                    <div id ={{w.id}} kendo-grid="Vm.ActivityGridInstance"  options="Vm.ActivityGridOptions">
+                    </div>
+
+                    <div>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                    </div>
+
+                </div>
+
+
+
+
               </div>
 
 
