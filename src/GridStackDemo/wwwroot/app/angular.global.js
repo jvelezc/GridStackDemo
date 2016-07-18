@@ -46,8 +46,14 @@ var names;
     Modules.slateControllers = "slate.controller";
     Modules.slateThirdPartyModules = "slate.thirdPartyModules";
     Modules.thirdPartyModules = "third.party.modules";
+    Modules.components = "slate.components";
     names.Modules = Modules;
     ;
+    class Components {
+    }
+    //<opened-Claims-Panel></open-Claims-Panel>
+    Components.openClaimsPanel = "openedClaimsPanel";
+    names.Components = Components;
     class Controllers {
     }
     Controllers.contactController = "slate.contact.controller";

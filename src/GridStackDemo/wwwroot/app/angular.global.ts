@@ -41,9 +41,14 @@ export module names {
         public static slateControllers = "slate.controller";
         public static slateThirdPartyModules = "slate.thirdPartyModules";
         public static thirdPartyModules = "third.party.modules";
+        public static components = "slate.components";
 
     };
+    export class Components {
+        //<opened-Claims-Panel></open-Claims-Panel>
+        public static openClaimsPanel = "openedClaimsPanel";
 
+    }
     export class Controllers {
         public static contactController = "slate.contact.controller";
         public static helpfulLinksController = "HelpfulLinksController";

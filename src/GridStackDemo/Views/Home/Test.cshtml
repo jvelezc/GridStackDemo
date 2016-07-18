@@ -32,110 +32,110 @@
 
 
 }
+  <opened-claims-panel></opened-claims-panel>
+    
+    <div ng-controller="dashBoardAngular as Vm" ng-cloak>
+
+        <section>
+            <h1>This section is for troubleshooting and testing</h1>
+            <pre>{{Vm.Widgets}}</pre>
 
 
-<div ng-controller="dashBoardAngular as Vm" ng-cloak>
-  
-    <section>
-        <h1>This section is for troubleshooting and testing</h1>
-        <pre>{{Vm.Widgets}}</pre>
+            <nav id="dashBoarbMenu" class="clearfix">
+                <ul>
+                    <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
+                    <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
+                    <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
+                    <li>Add Claims Grid | </li>
+                    <li>Add Open Panel |</li>
+                </ul>
+            </nav>
 
+        </section>
+        <hr />
+        <h1>Actual demo below</h1>
+        <hr />
+        <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
+             options="Vm.Options"
+             on-change="Vm.OnChange(event,items)"
+             on-drag-start="Vm.OnDragStart(event,ui)"
+             on-drag-stop="Vm.OnDragStop(event, ui)"
+             on-resize-start="Vm.OnResizeStart(event, ui)"
+             on-resize-stop="Vm.OnResizeStop(event, ui)">
 
-        <nav id="dashBoarbMenu" class="clearfix">
-            <ul>
-                <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
-                <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
-                <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
-                <li>Add Claims Grid | </li>
-                <li>Add Open Panel |</li>
-            </ul>
-        </nav>
+            <div gridstack-item ng-repeat="w in Vm.Widgets"
+                 class="grid-stack-item"
+                 gs-item-id="w.id"
+                 gs-item-x="w.x"
+                 gs-item-y="w.y"
+                 gs-item-width="w.width"
+                 gs-item-height="w.height"
+                 gs-item-autopos="1"
+                 on-item-added="Vm.OnItemAdded(item)"
+                 on-item-removed="Vm.OnItemRemoved(item)">
 
-    </section>
-    <hr />
-    <h1>Actual demo below</h1>
-    <hr />
-    <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1" 
-         options="Vm.Options" 
-         on-change="Vm.OnChange(event,items)" 
-         on-drag-start="Vm.OnDragStart(event,ui)" 
-         on-drag-stop="Vm.OnDragStop(event, ui)" 
-         on-resize-start="Vm.OnResizeStart(event, ui)" 
-         on-resize-stop="Vm.OnResizeStop(event, ui)">
-
-        <div gridstack-item ng-repeat="w in Vm.Widgets" 
-             class="grid-stack-item" 
-             gs-item-id="w.id" 
-             gs-item-x="w.x" 
-             gs-item-y="w.y"
-             gs-item-width="w.width" 
-             gs-item-height="w.height" 
-             gs-item-autopos="1" 
-             on-item-added="Vm.OnItemAdded(item)" 
-             on-item-removed="Vm.OnItemRemoved(item)">
-
-            <div class="grid-stack-item-content">
-                <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-                    <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
-                         k-legend="{ position: 'bottom' }"
-                         k-series-defaults="{ type: 'line' }"
-                         k-series="[
+                <div class="grid-stack-item-content">
+                    <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
+                        <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
+                             k-legend="{ position: 'bottom' }"
+                             k-series-defaults="{ type: 'line' }"
+                             k-series="[
                                  { field: 'nuclear', name: 'Nuclear electricity' },
                                  { field: 'hydro', name: 'Hydro electricity' },
                                  { field: 'wind', name: 'Wind electricity' }
                              ]"
-                         k-data-source="Vm.ClaimsData"
-                         style="height: 250px;">
+                             k-data-source="Vm.ClaimsData"
+                             style="height: 250px;">
+                        </div>
+
+
+                        <div>
+                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                        </div>
+
                     </div>
 
 
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+
+                    <div ng-if="w.id === 'RadialGaugeInstance' ">
+
+                        <div id="gauge-container">
+                            <!--I dont understand why RadialGaugeInstance is always null...-->
+                            <span id={{w.id}} kendo-radialgauge="Vm.RadialGaugeInstance"
+                                  k-scale="{ min:0, max: 100}"
+                                  ng-model="Vm.RadialGaugeSelectedNumber"></span>
+
+                        </div>
+
+
+
+                        <div>
+                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                        </div>
+
                     </div>
+
+
+
+
+                    <div ng-if="w.id === 'ActivityGridInstance' ">
+                        <div id={{w.id}} kendo-grid="Vm.ActivityGridInstance" options="Vm.ActivityGridOptions">
+                        </div>
+
+                        <div>
+                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                        </div>
+
+                    </div>
+
+
+
 
                 </div>
-              
-
-
-                <div ng-if="w.id === 'RadialGaugeInstance' ">
-
-                    <div id="gauge-container">
-                        <!--I dont understand why RadialGaugeInstance is always null...-->
-                        <span id={{w.id}} kendo-radialgauge="Vm.RadialGaugeInstance"
-                              k-scale="{ min:0, max: 100}"
-                              ng-model="Vm.RadialGaugeSelectedNumber"></span>
-                       
-                    </div>
-            
-
-
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
-                    </div>
-
-                </div>
 
 
 
 
-                <div ng-if="w.id === 'ActivityGridInstance' ">
-                    <div id ={{w.id}} kendo-grid="Vm.ActivityGridInstance"  options="Vm.ActivityGridOptions">
-                    </div>
-
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
-                    </div>
-
-                </div>
-
-
-
-
-              </div>
-
-
-
-          
             </div>
         </div>
     </div>

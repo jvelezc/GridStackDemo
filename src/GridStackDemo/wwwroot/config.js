@@ -2,6 +2,12 @@ System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "typescript",
+  //meta: {
+  //    "app/modules/slate.component": {
+  //        format:"global",
+  //        deps: ["app/components/openclaims/openedClaims.component"]
+  //    }
+  //},
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
