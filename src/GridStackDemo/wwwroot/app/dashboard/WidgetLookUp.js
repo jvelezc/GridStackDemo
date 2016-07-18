@@ -1,6 +1,6 @@
 "use strict";
 class WidgetLookUp {
 }
-WidgetLookUp.myDashBoardClaimsChart = "myDashBoardClaimsChart";
-WidgetLookUp.radialGauge = "radialGauge";
+WidgetLookUp.MyDashBoardClaimsChartInstance = "MyDashBoardClaimsChartInstance";
+WidgetLookUp.RadialGaugeInstance = "RadialGaugeInstance";
 exports.WidgetLookUp = WidgetLookUp;

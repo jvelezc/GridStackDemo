@@ -11,11 +11,12 @@ import {Widget} from "./Widget";
 import {WidgetLookUp} from "./WidgetLookUp";
 import {StrategyContext} from "../common/StrategyContext";
 import {ChartDisplayStrategy} from "./ChartDisplayStrategy";
-
+import {GaugeDisplayStrategy} from "./GaugeDisplayStrategy";
 interface IDashBoardAngular
 {
    
     AddClaimsChartWidget(): void;
+    AddRadialGaugeWidget(): void;
     RemoveWidget(w: Widget):void;
     OnChange(event, items):void;
     OnDragStart(event, ui):void; 
@@ -26,10 +27,26 @@ interface IDashBoardAngular
     OnItemRemoved(item):void; 
 }
 export class DashboardAngular implements IDashBoardAngular {
+    static $inject = ['$scope'];
+    constructor(private $scope: ng.IScope)
+    {
+      ////  This is a way to tap into the kendo instance.. but i dont need it. 
+      //  this.$scope.$on("kendoRendered", (event) => {
+      //      console.log("happened"); 
+      //      console.log(event); 
+      //      let radialGaugeInstance = this.RadialGaugeInstance;
+
+      //  }); 
+    }
+   
+   
+
     //These are the names of the components in  html. I could not find a way to get the instance object for the chart via angular. 
     public Gridstacker: any;//gridstack handler
-    public MyDashBoardClaimsChart: any; 
-    public strategyContext = new StrategyContext();
+    public MyDashBoardClaimsChartInstance: kendo.dataviz.ui.Chart;
+    public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge; 
+    public RadialGaugeSelectedNumber = 10; 
+    public StrategyContext = new StrategyContext();
     //This would only be filled up initially in the side of the 
     public Widgets: Array<Widget> = [
         //{ id: WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
@@ -47,6 +64,7 @@ export class DashboardAngular implements IDashBoardAngular {
 
     public RefreshChart()
     {
+       
         //Investigate if this actually refreshes data 
         this.ClaimsData.read();
         this.ClaimsData.view();
@@ -66,12 +84,18 @@ export class DashboardAngular implements IDashBoardAngular {
         }
     });
 
-  
+    public AddRadialGaugeWidget()
+    {
+        if (!$("#" + WidgetLookUp.RadialGaugeInstance).length) {
+            let newWidget = { id: WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     public AddClaimsChartWidget() {
         
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp.myDashBoardClaimsChart).length) {
-            let newWidget = { id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 50, height: 2 };
+        if (!$("#" + WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
+            let newWidget = { id: WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 50, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
@@ -97,16 +121,20 @@ export class DashboardAngular implements IDashBoardAngular {
     }
 
     public OnResizeStop(event, ui) {
+
+        console.log(this.RadialGaugeInstance); 
         let item = ui.element.data('_gridstack_node');
         if (item)
         {
-            if (item.id === WidgetLookUp.myDashBoardClaimsChart) {
-                this.strategyContext.setWidgetStrategy(new ChartDisplayStrategy()); 
-                this.strategyContext.Display(item);
+            if (item.id === WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy());
+                this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
             }
-            else if (item.id === WidgetLookUp.myDashBoardClaimsChart)
+            else if (item.id === WidgetLookUp.RadialGaugeInstance)
             {
-
+                console.log("confusion"); 
+                this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy()); 
+                this.StrategyContext.Display(item, this.RadialGaugeInstance);
             }
          
         }

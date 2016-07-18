@@ -8,9 +8,17 @@ const $ = require('jquery');
 const WidgetLookUp_1 = require("./WidgetLookUp");
 const StrategyContext_1 = require("../common/StrategyContext");
 const ChartDisplayStrategy_1 = require("./ChartDisplayStrategy");
+const GaugeDisplayStrategy_1 = require("./GaugeDisplayStrategy");
 class DashboardAngular {
-    constructor() {
-        this.strategyContext = new StrategyContext_1.StrategyContext();
+    constructor($scope) {
+        ////  This is a way to tap into the kendo instance.. but i dont need it. 
+        //  this.$scope.$on("kendoRendered", (event) => {
+        //      console.log("happened"); 
+        //      console.log(event); 
+        //      let radialGaugeInstance = this.RadialGaugeInstance;
+        this.$scope = $scope;
+        this.RadialGaugeSelectedNumber = 10;
+        this.StrategyContext = new StrategyContext_1.StrategyContext();
         //This would only be filled up initially in the side of the 
         this.Widgets = [];
         this.Options = {
@@ -30,16 +38,23 @@ class DashboardAngular {
                 dir: "asc"
             }
         });
+        //  }); 
     }
     RefreshChart() {
         //Investigate if this actually refreshes data 
         this.ClaimsData.read();
         this.ClaimsData.view();
     }
+    AddRadialGaugeWidget() {
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     AddClaimsChartWidget() {
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 50, height: 2 };
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 50, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
@@ -59,13 +74,17 @@ class DashboardAngular {
     OnResizeStart(event, ui) {
     }
     OnResizeStop(event, ui) {
+        console.log(this.RadialGaugeInstance);
         let item = ui.element.data('_gridstack_node');
         if (item) {
-            if (item.id === WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart) {
-                this.strategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
-                this.strategyContext.Display(item);
+            if (item.id === WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
+                this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
             }
-            else if (item.id === WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart) {
+            else if (item.id === WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance) {
+                console.log("confusion");
+                this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy_1.GaugeDisplayStrategy());
+                this.StrategyContext.Display(item, this.RadialGaugeInstance);
             }
         }
     }
@@ -77,4 +96,5 @@ class DashboardAngular {
     }
     ;
 }
+DashboardAngular.$inject = ['$scope'];
 exports.DashboardAngular = DashboardAngular;

@@ -7,6 +7,7 @@
 /// <reference path="app/common/strategycontext.js" />
 /// <reference path="app/dashboard/chartdisplaystrategy.js" />
 /// <reference path="app/dashboard/dashboardangular.js" />
+/// <reference path="app/dashboard/gaugedisplaystrategy.js" />
 /// <reference path="app/dashboard/graphviewmodel.js" />
 /// <reference path="app/dashboard/widget.js" />
 /// <reference path="app/dashboard/widgetdata.js" />

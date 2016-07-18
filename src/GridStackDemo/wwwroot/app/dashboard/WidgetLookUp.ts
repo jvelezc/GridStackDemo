@@ -1,4 +1,4 @@
 ﻿export class WidgetLookUp {
-    static myDashBoardClaimsChart = "myDashBoardClaimsChart";
-    static radialGauge = "radialGauge";
+    static MyDashBoardClaimsChartInstance = "MyDashBoardClaimsChartInstance";
+    static RadialGaugeInstance = "RadialGaugeInstance";
 }

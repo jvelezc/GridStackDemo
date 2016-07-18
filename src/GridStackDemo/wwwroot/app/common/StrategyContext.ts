@@ -1,4 +1,5 @@
 ﻿import IWidgetDisplayStrategy from "./IWidgetDisplayStrategy";
+import {Widget} from "../dashboard/Widget";
 export class StrategyContext implements IWidgetDisplayStrategy {
     private _widgetDisplayStrategy: IWidgetDisplayStrategy;
     setWidgetStrategy(widgetDisplayStrategy: IWidgetDisplayStrategy) {
@@ -8,9 +9,9 @@ export class StrategyContext implements IWidgetDisplayStrategy {
         return this._widgetDisplayStrategy;
     }
 
-    Display($el: JQuery): void {
+    Display(Widget: Widget,widgetInstance?:any): void {
         if (this._widgetDisplayStrategy) {
-            this._widgetDisplayStrategy.Display($el);
+            this._widgetDisplayStrategy.Display(Widget, widgetInstance);
         }
     }
 }

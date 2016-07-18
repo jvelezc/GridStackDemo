@@ -6,9 +6,9 @@ class StrategyContext {
     getWidgetStrategy() {
         return this._widgetDisplayStrategy;
     }
-    Display($el) {
+    Display(Widget, widgetInstance) {
         if (this._widgetDisplayStrategy) {
-            this._widgetDisplayStrategy.Display($el);
+            this._widgetDisplayStrategy.Display(Widget, widgetInstance);
         }
     }
 }

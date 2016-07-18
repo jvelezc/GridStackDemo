@@ -44,6 +44,7 @@
         <nav id="dashBoarbMenu" class="clearfix">
             <ul>
                 <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
+                <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Guage |</li>
                 <li>Add Claims Grid | </li>
                 <li>Add Activity Grid | </li>
                 <li>Add Open Panel |</li>
@@ -74,8 +75,8 @@
              on-item-removed="Vm.OnItemRemoved(item)">
 
             <div class="grid-stack-item-content">
-                <div ng-if="w.id === 'myDashBoardClaimsChart' ">
-                    <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChart"
+                <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
+                    <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
                          k-legend="{ position: 'bottom' }"
                          k-series-defaults="{ type: 'line' }"
                          k-series="[
@@ -89,21 +90,27 @@
 
 
                     <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">remove</a>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                     </div>
 
                 </div>
               
 
 
-                <div ng-if="w.id === 'radialGauge' ">
+                <div ng-if="w.id === 'RadialGaugeInstance' ">
 
-                    <h1>Radial Gauge</h1>
+                    <div id="gauge-container">
+                        <!--I dont understand why RadialGaugeInstance is always null...-->
+                        <span id={{w.id}} kendo-radialgauge="Vm.RadialGaugeInstance"
+                              k-scale="{ min:0, max: 100}"
+                              ng-model="Vm.RadialGaugeSelectedNumber"></span>
+                       
+                    </div>
             
 
 
                     <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">remove</a>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                     </div>
 
                 </div>
