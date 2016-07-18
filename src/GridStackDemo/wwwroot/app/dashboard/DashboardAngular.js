@@ -1,6 +1,10 @@
 /// <reference path="../../../typings/globals/kendo-ui/index.d.ts" />
 /// <reference path="../../../typings/index.d.ts" />
 "use strict";
+//Documentation 
+//http://stackoverflow.com/questions/21220886/kendo-angular-chart-data
+//http://docs.telerik.com/kendo-ui/api/javascript/dataviz/ui/chart
+const $ = require('jquery');
 const WidgetLookUp_1 = require("./WidgetLookUp");
 const StrategyContext_1 = require("../common/StrategyContext");
 const ChartDisplayStrategy_1 = require("./ChartDisplayStrategy");
@@ -36,6 +40,9 @@ class DashboardAngular {
     }
     AddClaimsChartWidget() {
         //Check for duplicates 
+        if (!$("#gridsterGauge").length) {
+            svc.createGaugeWidget();
+        }
         let newWidget = { id: WidgetLookUp_1.WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 1, height: 1 };
         this.Widgets.push(newWidget);
     }

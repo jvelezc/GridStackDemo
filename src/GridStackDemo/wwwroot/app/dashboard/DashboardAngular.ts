@@ -15,7 +15,7 @@ import {ChartDisplayStrategy} from "./ChartDisplayStrategy";
 interface IDashBoardAngular
 {
    
-    AddChartWidget(): void;
+    AddClaimsChartWidget(): void;
     RemoveWidget(w: Widget):void;
     OnChange(event, items):void;
     OnDragStart(event, ui):void; 
@@ -69,7 +69,9 @@ export class DashboardAngular implements IDashBoardAngular {
     public AddClaimsChartWidget() {
         
         //Check for duplicates 
-
+        if (!$("#gridsterGauge").length) {
+            svc.createGaugeWidget();
+        }
         let newWidget = { id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 1, height: 1 };
         this.Widgets.push(newWidget);
 
