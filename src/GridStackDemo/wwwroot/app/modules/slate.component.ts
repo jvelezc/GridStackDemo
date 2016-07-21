@@ -1,8 +1,8 @@
-﻿import {names} from '../angular.global';
-angular
-    .module(names.Modules.components, [])
-    //<opened-Claims-Panel></open-Claims-Panel>
-    .component(names.Components.openClaimsPanel, {
+﻿/// <reference path="../../../typings/index.d.ts" />
 
-        template:"hello world"
-    });
+import {names} from '../angular.global';
+
+angular
+    .module(names.Modules.components, []);
+import * as fixingThisQuirkLazyLoading from '../components/openclaims/openedClaims.component';
+var quirkhere = fixingThisQuirkLazyLoading;

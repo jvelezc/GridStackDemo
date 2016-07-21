@@ -35,5 +35,3 @@
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
 /// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
 /// <reference path="lib/kendo-ui/js/kendo.all.min.js" />
-/// <reference path="troubleshooting/system.tap.js" />
-/// <reference path="troubleshooting/system.yuml.js" />

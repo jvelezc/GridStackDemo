@@ -8,10 +8,16 @@ namespace GridStackDemo.Controllers
 {
     public class HomeController : Controller
     {
+
+        public IActionResult TypeScriptTest()
+        {
+            return View(); 
+        }
         public IActionResult Index()
         {
             return View();
         }
+
 
         public IActionResult About()
         {
