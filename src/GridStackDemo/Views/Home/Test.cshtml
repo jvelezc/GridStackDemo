@@ -32,7 +32,7 @@
 
 
 }
-  <opened-claims-panel></opened-claims-panel>
+ 
     
     <div ng-controller="dashBoardAngular as Vm" ng-cloak>
 
@@ -55,6 +55,12 @@
         <hr />
         <h1>Actual demo below</h1>
         <hr />
+
+
+        <opened-claims-panel open-claims = "1" 
+                             open-claims-percentage ="30"
+                             ></opened-claims-panel>
+    
         <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
              options="Vm.Options"
              on-change="Vm.OnChange(event,items)"
@@ -74,6 +80,8 @@
                  on-item-added="Vm.OnItemAdded(item)"
                  on-item-removed="Vm.OnItemRemoved(item)">
 
+
+             
                 <div class="grid-stack-item-content">
                     <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
                         <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
@@ -128,7 +136,11 @@
 
                     </div>
 
+                    @*<div ng-if="w.id === 'OpenedPanel' ">*@
+                     
+                    @*</div>*@
 
+                 
 
 
                 </div>
