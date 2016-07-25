@@ -6,14 +6,10 @@ class OpenedClaimsComponentController {
     $onInit() {
     }
 }
-export class OpenedClaimsComponent {
+export class TransferredClaimsComponent {
     constructor() {
-        this.templateUrl = "/app/components/openclaims/openedClaims.component.html";
+        this.templateUrl = "/app/components/transferredclaims/transferredclaims.component.html";
         this.controllerAs = "Vm";
         this.controller = ["$http", OpenedClaimsComponentController];
-        this.bindings = {
-            openClaims: "<",
-            openClaimsPercentage: "<",
-        };
     }
 }

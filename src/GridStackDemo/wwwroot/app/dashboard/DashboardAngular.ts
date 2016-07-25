@@ -1,4 +1,5 @@
-﻿/// <reference path="../../../typings/globals/kendo-ui/index.d.ts" />
+﻿/// <reference path="chartdisplaystrategy.ts" />
+/// <reference path="../../../typings/globals/kendo-ui/index.d.ts" />
 /// <reference path="../../../typings/index.d.ts" />
 
 
@@ -26,7 +27,8 @@ interface IDashBoardAngular
     OnResizeStart(event, ui):void;
     OnResizeStop(event, ui):void;
     OnItemAdded(item):void;
-    OnItemRemoved(item):void; 
+    OnItemRemoved(item): void; 
+    $: ng.IAugmentedJQueryStatic;
 }
 export class DashboardAngular implements IDashBoardAngular {
     //
@@ -45,6 +47,8 @@ export class DashboardAngular implements IDashBoardAngular {
    
  
     //These are the names of the components in  html. I could not find a way to get the instance object for the chart via angular. 
+    public $ = angular.element;
+       
     public Gridstacker: any;//gridstack handler
     public MyDashBoardClaimsChartInstance: kendo.dataviz.ui.Chart;
     public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge;
@@ -61,6 +65,7 @@ export class DashboardAngular implements IDashBoardAngular {
    
 
     public Options: {} = {
+        
         cellHeight: 150,
         verticalMargin: 10,
         alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -91,6 +96,7 @@ export class DashboardAngular implements IDashBoardAngular {
     });
     public ActivityGridOptions: kendo.ui.GridOptions =
     {
+       
         dataSource: {
             transport: {
                 read: "/app/dashboard/ActivityGridFakeData.json",
@@ -121,21 +127,22 @@ export class DashboardAngular implements IDashBoardAngular {
 
     public AddRadialGaugeWidget():void
     {
-        if (!$("#" + WidgetLookUp.RadialGaugeInstance).length) {
+        
+        if (!this.$("#" + WidgetLookUp.RadialGaugeInstance).length) {
             let newWidget = { id: WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     public AddClaimsChartWidget() :void {
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
+        if (!this.$("#" + WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
             let newWidget = { id: WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 10, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     public AddActivityGridWidget(): void {
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp.ActivityGridInstance).length) {
+        if (!this.$("#" + WidgetLookUp.ActivityGridInstance).length) {
             let newWidget = { id: WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
             this.Widgets.push(newWidget);
         }
@@ -144,7 +151,7 @@ export class DashboardAngular implements IDashBoardAngular {
     
     public AddOpenedPanelWidget():void
     {
-        if (!$("#" + WidgetLookUp.OpenedPanelInstance).length) {
+        if (!this.$("#" + WidgetLookUp.OpenedPanelInstance).length) {
             let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
@@ -152,7 +159,7 @@ export class DashboardAngular implements IDashBoardAngular {
 
     public AddReOpenedPanelWidget(): void {
     
-        if (!$("#" + WidgetLookUp.ReOpenedPanelInstance).length) {
+        if (!this.$("#" + WidgetLookUp.ReOpenedPanelInstance).length) {
             let newWidget = { id: WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
@@ -161,7 +168,7 @@ export class DashboardAngular implements IDashBoardAngular {
 
     public AddClosedPanelWidget(): void {
 
-        if (!$("#" + WidgetLookUp.ClosedPanelInstance).length) {
+        if (!this.$("#" + WidgetLookUp.ClosedPanelInstance).length) {
             let newWidget = { id: WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }

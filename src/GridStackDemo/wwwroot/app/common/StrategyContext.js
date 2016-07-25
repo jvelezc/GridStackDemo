@@ -1,5 +1,4 @@
-"use strict";
-class StrategyContext {
+export class StrategyContext {
     setWidgetStrategy(widgetDisplayStrategy) {
         this._widgetDisplayStrategy = widgetDisplayStrategy;
     }
@@ -12,4 +11,3 @@ class StrategyContext {
         }
     }
 }
-exports.StrategyContext = StrategyContext;

@@ -1,5 +1,4 @@
-"use strict";
-class GaugeDisplayStrategy {
+export class GaugeDisplayStrategy {
     Display(widget, widgetInstance) {
         // So this extremely weird..
         // Gridstack defines a number for width and height but they dont really mean it in px
@@ -29,4 +28,3 @@ class GaugeDisplayStrategy {
         }
     }
 }
-exports.GaugeDisplayStrategy = GaugeDisplayStrategy;

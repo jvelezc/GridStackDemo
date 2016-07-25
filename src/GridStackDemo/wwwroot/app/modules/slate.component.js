@@ -1,12 +1,11 @@
-/// <reference path="../../../typings/index.d.ts" />
-"use strict";
-const angular_global_1 = require('../angular.global');
-angular.module(angular_global_1.names.Modules.components, []);
-// After the angular module has been registered
-//Then I will load in the component that register it. 
-const loadOpenedClaimsComponent = require('../components/openclaims/openedClaims.component');
-const loadReOpenedClaimsComponent = require('../components/reopenedclaims/reOpenedClaims.component');
-const loadClosedClaimsComponent = require('../components/closedclaims/closedClaims.component');
-var loadOpenedClaimsComponentNow = loadOpenedClaimsComponent;
-var loadReOpenedClaimsComponentNow = loadReOpenedClaimsComponent;
-var loadClosedClaimsComponentNow = loadClosedClaimsComponent;
+import { names } from '../angular.global';
+import { ReOpenedClaimsComponent } from '../components/reopenedclaims/reOpenedClaims.component';
+import { TransferredClaimsComponent } from "../components/transferredclaims/transferredclaims.component";
+import { ClosedClaimsComponent } from "../components/closedclaims/closedClaims.component";
+angular.module(names.Modules.components, []);
+angular
+    .module(names.Modules.components)
+    .component(names.Components.reOpenedClaimsPanel, new ReOpenedClaimsComponent())
+    .component(names.Components.openClaimsPanel, new ReOpenedClaimsComponent())
+    .component(names.Components.transferredClaimsPanel, new TransferredClaimsComponent())
+    .component(names.Components.closedClaimsPanel, new ClosedClaimsComponent());

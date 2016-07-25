@@ -1,5 +1,4 @@
-"use strict";
-class AddressViewModel {
+export class AddressViewModel {
     constructor(data = null) {
         this.init = (data = null) => {
             if (data) {
@@ -30,4 +29,3 @@ class AddressViewModel {
         this.init(data);
     }
 }
-exports.AddressViewModel = AddressViewModel;

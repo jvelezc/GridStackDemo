@@ -1,5 +1,3 @@
-"use strict";
-class BaseController {
+export class BaseController {
 }
-exports.BaseController = BaseController;
 ;
