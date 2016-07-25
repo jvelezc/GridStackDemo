@@ -20,6 +20,7 @@ interface IDashBoardAngular
     AddRadialGaugeWidget(): void;
     AddActivityGridWidget(): void;
     AddReOpenedPanelWidget(): void;
+    AddAssignedPanelWidget(): void;
     RemoveWidget(w: Widget):void;
     OnChange(event, items):void;
     OnDragStart(event, ui):void; 
@@ -173,6 +174,15 @@ export class DashboardAngular implements IDashBoardAngular {
             this.Widgets.push(newWidget);
         }
     }
+
+    public AddAssignedPanelWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.AssignedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.AssignedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
 
 
 

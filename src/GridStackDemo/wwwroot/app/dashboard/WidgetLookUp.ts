@@ -5,4 +5,5 @@
     static OpenedPanelInstance = "OpenedPanelInstance"; 
     static ReOpenedPanelInstance = "ReOpenedPanelInstance"; 
     static ClosedPanelInstance = "ClosedPanelInstance"; 
+    static AssignedPanelInstance = "AssignedPanelInstance"; 
 }

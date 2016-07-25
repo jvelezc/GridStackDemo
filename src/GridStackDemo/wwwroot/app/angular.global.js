@@ -55,6 +55,7 @@ export var names;
     Components.openClaimsPanel = "openedClaimsPanel";
     Components.closedClaimsPanel = "closedClaimsPanel";
     Components.transferredClaimsPanel = "transferredClaimsPanel";
+    Components.assignedClaimsPanel = "assignedClaimsPanel";
     names.Components = Components;
     class Controllers {
     }

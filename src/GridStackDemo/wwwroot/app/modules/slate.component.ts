@@ -4,6 +4,7 @@ import {ReOpenedClaimsComponent} from '../components/reopenedclaims/reOpenedClai
 import {OpenedClaimsComponent} from '../components/openclaims/OpenedClaims.component';
 import {TransferredClaimsComponent} from "../components/transferredclaims/transferredclaims.component";
 import {ClosedClaimsComponent} from "../components/closedclaims/closedClaims.component";
+import {AssignedClaimsComponent} from "../components/assigned/assignedclaims.component";
 angular.module(names.Modules.components, []);
 
 angular
@@ -14,5 +15,6 @@ angular
     .component(names.Components.transferredClaimsPanel, new TransferredClaimsComponent())
     //<closed-claims-panel></closed-claims-panel>
     .component(names.Components.closedClaimsPanel, new ClosedClaimsComponent())
+    .component(names.Components.assignedClaimsPanel, new ClosedClaimsComponent())
     ;
   

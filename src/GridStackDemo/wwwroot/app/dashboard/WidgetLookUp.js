@@ -6,3 +6,4 @@ WidgetLookUp.ActivityGridInstance = "ActivityGridInstance";
 WidgetLookUp.OpenedPanelInstance = "OpenedPanelInstance";
 WidgetLookUp.ReOpenedPanelInstance = "ReOpenedPanelInstance";
 WidgetLookUp.ClosedPanelInstance = "ClosedPanelInstance";
+WidgetLookUp.AssignedPanelInstance = "AssignedPanelInstance";

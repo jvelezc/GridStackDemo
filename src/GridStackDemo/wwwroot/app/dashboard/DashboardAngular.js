@@ -113,6 +113,12 @@ export class DashboardAngular {
             this.Widgets.push(newWidget);
         }
     }
+    AddAssignedPanelWidget() {
+        if (!this.$("#" + WidgetLookUp.AssignedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.AssignedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     RemoveWidget(w) {
         let index = this.Widgets.indexOf(w);
         this.Widgets.splice(index, 1);
