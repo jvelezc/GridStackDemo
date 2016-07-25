@@ -5,6 +5,7 @@
 /// <reference path="app/common/base.controller.js" />
 /// <reference path="app/common/iwidgetdisplaystrategy.js" />
 /// <reference path="app/common/strategycontext.js" />
+/// <reference path="app/components/closedclaims/closedclaims.component.js" />
 /// <reference path="app/components/openclaims/openedclaims.component.js" />
 /// <reference path="app/components/reopenedclaims/reopenedclaims.component.js" />
 /// <reference path="app/dashboard/chartdisplaystrategy.js" />

@@ -4,4 +4,5 @@
     static ActivityGridInstance = "ActivityGridInstance"; 
     static OpenedPanelInstance = "OpenedPanelInstance"; 
     static ReOpenedPanelInstance = "ReOpenedPanelInstance"; 
+    static ClosedPanelInstance = "ClosedPanelInstance"; 
 }

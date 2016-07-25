@@ -97,6 +97,12 @@ class DashboardAngular {
             this.Widgets.push(newWidget);
         }
     }
+    AddClosedPanelWidget() {
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ClosedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     RemoveWidget(w) {
         let index = this.Widgets.indexOf(w);
         this.Widgets.splice(index, 1);

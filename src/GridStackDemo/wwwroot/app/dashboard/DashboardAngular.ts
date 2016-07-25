@@ -159,6 +159,15 @@ export class DashboardAngular implements IDashBoardAngular {
     }
 
 
+    public AddClosedPanelWidget(): void {
+
+        if (!$("#" + WidgetLookUp.ClosedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+
 
     
     public RemoveWidget(w: Widget): void

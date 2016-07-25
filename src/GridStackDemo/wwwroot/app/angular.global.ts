@@ -48,6 +48,7 @@ export module names {
         //<opened-Claims-Panel></open-Claims-Panel>
         public static reOpenedClaimsPanel = "reOpenedClaimsPanel";
         public static openClaimsPanel = "openedClaimsPanel";
+        public static closedClaimsPanel = "closedClaimsPanel";
 
     }
     export class Controllers {

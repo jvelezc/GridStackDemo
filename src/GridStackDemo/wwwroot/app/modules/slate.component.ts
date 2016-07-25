@@ -6,7 +6,8 @@ angular.module(names.Modules.components, []);
 //Then I will load in the component that register it. 
 import * as loadOpenedClaimsComponent from '../components/openclaims/openedClaims.component';
 import * as loadReOpenedClaimsComponent from '../components/reopenedclaims/reOpenedClaims.component';
-
+import * as loadClosedClaimsComponent from '../components/closedclaims/closedClaims.component';
 
 var loadOpenedClaimsComponentNow = loadOpenedClaimsComponent;
 var loadReOpenedClaimsComponentNow = loadReOpenedClaimsComponent;
+var loadClosedClaimsComponentNow = loadClosedClaimsComponent;
