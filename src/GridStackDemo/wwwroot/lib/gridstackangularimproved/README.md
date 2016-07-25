@@ -1,4 +1,4 @@
-#gridstack-angular
+#gridstackangularimproved
 
 gridstack-angular is an Angular.js directive for the widget layout plugin gridstack.js. It offers basic functionality, feel free to extend it with your pull requests.
 
@@ -10,10 +10,7 @@ gridstack-angular is an Angular.js directive for the widget layout plugin gridst
 - [Demo](#demo)
 - [Requirements](#requirements)
 - [Changes](#changes)
-    - [v0.4.0 (2016-04-08)](#v040-2016-04-08)
-    - [v0.3.0 (2016-02-17)](#v030-2016-02-17)
-    - [v.0.2.0 (2015-10-27)](#v020-2015-10-27)
-    - [v.0.1.0 (2015-10-27)](#v010-2015-10-27)
+    - [0.0.5](#005)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -23,12 +20,12 @@ gridstack-angular is an Angular.js directive for the widget layout plugin gridst
 gridstack-angular is available on bower. This makes it super easy to install:
 
 ```
-bower install --save gridstack-angular
+bower install --save gridstackstackangularimproved
 ```
 
 ##Demo
 
-Demo is available [here](http://kdietrich.github.io/gridstack-angular/demo/).
+
 
 ##Requirements
 
@@ -37,22 +34,7 @@ Demo is available [here](http://kdietrich.github.io/gridstack-angular/demo/).
 
 ##Changes
 
-####v0.4.0 (2016-04-08)
-- Fixed timing of events
-- gridstack.js 0.2.5 support
-
-####v0.3.0 (2016-02-17)
-- Breaking Changes: `data-gs-xyz` attributes changed to `gs-item-xyz`. See demo.
-- Two way data binding
-- `onItemRemoved` event
-- gridstack.js 0.2.4 support
-
-####v.0.2.0 (2015-10-27)
-- Bugfix: Events
-- `onItemAdded` event
-
-####v.0.1.0 (2015-10-27)
-- First version.
+####0.0.5
 
 ##License
 

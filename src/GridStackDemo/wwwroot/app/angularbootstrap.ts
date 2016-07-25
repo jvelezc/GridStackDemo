@@ -7,6 +7,7 @@ import "./modules/slate.directive.module";
 import "./modules/slate.service.module";
 import "./modules/third.party.module";
 import "./modules/slate.component";
+
 var app: ng.IModule = angular.module(names.Modules.slate,
         [
             names.Modules.slateServices,

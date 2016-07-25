@@ -2,19 +2,15 @@ System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "typescript",
-  //meta: {
-  //    "app/modules/slate.component": {
-  //        format:"global",
-  //        deps: ["app/components/openclaims/openedClaims.component"]
-  //    }
-  //},
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "gridstackangular": "github:kdietrich/gridstack-angular@0.4.0"
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.7",
+    "angular": "github:angular/bower-angular@1.5.8",
+    "gridstackangular": "github:jvelezc/gridstack-angular@0.4.0",
     "jquery": "npm:jquery@3.1.0",
     "typescript": "npm:typescript@1.8.10",
     "underscore": "npm:underscore@1.8.3",
@@ -35,6 +31,9 @@ System.config({
     },
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
+    },
+    "github:jvelezc/gridstack-angular@0.4.0": {
+      "angular": "github:angular/bower-angular@1.5.8"
     },
     "npm:assert@1.4.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

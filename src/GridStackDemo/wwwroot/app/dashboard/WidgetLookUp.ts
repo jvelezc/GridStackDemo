@@ -2,4 +2,5 @@
     static MyDashBoardClaimsChartInstance = "MyDashBoardClaimsChartInstance";
     static RadialGaugeInstance = "RadialGaugeInstance";
     static ActivityGridInstance = "ActivityGridInstance"; 
+    static OpenedPanelInstance = "OpenedPanelInstance"; 
 }

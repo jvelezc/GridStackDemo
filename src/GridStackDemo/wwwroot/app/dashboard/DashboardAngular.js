@@ -79,8 +79,15 @@ class DashboardAngular {
         }
     }
     AddActivityGridWidget() {
+        //Business rule do not create two widgets that are the same.  
         if (!$("#" + WidgetLookUp_1.WidgetLookUp.ActivityGridInstance).length) {
             let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddOpenedPanelWidget() {
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 5, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
