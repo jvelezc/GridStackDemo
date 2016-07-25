@@ -87,7 +87,13 @@ class DashboardAngular {
     }
     AddOpenedPanelWidget() {
         if (!$("#" + WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 5, height: 2 };
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddReOpenedPanelWidget() {
+        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ReOpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
@@ -107,7 +113,6 @@ class DashboardAngular {
     OnResizeStart(event, ui) {
     }
     OnResizeStop(event, ui) {
-        console.log(this.RadialGaugeInstance);
         let item = ui.element.data('_gridstack_node');
         if (item) {
             if (item.id === WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance) {
@@ -115,7 +120,6 @@ class DashboardAngular {
                 this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
             }
             else if (item.id === WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance) {
-                console.log("confusion");
                 this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy_1.GaugeDisplayStrategy());
                 this.StrategyContext.Display(item, this.RadialGaugeInstance);
             }

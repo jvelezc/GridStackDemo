@@ -3,4 +3,5 @@
     static RadialGaugeInstance = "RadialGaugeInstance";
     static ActivityGridInstance = "ActivityGridInstance"; 
     static OpenedPanelInstance = "OpenedPanelInstance"; 
+    static ReOpenedPanelInstance = "ReOpenedPanelInstance"; 
 }

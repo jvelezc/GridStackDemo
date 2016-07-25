@@ -5,4 +5,8 @@ angular.module(names.Modules.components, []);
 // After the angular module has been registered
 //Then I will load in the component that register it. 
 import * as loadOpenedClaimsComponent from '../components/openclaims/openedClaims.component';
-var loadNow = loadOpenedClaimsComponent;
+import * as loadReOpenedClaimsComponent from '../components/reopenedclaims/reOpenedClaims.component';
+
+
+var loadOpenedClaimsComponentNow = loadOpenedClaimsComponent;
+var loadReOpenedClaimsComponentNow = loadReOpenedClaimsComponent;

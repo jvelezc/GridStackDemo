@@ -18,6 +18,7 @@ interface IDashBoardAngular
     AddClaimsChartWidget(): void;
     AddRadialGaugeWidget(): void;
     AddActivityGridWidget(): void;
+    AddReOpenedPanelWidget(): void;
     RemoveWidget(w: Widget):void;
     OnChange(event, items):void;
     OnDragStart(event, ui):void; 
@@ -144,10 +145,22 @@ export class DashboardAngular implements IDashBoardAngular {
     public AddOpenedPanelWidget():void
     {
         if (!$("#" + WidgetLookUp.OpenedPanelInstance).length) {
-            let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 5, height: 2 };
+            let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
+
+    public AddReOpenedPanelWidget(): void {
+    
+        if (!$("#" + WidgetLookUp.ReOpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+
+
+    
     public RemoveWidget(w: Widget): void
     {
         let index = this.Widgets.indexOf(w);
@@ -170,8 +183,6 @@ export class DashboardAngular implements IDashBoardAngular {
     }
 
     public OnResizeStop(event, ui): void {
-
-        console.log(this.RadialGaugeInstance); 
         let item = ui.element.data('_gridstack_node');
         if (item)
         {
@@ -181,7 +192,6 @@ export class DashboardAngular implements IDashBoardAngular {
             }
             else if (item.id === WidgetLookUp.RadialGaugeInstance)
             {
-                console.log("confusion"); 
                 this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy()); 
                 this.StrategyContext.Display(item, this.RadialGaugeInstance);
             }

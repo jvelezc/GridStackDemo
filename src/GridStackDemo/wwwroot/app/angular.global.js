@@ -52,6 +52,7 @@ var names;
     class Components {
     }
     //<opened-Claims-Panel></open-Claims-Panel>
+    Components.reOpenedClaimsPanel = "reOpenedClaimsPanel";
     Components.openClaimsPanel = "openedClaimsPanel";
     names.Components = Components;
     class Controllers {
