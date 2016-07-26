@@ -74,6 +74,7 @@
                                     <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
                                     <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
                                     <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
+                                    <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
                                 </ul>
                             </nav>
 
@@ -181,6 +182,14 @@
 
                                     <div ng-if="w.id === 'AssignedPanelInstance' ">
                                         <assigned-claims-panel></assigned-claims-panel>
+                                        <div>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-if="w.id === 'FlaggedPanelInstance' ">
+                                        <flagged-claims-panel></flagged-claims-panel>
                                         <div>
                                             <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                                         </div>

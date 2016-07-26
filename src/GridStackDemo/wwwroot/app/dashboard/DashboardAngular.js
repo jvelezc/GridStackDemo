@@ -119,6 +119,12 @@ export class DashboardAngular {
             this.Widgets.push(newWidget);
         }
     }
+    AddFlaggedPanelWidget() {
+        if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     RemoveWidget(w) {
         let index = this.Widgets.indexOf(w);
         this.Widgets.splice(index, 1);

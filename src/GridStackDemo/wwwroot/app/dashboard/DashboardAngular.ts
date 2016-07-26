@@ -184,6 +184,14 @@ export class DashboardAngular implements IDashBoardAngular {
     }
 
 
+    public AddFlaggedPanelWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
 
 
     

@@ -7,6 +7,7 @@
 /// <reference path="app/common/StrategyContext.js" />
 /// <reference path="app/components/assigned/assignedclaims.component.js" />
 /// <reference path="app/components/closedclaims/closedClaims.component.js" />
+/// <reference path="app/components/flaggedclaims/flaggedclaims.component.js" />
 /// <reference path="app/components/openclaims/openedClaims.component.js" />
 /// <reference path="app/components/reopenedclaims/reopenedClaims.component.js" />
 /// <reference path="app/components/transferredclaims/transferredclaims.component.js" />
