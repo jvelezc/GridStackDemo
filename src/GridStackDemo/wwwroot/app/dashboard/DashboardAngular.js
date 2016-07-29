@@ -120,8 +120,15 @@ export class DashboardAngular {
         }
     }
     AddFlaggedPanelWidget() {
+        console.log("debug");
         if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
             let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddOpenClaimsGridWidget() {
+        if (!this.$("#" + WidgetLookUp.OpenClaimsGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenClaimsGridInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }

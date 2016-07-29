@@ -8,3 +8,4 @@ WidgetLookUp.ReOpenedPanelInstance = "ReOpenedPanelInstance";
 WidgetLookUp.ClosedPanelInstance = "ClosedPanelInstance";
 WidgetLookUp.AssignedPanelInstance = "AssignedPanelInstance";
 WidgetLookUp.FlaggedPanelInstance = "FlaggedPanelInstance";
+WidgetLookUp.OpenClaimsGridInstance = "OpenClaimsGridInstance";

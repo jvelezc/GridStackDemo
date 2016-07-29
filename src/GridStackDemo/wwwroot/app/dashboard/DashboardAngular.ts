@@ -21,6 +21,7 @@ interface IDashBoardAngular
     AddActivityGridWidget(): void;
     AddReOpenedPanelWidget(): void;
     AddAssignedPanelWidget(): void;
+    AddOpenClaimsGridWidget(): void;
     RemoveWidget(w: Widget):void;
     OnChange(event, items):void;
     OnDragStart(event, ui):void; 
@@ -97,7 +98,6 @@ export class DashboardAngular implements IDashBoardAngular {
     });
     public ActivityGridOptions: kendo.ui.GridOptions =
     {
-       
         dataSource: {
             transport: {
                 read: "/app/dashboard/ActivityGridFakeData.json",
@@ -185,15 +185,19 @@ export class DashboardAngular implements IDashBoardAngular {
 
 
     public AddFlaggedPanelWidget(): void {
-
+        console.log("debug");
         if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
             let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
 
-
-
+    public AddOpenClaimsGridWidget(): void {
+        if (!this.$("#" + WidgetLookUp.OpenClaimsGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenClaimsGridInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
     
     public RemoveWidget(w: Widget): void
     {

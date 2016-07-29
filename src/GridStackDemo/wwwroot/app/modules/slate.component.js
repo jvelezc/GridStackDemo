@@ -3,6 +3,8 @@ import { ReOpenedClaimsComponent } from '../components/reopenedclaims/reOpenedCl
 import { TransferredClaimsComponent } from "../components/transferredclaims/transferredclaims.component";
 import { ClosedClaimsComponent } from "../components/closedclaims/closedClaims.component";
 import { FlaggedClaimsComponent } from "../components/flaggedclaims/flaggedClaims.component";
+import { OpenClaimsGridComponent } from "../components/openclaimsgrid/openclaimsgrid.component";
+import { ActivityGridComponent } from "../components/activityGrid/activitygrid.component";
 angular.module(names.Modules.components, []);
 angular
     .module(names.Modules.components)
@@ -11,4 +13,6 @@ angular
     .component(names.Components.transferredClaimsPanel, new TransferredClaimsComponent())
     .component(names.Components.closedClaimsPanel, new ClosedClaimsComponent())
     .component(names.Components.assignedClaimsPanel, new ClosedClaimsComponent())
-    .component(names.Components.flaggedClaimsPanel, new FlaggedClaimsComponent());
+    .component(names.Components.flaggedClaimsPanel, new FlaggedClaimsComponent())
+    .component(names.Components.openClaimsGrid, new OpenClaimsGridComponent())
+    .component(names.Components.activityGrid, new ActivityGridComponent());

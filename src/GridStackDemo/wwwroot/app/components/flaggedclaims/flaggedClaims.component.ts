@@ -13,6 +13,5 @@ export class FlaggedClaimsComponent implements ng.IComponentOptions {
     controllerAs = "Vm";
     constructor() {
     }
-
     controller = ["$http", FlaggedClaimsComponentController];
 }

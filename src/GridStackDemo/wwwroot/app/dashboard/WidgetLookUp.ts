@@ -7,4 +7,5 @@
     static ClosedPanelInstance = "ClosedPanelInstance"; 
     static AssignedPanelInstance = "AssignedPanelInstance"; 
     static FlaggedPanelInstance = "FlaggedPanelInstance"; 
+    static OpenClaimsGridInstance = "OpenClaimsGridInstance"; 
 }
