@@ -13,7 +13,7 @@ the package.json
 
 
 <pre>Main Depencies that I do not foresee being able to replace.
-1.) Angular 1.5x or higger.
+1.) Angular 1.5x or higher.
 2.) Gridstack
 3.) GridStackAngularImproved * this is my fork of gridstackangular. GridstackAngular only provided a subset of what I needed so I "improved" it.
 </pre>
