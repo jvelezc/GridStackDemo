@@ -49,7 +49,11 @@ export module names {
         public static reOpenedClaimsPanel = "reOpenedClaimsPanel";
         public static openClaimsPanel = "openedClaimsPanel";
         public static closedClaimsPanel = "closedClaimsPanel";
-
+        public static transferredClaimsPanel = "transferredClaimsPanel";
+        public static assignedClaimsPanel = "assignedClaimsPanel";
+        public static flaggedClaimsPanel = "flaggedClaimsPanel";
+        public static openClaimsGrid = "openClaimsGrid";
+        public static activityGrid = "activityGrid";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

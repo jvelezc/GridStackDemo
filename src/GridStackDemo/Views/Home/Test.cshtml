@@ -47,8 +47,6 @@
         </ol>
     </div>
 </div>
-
-
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -58,6 +56,7 @@
                     <h5>Dash board configuration</h5>
                 </div>
                 <div class="ibox-content">
+
                     <div ng-controller="dashBoardAngular as Vm" ng-cloak>
 
                         <section>
@@ -73,6 +72,9 @@
                                     <li ng-click="Vm.AddOpenedPanelWidget()">Open Claims | </li>
                                     <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
                                     <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
+                                    <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
+                                    <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
+                                    <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
                                 </ul>
                             </nav>
 
@@ -118,7 +120,7 @@
 
 
                                         <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                                         </div>
 
                                     </div>
@@ -138,22 +140,16 @@
 
 
                                         <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                                         </div>
 
                                     </div>
 
-
-
-
                                     <div ng-if="w.id === 'ActivityGridInstance' ">
-                                        <div id={{w.id}} kendo-grid="Vm.ActivityGridInstance" options="Vm.ActivityGridOptions">
-                                        </div>
-
+                                        <activity-grid id={{w.id}}></activity-grid>
                                         <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                                         </div>
-
                                     </div>
 
                                     <div ng-if="w.id === 'OpenedPanelInstance' ">
@@ -167,16 +163,40 @@
                                     <div ng-if="w.id === 'ReOpenedPanelInstance' ">
                                         <re-opened-claims-panel re-opened-claims="5" re-opened-claims-percentage="40"></re-opened-claims-panel>
                                         <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
                                         </div>
                                     </div>
 
                                     <div ng-if="w.id === 'ClosedPanelInstance' ">
                                         <closed-claims-panel></closed-claims-panel>
                                         <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
                                         </div>
                                     </div>
+
+                                    <div ng-if="w.id === 'AssignedPanelInstance' ">
+                                        <assigned-claims-panel></assigned-claims-panel>
+                                        <div>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-if="w.id === 'FlaggedPanelInstance' ">
+                                        <flagged-claims-panel></flagged-claims-panel>
+                                        <div>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-if="w.id === 'OpenClaimsGridInstance' ">
+                                        <open-claims-grid id={{w.id}}></open-claims-grid>
+                                        <div>
+                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

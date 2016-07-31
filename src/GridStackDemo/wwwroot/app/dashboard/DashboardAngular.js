@@ -1,18 +1,28 @@
+/// <reference path="chartdisplaystrategy.ts" />
 /// <reference path="../../../typings/globals/kendo-ui/index.d.ts" />
 /// <reference path="../../../typings/index.d.ts" />
-"use strict";
-//Documentation 
-//http://stackoverflow.com/questions/21220886/kendo-angular-chart-data
-//http://docs.telerik.com/kendo-ui/api/javascript/dataviz/ui/chart
-const $ = require('jquery');
-const WidgetLookUp_1 = require("./WidgetLookUp");
-const StrategyContext_1 = require("../common/StrategyContext");
-const ChartDisplayStrategy_1 = require("./ChartDisplayStrategy");
-const GaugeDisplayStrategy_1 = require("./GaugeDisplayStrategy");
-class DashboardAngular {
+import { WidgetLookUp } from "./WidgetLookUp";
+import { StrategyContext } from "../common/StrategyContext";
+import { ChartDisplayStrategy } from "./ChartDisplayStrategy";
+import { GaugeDisplayStrategy } from "./GaugeDisplayStrategy";
+export class DashboardAngular {
     constructor() {
+        //
+        // static $inject = ['$scope'];
+        //constructor(private $scope: ng.IScope)
+        //{
+        //http://stackoverflow.com/questions/28470493/kendo-grid-getting-an-instance-in-a-angular-directive
+        //  ////  This is a way to tap into the kendo .. but i dont need it. I know i wont remember this :) so i left it here. 
+        //  //  this.$scope.$on("kendoRendered", (event) => {
+        //  //      console.log("happened"); 
+        //  //      console.log(event); 
+        //  //      let radialGaugeInstance = this.RadialGaugeInstance;
+        //  //  }); 
+        //}
+        //These are the names of the components in  html. I could not find a way to get the instance object for the chart via angular. 
+        this.$ = angular.element;
         this.RadialGaugeSelectedNumber = 10;
-        this.StrategyContext = new StrategyContext_1.StrategyContext();
+        this.StrategyContext = new StrategyContext();
         // This would only be filled up initially  if someone has saved some data... I imagine I need a 
         // page loader where I pass some data about the current user that fetches his current configuration. 
         this.Widgets = [];
@@ -66,40 +76,59 @@ class DashboardAngular {
         this.ClaimsData.view();
     }
     AddRadialGaugeWidget() {
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 3, height: 2 };
+        if (!this.$("#" + WidgetLookUp.RadialGaugeInstance).length) {
+            let newWidget = { id: WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddClaimsChartWidget() {
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 10, height: 2 };
+        if (!this.$("#" + WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
+            let newWidget = { id: WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 10, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddActivityGridWidget() {
         //Business rule do not create two widgets that are the same.  
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ActivityGridInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
+        if (!this.$("#" + WidgetLookUp.ActivityGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddOpenedPanelWidget() {
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+        if (!this.$("#" + WidgetLookUp.OpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddReOpenedPanelWidget() {
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ReOpenedPanelInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+        if (!this.$("#" + WidgetLookUp.ReOpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
     AddClosedPanelWidget() {
-        if (!$("#" + WidgetLookUp_1.WidgetLookUp.ClosedPanelInstance).length) {
-            let newWidget = { id: WidgetLookUp_1.WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+        if (!this.$("#" + WidgetLookUp.ClosedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddAssignedPanelWidget() {
+        if (!this.$("#" + WidgetLookUp.AssignedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.AssignedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddFlaggedPanelWidget() {
+        console.log("debug");
+        if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    AddOpenClaimsGridWidget() {
+        if (!this.$("#" + WidgetLookUp.OpenClaimsGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenClaimsGridInstance, x: 0, y: 0, width: 3, height: 2 };
             this.Widgets.push(newWidget);
         }
     }
@@ -121,12 +150,12 @@ class DashboardAngular {
     OnResizeStop(event, ui) {
         let item = ui.element.data('_gridstack_node');
         if (item) {
-            if (item.id === WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance) {
-                this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
+            if (item.id === WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy());
                 this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
             }
-            else if (item.id === WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance) {
-                this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy_1.GaugeDisplayStrategy());
+            else if (item.id === WidgetLookUp.RadialGaugeInstance) {
+                this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy());
                 this.StrategyContext.Display(item, this.RadialGaugeInstance);
             }
         }
@@ -139,4 +168,3 @@ class DashboardAngular {
     }
     ;
 }
-exports.DashboardAngular = DashboardAngular;

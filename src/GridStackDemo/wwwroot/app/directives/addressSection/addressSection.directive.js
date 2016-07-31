@@ -1,7 +1,6 @@
-"use strict";
-const AddressViewModel_1 = require("../../viewModels/AddressViewModel");
-const base_controller_1 = require("../../common/base.controller");
-class AddressSectionController extends base_controller_1.BaseController {
+import { AddressViewModel } from "../../viewModels/AddressViewModel";
+import { BaseController } from "../../common/base.controller";
+export class AddressSectionController extends BaseController {
     //#endregion
     //#region constructores
     constructor() {
@@ -9,7 +8,7 @@ class AddressSectionController extends base_controller_1.BaseController {
         //#endregion
         //#region Functions
         this.resetCurrentAddress = () => {
-            this.currentAddress = new AddressViewModel_1.AddressViewModel();
+            this.currentAddress = new AddressViewModel();
             this.currentIndex = -1;
         };
         this.addAddress = () => {
@@ -65,4 +64,3 @@ class AddressSectionController extends base_controller_1.BaseController {
         this.mode = "view";
     }
 }
-exports.AddressSectionController = AddressSectionController;

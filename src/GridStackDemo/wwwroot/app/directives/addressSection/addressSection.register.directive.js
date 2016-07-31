@@ -1,6 +1,5 @@
-"use strict";
-const addressSection_directive_1 = require("./addressSection.directive");
-const angular_global_1 = require("../../angular.global");
+import { AddressSectionController } from "./addressSection.directive";
+import { names } from "../../angular.global";
 var app;
 (function (app) {
     var directives;
@@ -10,7 +9,7 @@ var app;
                 this.restrict = 'EA';
                 this.replace = true;
                 this.recuire = "ngModel";
-                this.controller = addressSection_directive_1.AddressSectionController;
+                this.controller = AddressSectionController;
                 this.controllerAs = "vm";
                 this.bindToController = true;
                 this.templateUrl = "/app/directives/addressSection/addressSection.template.html";
@@ -29,8 +28,8 @@ var app;
         }
         ;
         angular
-            .module(angular_global_1.names.Modules.slateDirectives)
-            .directive(angular_global_1.names.Directives.addressSection, AddressSectionDirective.instance);
+            .module(names.Modules.slateDirectives)
+            .directive(names.Directives.addressSection, AddressSectionDirective.instance);
     })(directives = app.directives || (app.directives = {}));
 })(app || (app = {}));
 ;

@@ -1,5 +1,4 @@
-"use strict";
-var names;
+export var names;
 (function (names) {
     class AngularGlobal {
     }
@@ -55,6 +54,11 @@ var names;
     Components.reOpenedClaimsPanel = "reOpenedClaimsPanel";
     Components.openClaimsPanel = "openedClaimsPanel";
     Components.closedClaimsPanel = "closedClaimsPanel";
+    Components.transferredClaimsPanel = "transferredClaimsPanel";
+    Components.assignedClaimsPanel = "assignedClaimsPanel";
+    Components.flaggedClaimsPanel = "flaggedClaimsPanel";
+    Components.openClaimsGrid = "openClaimsGrid";
+    Components.activityGrid = "activityGrid";
     names.Components = Components;
     class Controllers {
     }
@@ -94,5 +98,5 @@ var names;
     Values.CurrentUser = "currentUser";
     names.Values = Values;
     ;
-})(names = exports.names || (exports.names = {}));
+})(names || (names = {}));
 ;
