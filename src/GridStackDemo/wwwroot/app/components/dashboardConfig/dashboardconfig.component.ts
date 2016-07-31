@@ -26,66 +26,22 @@ interface IFlaggedClaimsComponentController {
 class DashboardConfigComponentController implements IFlaggedClaimsComponentController {
     public $ = angular.element;
     public Gridstacker: any;//gridstack handler
-    public MyDashBoardClaimsChartInstance: kendo.dataviz.ui.Chart;
+
     public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge;
     public RadialGaugeSelectedNumber = 10;
     public StrategyContext = new StrategyContext();
-    public ActivityGridInstance: kendo.ui.Grid;
-    public ActivityGridOptions: kendo.ui.GridOptions;
-    public ClaimsData: kendo.data.DataSource;
     public Options: {};
     public Widgets: Array<Widget>;
     constructor(private $http) {
     }
     // coding practices state that we should use init and not the constructor to initialize data. 
     $onInit() {
-        console.log("init"); 
          this.Widgets = [
         //{ id: WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
         //{ id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 3, height: 1 }
          ];
 
-        this.ActivityGridOptions =
-            {
-                dataSource: {
-                    transport: {
-                        read: "/app/dashboard/ActivityGridFakeData.json",
-                        dataType: "json"
-                    },
-                    schema: {
-                        model: {
-                            fields: {
-                                ClaimNumber: { type: "string" },
-                                Subject: { type: "string" },
-                                Priority: { type: "string" },
-                                Due: { type: "date" },
-                            }
-                        }
-                    },
-                    pagesize: 20
-                },
-
-                sortable: true,
-                columns: [
-                    { field: "ClaimNumber" },
-                    { field: "Subject" },
-                    { field: "Priority" },
-                    { field: "Due", format: "{0:MM-dd-yyyy}" },
-
-                ]
-            }
-        this.ClaimsData = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "/app/dashboard/GraphFakeData.json",
-                    dataType: "json"
-                }
-            },
-            sort: {
-                field: "year",
-                dir: "asc"
-            }
-        });
+        
         //these are gridstack options specifically the handle and whether it appears by default in the following devices. 
         this.Options = {
             cellHeight: 150,
@@ -190,7 +146,7 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
         if (item) {
             if (item.id === WidgetLookUp.MyDashBoardClaimsChartInstance) {
                 this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy());
-                this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
+                this.StrategyContext.Display(item);
             }
             else if (item.id === WidgetLookUp.RadialGaugeInstance) {
                 this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy());

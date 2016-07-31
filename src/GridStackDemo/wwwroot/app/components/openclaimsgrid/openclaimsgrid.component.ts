@@ -43,7 +43,7 @@ class OpenClaimsGridComponentController implements IOpenClaimsGridComponentContr
 export class OpenClaimsGridComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/openclaimsgrid/openclaimsgrid.component.html";
     controllerAs = "Vm";
-    bindings;
+    bindings: any;
     constructor() {
         this.bindings = {
             id: "@",

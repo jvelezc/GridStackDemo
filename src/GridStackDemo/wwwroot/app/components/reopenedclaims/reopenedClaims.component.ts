@@ -16,11 +16,10 @@ class ReOpenedClaimsComponentController implements IReOpenedClaimsComponentContr
 export class ReOpenedClaimsComponent implements ng.IComponentOptions {
     templateUrl = '/app/components/reopenedclaims/reopenedClaims.component.html';
     controllerAs = 'Vm';
-    bindings;
+    bindings: any;
     constructor() {
         this.bindings = {
-            reOpenedClaims: '<',
-            reOpenedClaimsPercentage: '<',
+            id: "@"
         };
     }
 

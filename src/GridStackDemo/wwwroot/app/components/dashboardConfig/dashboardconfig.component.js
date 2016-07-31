@@ -27,47 +27,7 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                 }
                 // coding practices state that we should use init and not the constructor to initialize data. 
                 $onInit() {
-                    console.log("init");
                     this.Widgets = [];
-                    this.ActivityGridOptions =
-                        {
-                            dataSource: {
-                                transport: {
-                                    read: "/app/dashboard/ActivityGridFakeData.json",
-                                    dataType: "json"
-                                },
-                                schema: {
-                                    model: {
-                                        fields: {
-                                            ClaimNumber: { type: "string" },
-                                            Subject: { type: "string" },
-                                            Priority: { type: "string" },
-                                            Due: { type: "date" },
-                                        }
-                                    }
-                                },
-                                pagesize: 20
-                            },
-                            sortable: true,
-                            columns: [
-                                { field: "ClaimNumber" },
-                                { field: "Subject" },
-                                { field: "Priority" },
-                                { field: "Due", format: "{0:MM-dd-yyyy}" },
-                            ]
-                        };
-                    this.ClaimsData = new kendo.data.DataSource({
-                        transport: {
-                            read: {
-                                url: "/app/dashboard/GraphFakeData.json",
-                                dataType: "json"
-                            }
-                        },
-                        sort: {
-                            field: "year",
-                            dir: "asc"
-                        }
-                    });
                     //these are gridstack options specifically the handle and whether it appears by default in the following devices. 
                     this.Options = {
                         cellHeight: 150,
@@ -152,7 +112,7 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                     if (item) {
                         if (item.id === WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance) {
                             this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
-                            this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
+                            this.StrategyContext.Display(item);
                         }
                         else if (item.id === WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance) {
                             this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy_1.GaugeDisplayStrategy());

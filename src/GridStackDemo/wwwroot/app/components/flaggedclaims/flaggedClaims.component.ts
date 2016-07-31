@@ -1,17 +1,22 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
-interface IFlaggedClaimsComponentController {
+interface IFlaggedClaimsComponentController extends ng.IComponentController {
 }
 class FlaggedClaimsComponentController implements IFlaggedClaimsComponentController {
 
     constructor(private $http) {
     }
+    
     $onInit() {
     }
 }
 export class FlaggedClaimsComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/flaggedclaims/flaggedClaims.component.html";
     controllerAs = "Vm";
+    bindings: any;
     constructor() {
+        this.bindings = {
+            id: "@",
+        };
     }
     controller = ["$http", FlaggedClaimsComponentController];
 }

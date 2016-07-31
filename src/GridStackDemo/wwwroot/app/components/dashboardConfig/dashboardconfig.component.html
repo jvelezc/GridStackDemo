@@ -47,19 +47,7 @@
 
             <div class="grid-stack-item-content">
                 <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-                    <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
-                         k-legend="{ position: 'bottom' }"
-                         k-series-defaults="{ type: 'line' }"
-                         k-series="[
-                                 { field: 'nuclear', name: 'Nuclear electricity' },
-                                 { field: 'hydro', name: 'Hydro electricity' },
-                                 { field: 'wind', name: 'Wind electricity' }
-                             ]"
-                         k-data-source="Vm.ClaimsData"
-                         style="height: 250px;">
-                    </div>
-
-
+                    <kendo-line-chart id="{{w.id}}"></kendo-line-chart>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -69,17 +57,7 @@
 
 
                 <div ng-if="w.id === 'RadialGaugeInstance' ">
-
-                    <div id="gauge-container">
-                        <!--I dont understand why RadialGaugeInstance is always null...-->
-                        <span id={{w.id}} kendo-radialgauge="Vm.RadialGaugeInstance"
-                              k-scale="{ min:0, max: 100}"
-                              ng-model="Vm.RadialGaugeSelectedNumber"></span>
-
-                    </div>
-
-
-
+                    <kendo-gauge id="{{w.id}}"></kendo-gauge>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -94,7 +72,7 @@
                 </div>
 
                 <div ng-if="w.id === 'OpenedPanelInstance' ">
-                    <opened-claims-panel open-claims="1" open-claims-percentage="30"></opened-claims-panel>
+                    <opened-claims-panel id="{{w.id}}"></opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                     </div>
@@ -102,21 +80,21 @@
 
 
                 <div ng-if="w.id === 'ReOpenedPanelInstance' ">
-                    <re-opened-claims-panel re-opened-claims="5" re-opened-claims-percentage="40"></re-opened-claims-panel>
+                    <re-opened-claims-panel id="{{w.id}}"></re-opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'ClosedPanelInstance' ">
-                    <closed-claims-panel></closed-claims-panel>
+                    <closed-claims-panel id="{{w.id}}"></closed-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'AssignedPanelInstance' ">
-                    <assigned-claims-panel></assigned-claims-panel>
+                    <assigned-claims-panel id="{{w.id}}"></assigned-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -124,7 +102,7 @@
 
 
                 <div ng-if="w.id === 'FlaggedPanelInstance' ">
-                    <flagged-claims-panel></flagged-claims-panel>
+                    <flagged-claims-panel id="{{w.id}}"></flagged-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>

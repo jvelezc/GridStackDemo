@@ -9,6 +9,8 @@ import {FlaggedClaimsComponent} from "../components/flaggedclaims/flaggedclaims.
 import {OpenClaimsGridComponent} from "../components/openclaimsgrid/openclaimsgrid.component";
 import {ActivityGridComponent} from "../components/activityGrid/activitygrid.component";
 import {DashboardConfigComponent} from "../components/dashboardconfig/dashboardconfig.component";
+import {KendoLineChartComponentComponent} from "../components/kendolinechart/kendolinechart.component";
+import {KendoGaugeComponent} from "../components/kendogauge/kendogauge.component";
 angular.module(names.Modules.components, []);
 
 angular
@@ -32,5 +34,9 @@ angular
     .component(names.Components.activityGrid, new ActivityGridComponent())
     //<dashboard-config></dashboard-config>
     .component(names.Components.dashboardConfig, new DashboardConfigComponent())
+    //<kendo-line-chart></kendo-line-chart>
+    .component(names.Components.kendoLineChart, new KendoLineChartComponentComponent())
+
+    .component(names.Components.kendoGauge, new KendoGaugeComponent())
     ;
   

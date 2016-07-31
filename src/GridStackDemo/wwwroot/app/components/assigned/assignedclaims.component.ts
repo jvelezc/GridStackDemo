@@ -11,7 +11,11 @@ class AssignedClaimsComponentController implements IClosedClaimsComponentControl
 export class AssignedClaimsComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/assigned/assignedclaims.component.html";
     controllerAs = "Vm";
+    bindings: any;
     constructor() {
+        this.bindings = {
+            id: "@",
+        };
     }
 
     controller = ["$http", AssignedClaimsComponentController];

@@ -18,6 +18,9 @@ System.register([], function(exports_1, context_1) {
                     this.templateUrl = "/app/components/assigned/assignedclaims.component.html";
                     this.controllerAs = "Vm";
                     this.controller = ["$http", AssignedClaimsComponentController];
+                    this.bindings = {
+                        id: "@",
+                    };
                 }
             }
             exports_1("AssignedClaimsComponent", AssignedClaimsComponent);

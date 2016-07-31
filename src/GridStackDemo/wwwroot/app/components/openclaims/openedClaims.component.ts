@@ -12,9 +12,10 @@ class OpenedClaimsComponentController implements IReOpenedClaimsComponentControl
 export class OpenedClaimsComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/openclaims/openedClaims.component.html";
     controllerAs = "Vm";
-    bindings;
+    bindings: any;
     constructor() {
         this.bindings = {
+            id : "@",
             openClaims: "<",
             openClaimsPercentage: "<",
         };

@@ -55,6 +55,8 @@ export module names {
         public static openClaimsGrid = "openClaimsGrid";
         public static activityGrid = "activityGrid";
         public static dashboardConfig = "dashboardConfig";
+        public static kendoLineChart = "kendoLineChart";
+        public static kendoGauge = "kendoGauge";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

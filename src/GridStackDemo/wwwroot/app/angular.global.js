@@ -66,6 +66,8 @@ System.register([], function(exports_1, context_1) {
                 Components.openClaimsGrid = "openClaimsGrid";
                 Components.activityGrid = "activityGrid";
                 Components.dashboardConfig = "dashboardConfig";
+                Components.kendoLineChart = "kendoLineChart";
+                Components.kendoGauge = "kendoGauge";
                 names.Components = Components;
                 class Controllers {
                 }

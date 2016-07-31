@@ -19,8 +19,7 @@ System.register([], function(exports_1, context_1) {
                     this.controllerAs = 'Vm';
                     this.controller = ['$http', ReOpenedClaimsComponentController];
                     this.bindings = {
-                        reOpenedClaims: '<',
-                        reOpenedClaimsPercentage: '<',
+                        id: "@"
                     };
                 }
             }
