@@ -18,7 +18,6 @@
 /// <reference path="app/components/reopenedclaims/reopenedclaims.component.js" />
 /// <reference path="app/components/transferredclaims/transferredclaims.component.js" />
 /// <reference path="app/dashboard/dashboardangular.js" />
-/// <reference path="app/dashboard/widget.js" />
 /// <reference path="app/directives/addressSection/addressSection.directive.js" />
 /// <reference path="app/directives/addressSection/addressSection.register.directive.js" />
 /// <reference path="app/modules/slate.component.js" />
