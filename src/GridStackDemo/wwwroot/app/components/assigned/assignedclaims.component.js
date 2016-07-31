@@ -19,7 +19,7 @@ System.register([], function(exports_1, context_1) {
                     this.controllerAs = "Vm";
                     this.controller = ["$http", AssignedClaimsComponentController];
                     this.bindings = {
-                        id: "@",
+                        key: "@",
                     };
                 }
             }

@@ -19,7 +19,7 @@ export class ReOpenedClaimsComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            id: "@"
+            key: "@"
         };
     }
 

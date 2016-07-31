@@ -14,7 +14,7 @@ export class AssignedClaimsComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            id: "@",
+            key: "@",
         };
     }
 

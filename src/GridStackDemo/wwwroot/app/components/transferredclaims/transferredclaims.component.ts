@@ -11,9 +11,11 @@ class OpenedClaimsComponentController implements ITransferredClaimsComponentCont
 export class TransferredClaimsComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/transferredclaims/transferredclaims.component.html";
     controllerAs = "Vm";
-   
+    bindings: any; 
     constructor() {
-      
+        this.bindings = {
+            key: "@"
+        };
     }
 
     controller = ["$http", OpenedClaimsComponentController];

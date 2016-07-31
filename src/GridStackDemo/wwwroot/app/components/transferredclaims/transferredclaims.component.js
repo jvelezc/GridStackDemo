@@ -18,6 +18,9 @@ System.register([], function(exports_1, context_1) {
                     this.templateUrl = "/app/components/transferredclaims/transferredclaims.component.html";
                     this.controllerAs = "Vm";
                     this.controller = ["$http", OpenedClaimsComponentController];
+                    this.bindings = {
+                        key: "@"
+                    };
                 }
             }
             exports_1("TransferredClaimsComponent", TransferredClaimsComponent);

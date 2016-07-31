@@ -15,7 +15,7 @@ export class FlaggedClaimsComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            id: "@",
+            key: "@",
         };
     }
     controller = ["$http", FlaggedClaimsComponentController];

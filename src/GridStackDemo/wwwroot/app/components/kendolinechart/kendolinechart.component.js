@@ -31,7 +31,7 @@ System.register([], function(exports_1, context_1) {
                     this.controllerAs = "Vm";
                     this.controller = ["$http", KendoLineChartComponentController];
                     this.bindings = {
-                        id: "@",
+                        key: "@",
                     };
                 }
             }

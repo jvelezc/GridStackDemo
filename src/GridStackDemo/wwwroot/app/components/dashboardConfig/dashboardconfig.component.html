@@ -47,7 +47,7 @@
 
             <div class="grid-stack-item-content">
                 <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-                    <kendo-line-chart id="{{w.id}}"></kendo-line-chart>
+                    <kendo-line-chart key ="{{w.id}}"></kendo-line-chart>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -57,7 +57,7 @@
 
 
                 <div ng-if="w.id === 'RadialGaugeInstance' ">
-                    <kendo-gauge id="{{w.id}}"></kendo-gauge>
+                    <kendo-gauge key="{{w.id}}"></kendo-gauge>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -65,14 +65,14 @@
                 </div>
 
                 <div ng-if="w.id === 'ActivityGridInstance' ">
-                    <activity-grid id={{w.id}}></activity-grid>
+                    <activity-grid key ={{w.id}}></activity-grid>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'OpenedPanelInstance' ">
-                    <opened-claims-panel id="{{w.id}}"></opened-claims-panel>
+                    <opened-claims-panel key ="{{w.id}}"></opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                     </div>
@@ -80,21 +80,21 @@
 
 
                 <div ng-if="w.id === 'ReOpenedPanelInstance' ">
-                    <re-opened-claims-panel id="{{w.id}}"></re-opened-claims-panel>
+                    <re-opened-claims-panel key ="{{w.id}}"></re-opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'ClosedPanelInstance' ">
-                    <closed-claims-panel id="{{w.id}}"></closed-claims-panel>
+                    <closed-claims-panel key ="{{w.id}}"></closed-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'AssignedPanelInstance' ">
-                    <assigned-claims-panel id="{{w.id}}"></assigned-claims-panel>
+                    <assigned-claims-panel key ="{{w.id}}"></assigned-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -102,7 +102,7 @@
 
 
                 <div ng-if="w.id === 'FlaggedPanelInstance' ">
-                    <flagged-claims-panel id="{{w.id}}"></flagged-claims-panel>
+                    <flagged-claims-panel key ="{{w.id}}"></flagged-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -110,7 +110,7 @@
 
 
                 <div ng-if="w.id === 'OpenClaimsGridInstance' ">
-                    <open-claims-grid id={{w.id}}></open-claims-grid>
+                    <open-claims-grid key ={{w.id}}></open-claims-grid>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>

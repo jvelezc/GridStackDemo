@@ -24,10 +24,11 @@ class KendoLineChartComponentController implements IKendoLineChartComponentContr
 export class KendoLineChartComponentComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/kendolinechart/kendolinechart.component.html";
     controllerAs = "Vm";
+ 
     bindings: any;
     constructor() {
         this.bindings = {
-            id: "@",
+            key: "@",
         };
     }
     controller = ["$http", KendoLineChartComponentController];

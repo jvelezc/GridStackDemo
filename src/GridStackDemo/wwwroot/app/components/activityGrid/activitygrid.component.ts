@@ -46,7 +46,7 @@ export class ActivityGridComponent implements ng.IComponentOptions {
     bindings;
     constructor() {
         this.bindings = {
-            id: "@",
+            key: "@",
         };
     }
     controller = ["$http", ActivityGridComponentController];

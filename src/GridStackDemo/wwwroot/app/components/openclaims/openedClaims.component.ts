@@ -15,9 +15,7 @@ export class OpenedClaimsComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            id : "@",
-            openClaims: "<",
-            openClaimsPercentage: "<",
+            key : "@",
         };
     }
 
