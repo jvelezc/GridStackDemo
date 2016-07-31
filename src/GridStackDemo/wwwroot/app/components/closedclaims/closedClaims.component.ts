@@ -14,7 +14,7 @@ angular
                  <h1 class="no-margins"><span>2</span></h1>
                  <div class="stat-percent font-bold text-success"><span >20</span>%<i class="fa fa-bolt"></i></div>
                  <small>Since last Week: </small>
-              </div>
+              </div> 
             </div>
             `].join('')
 
