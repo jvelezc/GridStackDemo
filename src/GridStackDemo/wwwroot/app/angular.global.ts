@@ -54,6 +54,7 @@ export module names {
         public static flaggedClaimsPanel = "flaggedClaimsPanel";
         public static openClaimsGrid = "openClaimsGrid";
         public static activityGrid = "activityGrid";
+        public static dashboardConfig = "dashboardConfig";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

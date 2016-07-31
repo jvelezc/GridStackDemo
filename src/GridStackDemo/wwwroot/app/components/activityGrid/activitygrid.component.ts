@@ -41,7 +41,7 @@ class ActivityGridComponentController implements IActivityGridComponentControlle
 
 
 export class ActivityGridComponent implements ng.IComponentOptions {
-    templateUrl = "/app/components/activityGrid/activitygrid.component.html";
+    templateUrl = "/app/components/activitygrid/activitygrid.component.html";
     controllerAs = "Vm";
     bindings;
     constructor() {

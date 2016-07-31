@@ -17,7 +17,6 @@
             display: inline-block;
             padding: 10px;
         }
-
     </style>
 
 }
@@ -56,153 +55,9 @@
                     <h5>Dash board configuration</h5>
                 </div>
                 <div class="ibox-content">
-
-                    <div ng-controller="dashBoardAngular as Vm" ng-cloak>
-
-                        <section>
-                            <h1>This section is for troubleshooting and testing</h1>
-                            <pre>{{Vm.Widgets}}</pre>
-
-
-                            <nav id="dashBoarbMenu" class="clearfix">
-                                <ul>
-                                    <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
-                                    <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
-                                    <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
-                                    <li ng-click="Vm.AddOpenedPanelWidget()">Open Claims | </li>
-                                    <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
-                                    <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
-                                    <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
-                                    <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
-                                    <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
-                                </ul>
-                            </nav>
-
-                        </section>
-
-
-
-
-                        <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
-                             options="Vm.Options"
-                             on-change="Vm.OnChange(event,items)"
-                             on-drag-start="Vm.OnDragStart(event,ui)"
-                             on-drag-stop="Vm.OnDragStop(event, ui)"
-                             on-resize-start="Vm.OnResizeStart(event, ui)"
-                             on-resize-stop="Vm.OnResizeStop(event, ui)">
-
-                            <div gridstack-item ng-repeat="w in Vm.Widgets"
-                                 class="grid-stack-item"
-                                 gs-item-id="w.id"
-                                 gs-item-x="w.x"
-                                 gs-item-y="w.y"
-                                 gs-item-width="w.width"
-                                 gs-item-height="w.height"
-                                 gs-item-autopos="1"
-                                 on-item-added="Vm.OnItemAdded(item)"
-                                 on-item-removed="Vm.OnItemRemoved(item)">
-
-
-
-                                <div class="grid-stack-item-content">
-                                    <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-                                        <div id="{{w.id}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
-                                             k-legend="{ position: 'bottom' }"
-                                             k-series-defaults="{ type: 'line' }"
-                                             k-series="[
-                                 { field: 'nuclear', name: 'Nuclear electricity' },
-                                 { field: 'hydro', name: 'Hydro electricity' },
-                                 { field: 'wind', name: 'Wind electricity' }
-                             ]"
-                                             k-data-source="Vm.ClaimsData"
-                                             style="height: 250px;">
-                                        </div>
-
-
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                                        </div>
-
-                                    </div>
-
-
-
-                                    <div ng-if="w.id === 'RadialGaugeInstance' ">
-
-                                        <div id="gauge-container">
-                                            <!--I dont understand why RadialGaugeInstance is always null...-->
-                                            <span id={{w.id}} kendo-radialgauge="Vm.RadialGaugeInstance"
-                                                  k-scale="{ min:0, max: 100}"
-                                                  ng-model="Vm.RadialGaugeSelectedNumber"></span>
-
-                                        </div>
-
-
-
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                                        </div>
-
-                                    </div>
-
-                                    <div ng-if="w.id === 'ActivityGridInstance' ">
-                                        <activity-grid id={{w.id}}></activity-grid>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                                        </div>
-                                    </div>
-
-                                    <div ng-if="w.id === 'OpenedPanelInstance' ">
-                                        <opened-claims-panel open-claims="1" open-claims-percentage="30"></opened-claims-panel>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
-                                        </div>
-                                    </div>
-
-
-                                    <div ng-if="w.id === 'ReOpenedPanelInstance' ">
-                                        <re-opened-claims-panel re-opened-claims="5" re-opened-claims-percentage="40"></re-opened-claims-panel>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
-                                        </div>
-                                    </div>
-
-                                    <div ng-if="w.id === 'ClosedPanelInstance' ">
-                                        <closed-claims-panel></closed-claims-panel>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
-                                        </div>
-                                    </div>
-
-                                    <div ng-if="w.id === 'AssignedPanelInstance' ">
-                                        <assigned-claims-panel></assigned-claims-panel>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
-                                        </div>
-                                    </div>
-
-
-                                    <div ng-if="w.id === 'FlaggedPanelInstance' ">
-                                        <flagged-claims-panel></flagged-claims-panel>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
-                                        </div>
-                                    </div>
-
-
-                                    <div ng-if="w.id === 'OpenClaimsGridInstance' ">
-                                        <open-claims-grid id={{w.id}}></open-claims-grid>
-                                        <div>
-                                            <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" >Remove</a>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            
+                        <dashboard-config></dashboard-config>
+</div>
             </div>
         </div>
     </div>

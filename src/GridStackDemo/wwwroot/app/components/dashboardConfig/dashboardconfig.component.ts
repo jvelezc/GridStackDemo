@@ -1,0 +1,218 @@
+﻿/// <reference path="../../../../typings/index.d.ts" />
+import * as $ from 'jquery';
+import * as _ from "underscore";
+import {Widget} from "../../viewmodels/Widget";
+import {WidgetLookUp} from "../../viewmodels/WidgetLookUp";
+import {StrategyContext} from "../../common/StrategyContext";
+import {ChartDisplayStrategy} from "../kendolinechart/ChartDisplayStrategy";
+import {GaugeDisplayStrategy} from "../kendogauge/GaugeDisplayStrategy";
+interface IFlaggedClaimsComponentController {
+    AddClaimsChartWidget(): void;
+    AddRadialGaugeWidget(): void;
+    AddActivityGridWidget(): void;
+    AddReOpenedPanelWidget(): void;
+    AddAssignedPanelWidget(): void;
+    AddOpenClaimsGridWidget(): void;
+    RemoveWidget(w: Widget): void;
+    OnChange(event, items): void;
+    OnDragStart(event, ui): void;
+    OnDragStop(event, ui): void;
+    OnResizeStart(event, ui): void;
+    OnResizeStop(event, ui): void;
+    OnItemAdded(item): void;
+    OnItemRemoved(item): void;
+    $: ng.IAugmentedJQueryStatic;
+}
+class DashboardConfigComponentController implements IFlaggedClaimsComponentController {
+    public $ = angular.element;
+    public Gridstacker: any;//gridstack handler
+    public MyDashBoardClaimsChartInstance: kendo.dataviz.ui.Chart;
+    public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge;
+    public RadialGaugeSelectedNumber = 10;
+    public StrategyContext = new StrategyContext();
+    public ActivityGridInstance: kendo.ui.Grid;
+    public ActivityGridOptions: kendo.ui.GridOptions;
+    public ClaimsData: kendo.data.DataSource;
+    public Options: {};
+    public Widgets: Array<Widget>;
+    constructor(private $http) {
+    }
+    // coding practices state that we should use init and not the constructor to initialize data. 
+    $onInit() {
+        console.log("init"); 
+         this.Widgets = [
+        //{ id: WidgetLookUp.radialGauge, x: 0, y: 0, width: 1, height: 1 },
+        //{ id: WidgetLookUp.myDashBoardClaimsChart, x: 0, y: 0, width: 3, height: 1 }
+         ];
+
+        this.ActivityGridOptions =
+            {
+                dataSource: {
+                    transport: {
+                        read: "/app/dashboard/ActivityGridFakeData.json",
+                        dataType: "json"
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                ClaimNumber: { type: "string" },
+                                Subject: { type: "string" },
+                                Priority: { type: "string" },
+                                Due: { type: "date" },
+                            }
+                        }
+                    },
+                    pagesize: 20
+                },
+
+                sortable: true,
+                columns: [
+                    { field: "ClaimNumber" },
+                    { field: "Subject" },
+                    { field: "Priority" },
+                    { field: "Due", format: "{0:MM-dd-yyyy}" },
+
+                ]
+            }
+        this.ClaimsData = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "/app/dashboard/GraphFakeData.json",
+                    dataType: "json"
+                }
+            },
+            sort: {
+                field: "year",
+                dir: "asc"
+            }
+        });
+        //these are gridstack options specifically the handle and whether it appears by default in the following devices. 
+        this.Options = {
+            cellHeight: 150,
+            verticalMargin: 15,
+            alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        };
+
+    }
+    public AddRadialGaugeWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.RadialGaugeInstance).length) {
+            let newWidget = { id: WidgetLookUp.RadialGaugeInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    public AddClaimsChartWidget(): void {
+        //Business rule do not create two widgets that are the same.  
+        if (!this.$("#" + WidgetLookUp.MyDashBoardClaimsChartInstance).length) {
+            let newWidget = { id: WidgetLookUp.MyDashBoardClaimsChartInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+    public AddActivityGridWidget(): void {
+        //Business rule do not create two widgets that are the same.  
+        if (!this.$("#" + WidgetLookUp.ActivityGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.ActivityGridInstance, x: 0, y: 0, width: 10, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+
+    public AddOpenedPanelWidget(): void {
+        if (!this.$("#" + WidgetLookUp.OpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+    public AddReOpenedPanelWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.ReOpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ReOpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+
+    public AddClosedPanelWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.ClosedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.ClosedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+    public AddAssignedPanelWidget(): void {
+
+        if (!this.$("#" + WidgetLookUp.AssignedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.AssignedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+
+    public AddFlaggedPanelWidget(): void {
+        console.log("debug");
+        if (!this.$("#" + WidgetLookUp.FlaggedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.FlaggedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+    public AddOpenClaimsGridWidget(): void {
+        if (!this.$("#" + WidgetLookUp.OpenClaimsGridInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenClaimsGridInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
+    public RemoveWidget(w: Widget): void {
+        let index = this.Widgets.indexOf(w);
+        this.Widgets.splice(index, 1);
+    }
+
+    //Tracking of the events for each widget...
+    public OnChange(event, items): void {
+
+
+    };
+    public OnDragStart(event, ui): void {
+
+    };
+    public OnDragStop(event, ui): void {
+
+    }
+    public OnResizeStart(event, ui): void {
+
+    }
+
+    public OnResizeStop(event, ui): void {
+        let item = ui.element.data('_gridstack_node');
+        if (item) {
+            if (item.id === WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy());
+                this.StrategyContext.Display(item, this.MyDashBoardClaimsChartInstance);
+            }
+            else if (item.id === WidgetLookUp.RadialGaugeInstance) {
+                this.StrategyContext.setWidgetStrategy(new GaugeDisplayStrategy());
+                this.StrategyContext.Display(item, this.RadialGaugeInstance);
+            }
+
+        }
+    };
+    public OnItemAdded(item): void {
+
+    };
+    public OnItemRemoved(item): void {
+
+    };
+
+
+
+}
+export class DashboardConfigComponent implements ng.IComponentOptions {
+    templateUrl = "/app/components/dashboardconfig/dashboardconfig.component.html";
+    controllerAs = "Vm";
+    constructor() {
+    }
+    controller = ["$http", DashboardConfigComponentController];
+}

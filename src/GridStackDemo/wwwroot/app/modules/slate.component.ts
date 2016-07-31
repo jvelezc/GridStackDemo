@@ -1,13 +1,14 @@
 ﻿/// <reference path="../../../typings/index.d.ts" />
 import {names} from '../angular.global';
-import {ReOpenedClaimsComponent} from '../components/reopenedclaims/reOpenedClaims.component';
-import {OpenedClaimsComponent} from '../components/openclaims/OpenedClaims.component';
+import {ReOpenedClaimsComponent} from '../components/reopenedclaims/reopenedclaims.component';
+import {OpenedClaimsComponent} from '../components/openclaims/openedclaims.component';
 import {TransferredClaimsComponent} from "../components/transferredclaims/transferredclaims.component";
-import {ClosedClaimsComponent} from "../components/closedclaims/closedClaims.component";
+import {ClosedClaimsComponent} from "../components/closedclaims/closedclaims.component";
 import {AssignedClaimsComponent} from "../components/assigned/assignedclaims.component";
-import {FlaggedClaimsComponent} from "../components/flaggedclaims/flaggedClaims.component";
+import {FlaggedClaimsComponent} from "../components/flaggedclaims/flaggedclaims.component";
 import {OpenClaimsGridComponent} from "../components/openclaimsgrid/openclaimsgrid.component";
 import {ActivityGridComponent} from "../components/activityGrid/activitygrid.component";
+import {DashboardConfigComponent} from "../components/dashboardconfig/dashboardconfig.component";
 angular.module(names.Modules.components, []);
 
 angular
@@ -29,5 +30,7 @@ angular
 
      //<activity-grid id=""></activity-grid>
     .component(names.Components.activityGrid, new ActivityGridComponent())
+    //<dashboard-config></dashboard-config>
+    .component(names.Components.dashboardConfig, new DashboardConfigComponent())
     ;
   
