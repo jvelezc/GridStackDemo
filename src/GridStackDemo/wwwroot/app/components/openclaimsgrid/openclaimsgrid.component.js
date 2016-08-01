@@ -21,7 +21,7 @@ System.register([], function(exports_1, context_1) {
                                 model: {
                                     fields: {
                                         Claim: { type: "string" },
-                                        Policy: { type: "string" },
+                                        Subject: { type: "string" },
                                         Insured: { type: "string" },
                                         DateOpened: { type: "date" },
                                     }

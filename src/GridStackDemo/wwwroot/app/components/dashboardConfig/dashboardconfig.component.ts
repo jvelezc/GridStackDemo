@@ -144,7 +144,9 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
     public OnResizeStop(event, ui): void {
         let item = ui.element.data('_gridstack_node');
         if (item) {
+            console.log(item); 
             if (item.id === WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                console.log("i am executing the correct strategy"); 
                 this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy());
                 this.StrategyContext.Display(item);
             }

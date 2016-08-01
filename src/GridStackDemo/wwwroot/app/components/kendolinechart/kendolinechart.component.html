@@ -1,11 +1,7 @@
-﻿<div id="{{Vm.key}}" kendo-chart="vm.MyDashBoardClaimsChartInstance"
+﻿<div id="{{Vm.key}}" kendo-chart=Vm.MyDashBoardClaimsChartInstance
      k-legend="{ position: 'bottom' }"
      k-series-defaults="{ type: 'line' }"
-     k-series="[
-                 { field: 'nuclear', name: 'Nuclear electricity' },
-                 { field: 'hydro', name: 'Hydro electricity' },
-                 { field: 'wind', name: 'Wind electricity' }
-                             ]"
-     k-data-source="Vm.ClaimsData"
+     k-series = Vm.Series
+     k-data-source = Vm.ClaimsData
      style="height: 250px;">
 </div>

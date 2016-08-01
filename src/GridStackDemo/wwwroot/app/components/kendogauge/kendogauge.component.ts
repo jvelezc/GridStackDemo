@@ -4,8 +4,8 @@
 class KendoGaugeController implements IKendoGaugeComponent {
     public RadialGaugeSelectedNumber: number;
     public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge;
-    
     $onInit() {
+        
         this.RadialGaugeSelectedNumber = 10; 
     }
 }
@@ -16,7 +16,7 @@ export class KendoGaugeComponent implements ng.IComponentOptions
     bindings: any;
     constructor() {
         this.bindings = {
-            id: "@",
+            key: "@",
         };
     }
     controller = ["$http", KendoGaugeController];

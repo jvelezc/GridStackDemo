@@ -12,6 +12,7 @@ System.register([], function(exports_1, context_1) {
                     // So kendo defines width and height differently... so I had to resort to this hack 
                     // Get the container width and height and then resize kendo area to macth it. 
                     //no point in going any further is I dont have the pre-reqs
+                    console.log(widget);
                     if (widget) {
                         //This dimension were 100% subjective LOL it basically the conversion of what gridstack considers a 1 to what browsers considers 1px;
                         let height = widget.height * 120;

@@ -1,13 +1,13 @@
 ﻿[
   {
     "Claim": "CFL 12345",
-    "Policy": "Reserve Increase Approval",
+    "Subject": "Reserve Increase Approval",
     "Insured": "High",
     "DateOpened": "01/02/2016"
   },
   {
     "Claim": "CFL 18742329",
-    "Policy": "Reserve Increase Approval",
+    "Subject": "Reserve Increase Approval",
     "Insured": "High",
     "DateOpened": "02/02/2016"
   }

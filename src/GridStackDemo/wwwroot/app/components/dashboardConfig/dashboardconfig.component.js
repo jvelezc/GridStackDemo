@@ -110,7 +110,9 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                 OnResizeStop(event, ui) {
                     let item = ui.element.data('_gridstack_node');
                     if (item) {
+                        console.log(item);
                         if (item.id === WidgetLookUp_1.WidgetLookUp.MyDashBoardClaimsChartInstance) {
+                            console.log("i am executing the correct strategy");
                             this.StrategyContext.setWidgetStrategy(new ChartDisplayStrategy_1.ChartDisplayStrategy());
                             this.StrategyContext.Display(item);
                         }

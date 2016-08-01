@@ -16,7 +16,7 @@ class OpenClaimsGridComponentController implements IOpenClaimsGridComponentContr
                     model: {
                         fields: {
                             Claim: { type: "string" },
-                            Policy: { type: "string" },
+                            Subject: { type: "string" },
                             Insured: { type: "string" },
                             DateOpened: { type: "date" },
                         }
