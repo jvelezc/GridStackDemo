@@ -1,5 +1,17 @@
 /// <reference path="../../../typings/index.d.ts" />
-import { names } from "../angular.global";
-angular.module("third.party.modules", [
-    names.ModulesExternal.GRISTACKANGULAR,
-    names.ModulesExternal.KENDO_DIRECTIVES]);
+System.register(["../angular.global"], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var angular_global_1;
+    return {
+        setters:[
+            function (angular_global_1_1) {
+                angular_global_1 = angular_global_1_1;
+            }],
+        execute: function() {
+            angular.module("third.party.modules", [
+                angular_global_1.names.ModulesExternal.GRISTACKANGULAR,
+                angular_global_1.names.ModulesExternal.KENDO_DIRECTIVES]);
+        }
+    }
+});

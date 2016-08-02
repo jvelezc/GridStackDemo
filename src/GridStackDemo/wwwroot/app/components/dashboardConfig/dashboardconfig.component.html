@@ -1,28 +1,22 @@
 ﻿<div ng-cloak>
-
     <section>
         <h1>This section is for troubleshooting and testing</h1>
         <pre>{{Vm.Widgets}}</pre>
-
-
         <nav id="dashBoarbMenu" class="clearfix">
             <ul>
+                <li ng-click="Vm.AddTimelineWidget()">Add Timeline Widget |</li>
+                <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
                 <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
                 <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
                 <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
                 <li ng-click="Vm.AddOpenedPanelWidget()">Open Claims | </li>
                 <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
                 <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
-                <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
                 <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
                 <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
             </ul>
         </nav>
-
     </section>
-
-
-
 
     <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
          options="Vm.Options"
@@ -46,22 +40,33 @@
 
 
             <div class="grid-stack-item-content">
-                <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-                    <kendo-line-chart key ="{{w.id}}"></kendo-line-chart>
+                <div ng-if="w.id === 'TimelineFilterInstance'">
+                    <div class='row show-grid'>
+
+                        <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div> 
+                        <div ng-click="Vm.SetWeekAsActiveFilter()"  class="col-md-3" id="vrxDashBoardWeek">Week </div>
+                        <div ng-click="Vm.SetMonthAsActiveFilter()"  class="col-md-3" id="vrxDashBoardMonth">Month</div>
+                        <div ng-click="Vm.SetYearAsActiveFilter()"  class="col-md-3" id="vrxDashBoardYear">Year</div>
+                    </div>
+
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
-
                 </div>
 
-
-
-                <div ng-if="w.id === 'RadialGaugeInstance' ">
-                    <kendo-gauge key="{{w.id}}"></kendo-gauge>
+                <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
+               
+                    <kendo-line-chart key ={{w.id}}></kendo-line-chart>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
+                </div>
 
+                <div ng-if="w.id === 'RadialGaugeInstance' ">
+                    <kendo-gauge key={{w.id}}></kendo-gauge>
+                    <div>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                    </div>
                 </div>
 
                 <div ng-if="w.id === 'ActivityGridInstance' ">
@@ -72,7 +77,7 @@
                 </div>
 
                 <div ng-if="w.id === 'OpenedPanelInstance' ">
-                    <opened-claims-panel key ="{{w.id}}"></opened-claims-panel>
+                    <opened-claims-panel key ={{w.id}}></opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
                     </div>
@@ -80,21 +85,21 @@
 
 
                 <div ng-if="w.id === 'ReOpenedPanelInstance' ">
-                    <re-opened-claims-panel key ="{{w.id}}"></re-opened-claims-panel>
+                    <re-opened-claims-panel key ={{w.id}}></re-opened-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'ClosedPanelInstance' ">
-                    <closed-claims-panel key ="{{w.id}}"></closed-claims-panel>
+                    <closed-claims-panel key ={{w.id}}></closed-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
                 </div>
 
                 <div ng-if="w.id === 'AssignedPanelInstance' ">
-                    <assigned-claims-panel key ="{{w.id}}"></assigned-claims-panel>
+                    <assigned-claims-panel key ="{{w.id}}" time ="Vm.FilterState"></assigned-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
@@ -102,7 +107,7 @@
 
 
                 <div ng-if="w.id === 'FlaggedPanelInstance' ">
-                    <flagged-claims-panel key ="{{w.id}}"></flagged-claims-panel>
+                    <flagged-claims-panel key ={{w.id}}></flagged-claims-panel>
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>

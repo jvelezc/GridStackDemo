@@ -1,7 +1,7 @@
-System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext", "../kendolinechart/ChartDisplayStrategy", "../kendogauge/GaugeDisplayStrategy"], function(exports_1, context_1) {
+System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext", "../kendolinechart/ChartDisplayStrategy", "../kendogauge/GaugeDisplayStrategy", "../../viewmodels/DashboardTimelineFilterStates"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var WidgetLookUp_1, StrategyContext_1, ChartDisplayStrategy_1, GaugeDisplayStrategy_1;
+    var WidgetLookUp_1, StrategyContext_1, ChartDisplayStrategy_1, GaugeDisplayStrategy_1, DashboardTimelineFilterStates_1;
     var DashboardConfigComponentController, DashboardConfigComponent;
     return {
         setters:[
@@ -16,6 +16,9 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
             },
             function (GaugeDisplayStrategy_1_1) {
                 GaugeDisplayStrategy_1 = GaugeDisplayStrategy_1_1;
+            },
+            function (DashboardTimelineFilterStates_1_1) {
+                DashboardTimelineFilterStates_1 = DashboardTimelineFilterStates_1_1;
             }],
         execute: function() {
             class DashboardConfigComponentController {
@@ -24,6 +27,7 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                     this.$ = angular.element;
                     this.RadialGaugeSelectedNumber = 10;
                     this.StrategyContext = new StrategyContext_1.StrategyContext();
+                    this.FilterState = "Today";
                 }
                 // coding practices state that we should use init and not the constructor to initialize data. 
                 $onInit() {
@@ -34,6 +38,28 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                         verticalMargin: 15,
                         alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
                     };
+                }
+                SetTodayAsActiveFilter() {
+                    console.log(this.FilterState);
+                    this.FilterState = DashboardTimelineFilterStates_1.DashBoardTimelineFilterState.Today;
+                }
+                SetWeekAsActiveFilter() {
+                    this.FilterState = DashboardTimelineFilterStates_1.DashBoardTimelineFilterState.Week;
+                    console.log(this.FilterState);
+                }
+                SetMonthAsActiveFilter() {
+                    this.FilterState = DashboardTimelineFilterStates_1.DashBoardTimelineFilterState.Month;
+                    console.log(this.FilterState);
+                }
+                SetYearAsActiveFilter() {
+                    this.FilterState = DashboardTimelineFilterStates_1.DashBoardTimelineFilterState.Year;
+                    console.log(this.FilterState);
+                }
+                AddTimelineWidget() {
+                    if (!this.$("#" + WidgetLookUp_1.WidgetLookUp.TimelineFilterInstance).length) {
+                        let newWidget = { id: WidgetLookUp_1.WidgetLookUp.TimelineFilterInstance, x: 2, y: 2, width: 5, height: 2 };
+                        this.Widgets.push(newWidget);
+                    }
                 }
                 AddRadialGaugeWidget() {
                     if (!this.$("#" + WidgetLookUp_1.WidgetLookUp.RadialGaugeInstance).length) {

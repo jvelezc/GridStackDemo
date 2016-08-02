@@ -1,7 +1,8 @@
-﻿<div class="ibox float-e-margins" id="{{Vm.key}}">
+﻿<div class="ibox float-e-margins" id="{{Vm.key}}" >
+    <input type="hidden" ng-model="Vm.time" ng-change="OnChange(Vm.time)" />
          <div class="ibox-title">
         <span class="label label-success pull-right">Tuesday</span>
-        <h5>Assigned Claims</h5>
+        <h5>Assigned Claims  {{Vm}}</h5>
     </div>
     <div class="ibox-content">
         <h1 class="no-margins"><span>200</span></h1>
@@ -9,3 +10,5 @@
         <small>Since last Week: </small>
     </div>
 </div>
+
+

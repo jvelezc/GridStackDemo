@@ -3,9 +3,11 @@ interface IClosedClaimsComponentController {
 }
 class ClosedClaimsComponentController implements IClosedClaimsComponentController {
 
+    
     constructor(private $http) {
     }
     $onInit() {
+
     }
 }
 export class ClosedClaimsComponent implements ng.IComponentOptions {

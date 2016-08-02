@@ -16,6 +16,7 @@ System.register([], function(exports_1, context_1) {
             WidgetLookUp.AssignedPanelInstance = "AssignedPanelInstance";
             WidgetLookUp.FlaggedPanelInstance = "FlaggedPanelInstance";
             WidgetLookUp.OpenClaimsGridInstance = "OpenClaimsGridInstance";
+            WidgetLookUp.TimelineFilterInstance = "TimelineFilterInstance";
             exports_1("WidgetLookUp", WidgetLookUp);
         }
     }

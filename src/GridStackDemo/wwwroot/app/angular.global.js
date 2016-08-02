@@ -56,7 +56,9 @@ System.register([], function(exports_1, context_1) {
                 ;
                 class Components {
                 }
-                //<opened-Claims-Panel></open-Claims-Panel>
+                //the pattern is to hyphenate camelcase
+                //for example openedClaimsPanel  would be used in the html as
+                //<opened-claims-panel> </open-claims-panel>
                 Components.reOpenedClaimsPanel = "reOpenedClaimsPanel";
                 Components.openClaimsPanel = "openedClaimsPanel";
                 Components.closedClaimsPanel = "closedClaimsPanel";
@@ -68,6 +70,9 @@ System.register([], function(exports_1, context_1) {
                 Components.dashboardConfig = "dashboardConfig";
                 Components.kendoLineChart = "kendoLineChart";
                 Components.kendoGauge = "kendoGauge";
+                Components.filterTimeline = "filterTimeline";
+                Components.claimsProgressBar = "claimsProgressBar";
+                Components.serverStatus = "serverStatus";
                 names.Components = Components;
                 class Controllers {
                 }

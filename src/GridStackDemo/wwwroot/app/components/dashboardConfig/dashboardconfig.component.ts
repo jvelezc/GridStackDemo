@@ -6,6 +6,8 @@ import {WidgetLookUp} from "../../viewmodels/WidgetLookUp";
 import {StrategyContext} from "../../common/StrategyContext";
 import {ChartDisplayStrategy} from "../kendolinechart/ChartDisplayStrategy";
 import {GaugeDisplayStrategy} from "../kendogauge/GaugeDisplayStrategy";
+import {DashBoardTimelineFilterState} from  "../../viewmodels/DashboardTimelineFilterStates";
+
 interface IFlaggedClaimsComponentController {
     AddClaimsChartWidget(): void;
     AddRadialGaugeWidget(): void;
@@ -13,6 +15,11 @@ interface IFlaggedClaimsComponentController {
     AddReOpenedPanelWidget(): void;
     AddAssignedPanelWidget(): void;
     AddOpenClaimsGridWidget(): void;
+    AddTimelineWidget(): void;
+    SetTodayAsActiveFilter(): void;
+    SetWeekAsActiveFilter(): void;
+    SetMonthAsActiveFilter(): void;
+    SetYearAsActiveFilter(): void;
     RemoveWidget(w: Widget): void;
     OnChange(event, items): void;
     OnDragStart(event, ui): void;
@@ -26,12 +33,12 @@ interface IFlaggedClaimsComponentController {
 class DashboardConfigComponentController implements IFlaggedClaimsComponentController {
     public $ = angular.element;
     public Gridstacker: any;//gridstack handler
-
     public RadialGaugeInstance: kendo.dataviz.ui.RadialGauge;
     public RadialGaugeSelectedNumber = 10;
     public StrategyContext = new StrategyContext();
     public Options: {};
     public Widgets: Array<Widget>;
+    private FilterState: string = "Today"; 
     constructor(private $http) {
     }
     // coding practices state that we should use init and not the constructor to initialize data. 
@@ -49,6 +56,35 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
             alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
         };
 
+    }
+
+    public SetTodayAsActiveFilter() {
+  
+        console.log(this.FilterState); 
+        this.FilterState = DashBoardTimelineFilterState.Today;
+    }
+    public SetWeekAsActiveFilter() {
+       
+
+        this.FilterState = DashBoardTimelineFilterState.Week;
+        console.log(this.FilterState); 
+    }
+    public SetMonthAsActiveFilter() {
+
+        this.FilterState = DashBoardTimelineFilterState.Month;
+        console.log(this.FilterState); 
+    }
+    public SetYearAsActiveFilter() {
+       
+        this.FilterState = DashBoardTimelineFilterState.Year; 
+        console.log(this.FilterState); 
+    }
+
+    public AddTimelineWidget(): void {
+        if (!this.$("#" + WidgetLookUp.TimelineFilterInstance).length) {
+            let newWidget = { id: WidgetLookUp.TimelineFilterInstance, x: 2, y: 2, width: 5, height: 2 };
+            this.Widgets.push(newWidget);
+        }
     }
     public AddRadialGaugeWidget(): void {
 

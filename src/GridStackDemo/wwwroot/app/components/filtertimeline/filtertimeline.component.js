@@ -1,33 +1,29 @@
 System.register([], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var FlaggedClaimsComponentController, FlaggedClaimsComponent;
+    var FilterTimelineComponentController, FilterTimelineComponent;
     return {
         setters:[],
         execute: function() {
             /// <reference path="../../../../typings/index.d.ts" />
-            class FlaggedClaimsComponentController {
+            class FilterTimelineComponentController {
                 constructor($http) {
                     this.$http = $http;
                 }
                 $onInit() {
                 }
-                $onChanges(changeObj) {
-                    console.log(changeObj);
-                    console.log("any changes");
-                }
             }
-            class FlaggedClaimsComponent {
+            class FilterTimelineComponent {
                 constructor() {
-                    this.templateUrl = "/app/components/flaggedclaims/flaggedClaims.component.html";
+                    this.templateUrl = "/app/components/filtertimeline/filtertimeline.component.html";
                     this.controllerAs = "Vm";
-                    this.controller = ["$http", FlaggedClaimsComponentController];
+                    this.controller = ["$http", FilterTimelineComponent];
                     this.bindings = {
                         key: "@",
                     };
                 }
             }
-            exports_1("FlaggedClaimsComponent", FlaggedClaimsComponent);
+            exports_1("FilterTimelineComponent", FilterTimelineComponent);
         }
     }
 });

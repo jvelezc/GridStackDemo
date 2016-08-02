@@ -8,6 +8,11 @@ class FlaggedClaimsComponentController implements IFlaggedClaimsComponentControl
     
     $onInit() {
     }
+    $onChanges(changeObj)
+    {
+        console.log(changeObj); 
+        console.log("any changes"); 
+    }
 }
 export class FlaggedClaimsComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/flaggedclaims/flaggedClaims.component.html";

@@ -12,6 +12,13 @@ System.register([], function(exports_1, context_1) {
                 }
                 $onInit() {
                 }
+                $onChanges(changeObj) {
+                    console.log(changeObj);
+                }
+                OnChange(time) {
+                    console.log("time changed");
+                    console.log(time);
+                }
             }
             class AssignedClaimsComponent {
                 constructor() {
@@ -20,6 +27,7 @@ System.register([], function(exports_1, context_1) {
                     this.controller = ["$http", AssignedClaimsComponentController];
                     this.bindings = {
                         key: "@",
+                        time: "="
                     };
                 }
             }

@@ -45,7 +45,9 @@ export module names {
 
     };
     export class Components {
-        //<opened-Claims-Panel></open-Claims-Panel>
+        //the pattern is to hyphenate camelcase
+        //for example openedClaimsPanel  would be used in the html as
+        //<opened-claims-panel> </open-claims-panel>
         public static reOpenedClaimsPanel = "reOpenedClaimsPanel";
         public static openClaimsPanel = "openedClaimsPanel";
         public static closedClaimsPanel = "closedClaimsPanel";
@@ -57,6 +59,9 @@ export module names {
         public static dashboardConfig = "dashboardConfig";
         public static kendoLineChart = "kendoLineChart";
         public static kendoGauge = "kendoGauge";
+        public static filterTimeline = "filterTimeline";
+        public static claimsProgressBar = "claimsProgressBar";
+        public static serverStatus = "serverStatus";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

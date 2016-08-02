@@ -11,6 +11,9 @@ import {ActivityGridComponent} from "../components/activityGrid/activitygrid.com
 import {DashboardConfigComponent} from "../components/dashboardconfig/dashboardconfig.component";
 import {KendoLineChartComponentComponent} from "../components/kendolinechart/kendolinechart.component";
 import {KendoGaugeComponent} from "../components/kendogauge/kendogauge.component";
+import {FilterTimelineComponent} from "../components/filtertimeline/filtertimeline.component";
+import {ClaimProgressComponent} from "../components/claimsprogress/claimprogress.component";
+import {ServerStatusComponent} from "../components/serverstatus/serverstatus.component";
 angular.module(names.Modules.components, []);
 
 angular
@@ -24,7 +27,7 @@ angular
     //<closed-claims-panel key=primarykey ></closed-claims-panel>
     .component(names.Components.closedClaimsPanel, new ClosedClaimsComponent())
     //<assigned-claims-panel key=primarykey> </assigned-claims-panel>
-    .component(names.Components.assignedClaimsPanel, new ClosedClaimsComponent())
+    .component(names.Components.assignedClaimsPanel, new AssignedClaimsComponent())
     //<flagged-claims-panel key=primarykey></flagged-claims-panel>
     .component(names.Components.flaggedClaimsPanel, new FlaggedClaimsComponent())
     //<open-claims-grid key=primarykey></open-claims-grid>
@@ -37,5 +40,11 @@ angular
     .component(names.Components.kendoLineChart, new KendoLineChartComponentComponent())
     //<kendo-gauge key="primarykey"</kendo-gauge/>
     .component(names.Components.kendoGauge, new KendoGaugeComponent())
+    //<filter-timeline></filter-timeline>
+    .component(names.Components.filterTimeline, new FilterTimelineComponent())
+    //<claims-progress-bar></claims-progress-bar>
+    .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
+
+    .component(names.Components.serverStatus, new ServerStatusComponent())
     ;
   
