@@ -53,8 +53,9 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
         
         //these are gridstack options specifically the handle and whether it appears by default in the following devices. 
         this.Options = {
-            cellHeight: 150,
-            verticalMargin: 15,
+            cellHeight: 100,
+            verticalMargin: 5,
+            
             alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
         };
 
