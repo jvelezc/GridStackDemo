@@ -1,126 +1,260 @@
-﻿<div ng-cloak>
-    <section>
-        <h1>This section is for troubleshooting and testing</h1>
-        <pre>{{Vm.Widgets}}</pre>
-        <nav id="dashBoarbMenu" class="clearfix">
-            <ul>
-                <li ng-click="Vm.AddTimelineWidget()">Add Timeline Widget |</li>
-                <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
-                <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
-                <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
-                <li ng-click="Vm.AddActivityGridWidget()">Add Activity Grid |</li>
-                <li ng-click="Vm.AddOpenedPanelWidget()">Open Claims | </li>
-                <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
-                <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
-                <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
-                <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
-            </ul>
+﻿
+<div ng-cloak>
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img alt="image" class="img-circle" src="/Images/profile_small.jpg" />
+                            </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold">UserNameHere</strong>
+
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            VRX
+                        </div>
+                    </li>
+
+                  
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-tachometer" aria-hidden="true"></i>
+                         
+                            <span class="nav-label" style="display:inline-block;" ng-click="Vm.AddActivityGridWidget()">Add Activity Grid </span>
+                            <span class="pull-right" style="font-size:16px" ng-click="Vm.RemoveWidgetFromSideBar(Vm.WidgetLookUpName.ActivityGridInstance)">&times;</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel</span>
+                            <span class="pull-right" style="font-size:16px" ng-click="Vm.RemoveWidgetFromSideBar(Vm.WidgetLookUpName.AssignedPanelInstance)">&times;</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddFlaggedPanel">Add Flagged Panel </span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveFlaggedPanel">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddAssignedPanel">Add Assigned Panel </span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveAssignedPanel">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddReOpenedPanel">Add Re-opened Panel </span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveReopenedPanel">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddTransferPanel">Add Transferred Panel </span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveTransferPanel">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddClosedPanel">Add Closed Panel </span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveClosedPanel">&times;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddKendoChart">Add Kendo Chart</span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveKendoChart">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-th" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddKendoActivityGridWidget">Add Activities Grid</span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveKendoActivityGridWidget">&times;</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a>
+                            <i class="fa fa-th" aria-hidden="true"></i>
+                            <span class="nav-label" style="display:inline-block;" id="vrxAddKendoClaimsGridWidget">Add Claims Grid</span>
+                            <span class="pull-right" style="font-size:16px" id="vrxRemoveKendoClaimsGridWidget">&times;</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <button class="btn btn-sm btn-primary" style="width:100%;" id="vrxSaveRoleGrid">Save</button>
+            </div>
         </nav>
-    </section>
 
-    <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
-         options="Vm.Options"
-         on-change="Vm.OnChange(event,items)"
-         on-drag-start="Vm.OnDragStart(event,ui)"
-         on-drag-stop="Vm.OnDragStop(event, ui)"
-         on-resize-start="Vm.OnResizeStart(event, ui)"
-         on-resize-stop="Vm.OnResizeStop(event, ui)">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>DashBoard</h2>
+                    <ol class="breadcrumb">
+                        <li class="active">
+                            <strong><a asp-action="Index" asp-controller="Home">Home</a></strong>
+                        </li>
 
-        <div gridstack-item ng-repeat="w in Vm.Widgets"
-             class="grid-stack-item"
-             gs-item-id="w.id"
-             gs-item-x="w.x"
-             gs-item-y="w.y"
-             gs-item-width="w.width"
-             gs-item-height="w.height"
-             gs-item-autopos="1"
-             on-item-added="Vm.OnItemAdded(item)"
-             on-item-removed="Vm.OnItemRemoved(item)">
+                    </ol>
+                </div>
+            </div>
+            <section>
+                <h1>This section is for troubleshooting and testing</h1>
+                <pre>{{Vm.Widgets}}</pre>
+                <nav id="dashBoarbMenu" class="clearfix">
+                    <ul>
+                        <li ng-click="Vm.AddTimelineWidget()">Add Timeline Widget |</li>
+                        <li ng-click="Vm.AddAssignedPanelWidget()">Add Assigned Panel |</li>
+                        <li ng-click="Vm.AddClaimsChartWidget()">Add Chart Widget |</li>
+                        <li ng-click="Vm.AddRadialGaugeWidget()">Add Radial Gauge |</li>
+                      
+                        <li ng-click="Vm.AddOpenedPanelWidget()">Open Claims | </li>
+                        <li ng-click="Vm.AddReOpenedPanelWidget()">Add ReOpened Panel |</li>
+                        <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
+                        <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
+                        <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
+                    </ul>
+                </nav>
+            </section>
+
+            <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
+                 options="Vm.Options"
+                 on-change="Vm.OnChange(event,items)"
+                 on-drag-start="Vm.OnDragStart(event,ui)"
+                 on-drag-stop="Vm.OnDragStop(event, ui)"
+                 on-resize-start="Vm.OnResizeStart(event, ui)"
+                 on-resize-stop="Vm.OnResizeStop(event, ui)">
+
+                <div gridstack-item ng-repeat="w in Vm.Widgets"
+                     class="grid-stack-item"
+                     gs-item-id="w.id"
+                     gs-item-x="w.x"
+                     gs-item-y="w.y"
+                     gs-item-width="w.width"
+                     gs-item-height="w.height"
+                     gs-item-autopos="1"
+                     on-item-added="Vm.OnItemAdded(item)"
+                     on-item-removed="Vm.OnItemRemoved(item)">
 
 
 
-            <div class="grid-stack-item-content">
-                <div ng-if="w.id === 'TimelineFilterInstance'">
-                    <div class='row show-grid'>
+                    <div class="grid-stack-item-content">
+                        <div ng-if="w.id === Vm.WidgetLookUpName.TimelineFilterInstance">
+                            <div class='row show-grid'>
 
-                        <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div> 
-                        <div ng-click="Vm.SetWeekAsActiveFilter()"  class="col-md-3" id="vrxDashBoardWeek">Week </div>
-                        <div ng-click="Vm.SetMonthAsActiveFilter()"  class="col-md-3" id="vrxDashBoardMonth">Month</div>
-                        <div ng-click="Vm.SetYearAsActiveFilter()"  class="col-md-3" id="vrxDashBoardYear">Year</div>
-                    </div>
+                                <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div>
+                                <div ng-click="Vm.SetWeekAsActiveFilter()" class="col-md-3" id="vrxDashBoardWeek">Week </div>
+                                <div ng-click="Vm.SetMonthAsActiveFilter()" class="col-md-3" id="vrxDashBoardMonth">Month</div>
+                                <div ng-click="Vm.SetYearAsActiveFilter()" class="col-md-3" id="vrxDashBoardYear">Year</div>
+                            </div>
 
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.MyDashBoardClaimsChartInstance">
+
+                            <kendo-line-chart key={{w.id}}></kendo-line-chart>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.RadialGaugeInstance">
+                            <kendo-gauge key={{w.id}}></kendo-gauge>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.ActivityGridInstance">
+                            <activity-grid key={{w.id}}></activity-grid>
+                            <div>
+                                <a class="btn btn-primary"  ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.OpenedPanelInstance">
+                            <opened-claims-panel key={{w.id}}></opened-claims-panel>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
+                            </div>
+                        </div>
+
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.ReOpenedPanelInstance">
+                            <re-opened-claims-panel key={{w.id}}></re-opened-claims-panel>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.ClosedPanelInstance">
+                            <closed-claims-panel key={{w.id}}></closed-claims-panel>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.AssignedPanelInstance">
+                            <assigned-claims-panel key="{{w.id}}" time="Vm.FilterState"></assigned-claims-panel>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.FlaggedPanelInstance">
+                            <flagged-claims-panel key={{w.id}}></flagged-claims-panel>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
+
+                        <div ng-if="w.id === Vm.WidgetLookUpName.OpenClaimsGridInstance">
+                            <open-claims-grid key={{w.id}}></open-claims-grid>
+                            <div>
+                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-                <div ng-if="w.id === 'MyDashBoardClaimsChartInstance' ">
-               
-                    <kendo-line-chart key ={{w.id}}></kendo-line-chart>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-                <div ng-if="w.id === 'RadialGaugeInstance' ">
-                    <kendo-gauge key={{w.id}}></kendo-gauge>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-                <div ng-if="w.id === 'ActivityGridInstance' ">
-                    <activity-grid key ={{w.id}}></activity-grid>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-                <div ng-if="w.id === 'OpenedPanelInstance' ">
-                    <opened-claims-panel key ={{w.id}}></opened-claims-panel>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)" href="#">Remove</a>
-                    </div>
-                </div>
-
-
-                <div ng-if="w.id === 'ReOpenedPanelInstance' ">
-                    <re-opened-claims-panel key ={{w.id}}></re-opened-claims-panel>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-                <div ng-if="w.id === 'ClosedPanelInstance' ">
-                    <closed-claims-panel key ={{w.id}}></closed-claims-panel>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-                <div ng-if="w.id === 'AssignedPanelInstance' ">
-                    <assigned-claims-panel key ="{{w.id}}" time ="Vm.FilterState"></assigned-claims-panel>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-
-                <div ng-if="w.id === 'FlaggedPanelInstance' ">
-                    <flagged-claims-panel key ={{w.id}}></flagged-claims-panel>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
-
-                <div ng-if="w.id === 'OpenClaimsGridInstance' ">
-                    <open-claims-grid key ={{w.id}}></open-claims-grid>
-                    <div>
-                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

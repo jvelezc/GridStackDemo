@@ -20,6 +20,7 @@
 </head>
 <body class="md-skin">
     <div id="wrapper">
+        @RenderSection("sidebar", required: false)
         <div id="page-wrapper" class="gray-bg">
             @RenderBody()
         </div>

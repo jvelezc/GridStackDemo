@@ -38,8 +38,10 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
     public StrategyContext = new StrategyContext();
     public Options: {};
     public Widgets: Array<Widget>;
-    private FilterState: string = "Today"; 
+    private FilterState: string = "Today";
+    public WidgetLookUpName: WidgetLookUp;
     constructor(private $http) {
+        this.WidgetLookUpName = WidgetLookUp;
     }
     // coding practices state that we should use init and not the constructor to initialize data. 
     $onInit() {
@@ -156,10 +158,20 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
             this.Widgets.push(newWidget);
         }
     }
-
-    public RemoveWidget(w: Widget): void {
-        let index = this.Widgets.indexOf(w);
+    public RemoveWidgetFromSideBar(WidgetToTrigger:string)
+    {
+        let index = _.findIndex(this.Widgets, { id: WidgetToTrigger });
         this.Widgets.splice(index, 1);
+    }
+    public RemoveWidget(w: Widget): void {
+        if (w) {
+
+            //Alternative way to find an index of an array of objects
+           
+        
+            let index = this.Widgets.indexOf(w);
+            this.Widgets.splice(index, 1);
+        }
     }
 
     //Tracking of the events for each widget...

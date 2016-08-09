@@ -1,10 +1,13 @@
-System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext", "../kendolinechart/ChartDisplayStrategy", "../kendogauge/GaugeDisplayStrategy", "../../viewmodels/DashboardTimelineFilterStates"], function(exports_1, context_1) {
+System.register(["underscore", "../../viewmodels/WidgetLookUp", "../../common/StrategyContext", "../kendolinechart/ChartDisplayStrategy", "../kendogauge/GaugeDisplayStrategy", "../../viewmodels/DashboardTimelineFilterStates"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var WidgetLookUp_1, StrategyContext_1, ChartDisplayStrategy_1, GaugeDisplayStrategy_1, DashboardTimelineFilterStates_1;
+    var _, WidgetLookUp_1, StrategyContext_1, ChartDisplayStrategy_1, GaugeDisplayStrategy_1, DashboardTimelineFilterStates_1;
     var DashboardConfigComponentController, DashboardConfigComponent;
     return {
         setters:[
+            function (_1) {
+                _ = _1;
+            },
             function (WidgetLookUp_1_1) {
                 WidgetLookUp_1 = WidgetLookUp_1_1;
             },
@@ -28,6 +31,7 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                     this.RadialGaugeSelectedNumber = 10;
                     this.StrategyContext = new StrategyContext_1.StrategyContext();
                     this.FilterState = "Today";
+                    this.WidgetLookUpName = WidgetLookUp_1.WidgetLookUp;
                 }
                 // coding practices state that we should use init and not the constructor to initialize data. 
                 $onInit() {
@@ -118,9 +122,16 @@ System.register(["../../viewmodels/WidgetLookUp", "../../common/StrategyContext"
                         this.Widgets.push(newWidget);
                     }
                 }
-                RemoveWidget(w) {
-                    let index = this.Widgets.indexOf(w);
+                RemoveWidgetFromSideBar(WidgetToTrigger) {
+                    let index = _.findIndex(this.Widgets, { id: WidgetToTrigger });
                     this.Widgets.splice(index, 1);
+                }
+                RemoveWidget(w) {
+                    if (w) {
+                        //Alternative way to find an index of an array of objects
+                        let index = this.Widgets.indexOf(w);
+                        this.Widgets.splice(index, 1);
+                    }
                 }
                 //Tracking of the events for each widget...
                 OnChange(event, items) {

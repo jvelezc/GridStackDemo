@@ -1,78 +1,62 @@
-﻿<div class="row">
-    <div class="ibox-tools">
-        <a class="collapse-link">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-wrench"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-user">
-            <li>
-                <a href="#">Config option 1</a>
-            </li>
-            <li>
-                <a href="#">Config option 2</a>
-            </li>
-        </ul>
-        <a class="close-link">
-            <i class="fa fa-times"></i>
-        </a>
-    </div>
-</div>
-
-
-
-@section styles{
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
-    <style>
-        #dashBoarbMenu ul li {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        #dashBoarbMenu ul li {
-            display: inline;
-        }
-
-        #dashBoarbMenu ul a {
-            display: inline-block;
-            padding: 10px;
-        }
-    </style>
-
+﻿@{
+    Layout = null;
 }
-@section scripts
-{
-    <script type="text/javascript" src="~/lib/gridstack/dist/gridstack.js"></script>
-    <script src="~/lib/gridstackangularimproved/dist/gridstack-angular.js"></script>
-    <script src="~/jspm_packages/system.js"></script>
-    <script src="~/config.js"></script>
-    <script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] -</title>
+
+    <environment names="Development">
+
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/lib/kendo-ui/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="~/lib/kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
+        <link href="~/lib/kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
+        <link href="~/css/inspinia.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+       
+    </environment>
+
+
+</head>
+<body class="md-skin">
+
+<dashboard-config></dashboard-config>
+<environment names="Development">
+        <!--Core libraries look for a way to bundle these together-->
+        <script type="text/javascript" src="~/lib/lodash/dist/lodash.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="~/lib/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/gridstack.js/0.2.5/gridstack.min.css" />
+        <link href="~/css/dashboardMenu.css" rel="stylesheet" />
+        <!--Inspinia starts here metisMenu + slimscroll are pre-reqs to inspinia-->
+
+        <script src="~/lib/metisMenu/dist/metisMenu.min.js"></script>
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="~/lib/inspinia/inspinia.js"></script>
+        <!--Inspinia ends here
+        <!--Core libraries end here-->
+        <!--Angular 1x + Kendo-->
+        <script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
+        <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.angular.min.js"></script>
+
+        <script type="text/javascript" src="~/lib/gridstack/dist/gridstack.js"></script>
+        <script src="~/lib/gridstackangularimproved/dist/gridstack-angular.js"></script>
+        <script src="~/jspm_packages/system.js"></script>
+        <script src="~/config.js"></script>
+        <script>
         System.import("app/angularbootstrap");
-    </script>
-    @*<script src="~/troubleshooting/system.tap.js"></script>
-        <script src="~/troubleshooting/system.yuml.js"></script>*@
+        </script>
+       
+    </environment>
 
+</body>
+</html>
 
-}
-
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-4">
-        <h2>DashBoard</h2>
-        <ol class="breadcrumb">
-            <li class="active">
-                <strong><a asp-action="Index" asp-controller="Home">Home</a></strong>
-            </li>
-
-        </ol>
-    </div>
-</div>
-<div class="row">
-
-
-</div>
-
-                    <dashboard-config></dashboard-config>
+         
