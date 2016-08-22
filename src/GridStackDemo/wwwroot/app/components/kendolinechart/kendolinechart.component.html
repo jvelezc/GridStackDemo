@@ -1,7 +1,11 @@
-﻿<div id="{{Vm.key}}" kendo-chart=Vm.MyDashBoardClaimsChartInstance
-     k-legend="{ position: 'bottom' }"
-     k-series-defaults="{ type: 'line' }"
-     k-series = Vm.Series
-     k-data-source = Vm.ClaimsData
-     style="height: 250px;">
+﻿<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div id="{{Vm.key}}" kendo-chart=Vm.MyDashBoardClaimsChartInstance
+             k-legend="{ position: 'bottom' }"
+             k-series-defaults="{ type: 'line' }"
+             k-series=Vm.Series
+             k-data-source=Vm.ClaimsData
+             style="height: 250px;">
+        </div>
+    </div>
 </div>

@@ -1,0 +1,16 @@
+﻿    #dashBoarbMenu ul li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #dashBoarbMenu ul li {
+            display: inline;
+        }
+
+        #dashBoarbMenu ul a {
+            display: inline-block;
+            padding: 10px;
+        }
+     
