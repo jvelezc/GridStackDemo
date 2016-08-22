@@ -37,18 +37,20 @@
              on-item-added="Vm.OnItemAdded(item)"
              on-item-removed="Vm.OnItemRemoved(item)">
 
-
+            <p>a</p>
 
             <div class="grid-stack-item-content">
                 <div ng-if="w.id === 'TimelineFilterInstance'">
-                    <div class='row show-grid'>
+            
 
-                        <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div> 
-                        <div ng-click="Vm.SetWeekAsActiveFilter()"  class="col-md-3" id="vrxDashBoardWeek">Week </div>
-                        <div ng-click="Vm.SetMonthAsActiveFilter()"  class="col-md-3" id="vrxDashBoardMonth">Month</div>
-                        <div ng-click="Vm.SetYearAsActiveFilter()"  class="col-md-3" id="vrxDashBoardYear">Year</div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button  ng-click="Vm.SetTodayAsActiveFilter()" type="button" class="btn btn-primary">Today</button>
+                        <button  ng-click="Vm.SetWeekAsActiveFilter()" type="button" class="btn btn-primary">Week</button>
+                        <button ng-click="Vm.SetMonthAsActiveFilter()" type="button" class="btn btn-primary">Month</button>
+                        <button ng-click="Vm.SetYearAsActiveFilter()" type="button" class="btn btn-primary">Year</button>
                     </div>
 
+                  
                     <div>
                         <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
                     </div>
