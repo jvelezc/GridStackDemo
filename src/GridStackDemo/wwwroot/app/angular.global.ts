@@ -62,6 +62,9 @@ export module names {
         public static filterTimeline = "filterTimeline";
         public static claimsProgressBar = "claimsProgressBar";
         public static serverStatus = "serverStatus";
+        public static operationHours = "operationHours";
+        public static prettyNotifications = "prettyNotifications"; 
+        public static systemInfo = "systemInfo"; 
         public static systemInfo = "systemInfo";
         public static hourOfOperations = "hourOfOperations";
     }

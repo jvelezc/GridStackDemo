@@ -8,5 +8,5 @@
     static AssignedPanelInstance = "AssignedPanelInstance"; 
     static FlaggedPanelInstance = "FlaggedPanelInstance"; 
     static OpenClaimsGridInstance = "OpenClaimsGridInstance"; 
-    static TimelineFilterInstance = "TimelineFilterInstance"; 
+    static TimelineFilterInstance = "TimelineFilterInstance";
 }

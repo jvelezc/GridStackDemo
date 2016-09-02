@@ -1,5 +1,5 @@
 ﻿import IWidgetDisplayStrategy from "./IWidgetDisplayStrategy";
-import {Widget} from "../dashboard/Widget";
+import {Widget} from "../viewmodels/Widget";
 export class StrategyContext implements IWidgetDisplayStrategy {
     private _widgetDisplayStrategy: IWidgetDisplayStrategy;
     setWidgetStrategy(widgetDisplayStrategy: IWidgetDisplayStrategy) {

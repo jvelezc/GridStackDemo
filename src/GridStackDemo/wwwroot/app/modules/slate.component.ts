@@ -14,6 +14,10 @@ import {KendoGaugeComponent} from "../components/kendogauge/kendogauge.component
 import {FilterTimelineComponent} from "../components/filtertimeline/filtertimeline.component";
 import {ClaimProgressComponent} from "../components/claimsprogress/claimprogress.component";
 import {ServerStatusComponent} from "../components/serverstatus/serverstatus.component";
+import {OperationHoursComponent} from "../components/operationhours/operationhours.component";
+import {PrettyNotificationsComponent} from "../components/prettynotificationbox/prettynotificatiobox.component";
+import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component";
+
 import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component"; 
 angular.module(names.Modules.components, []);
 
@@ -47,9 +51,5 @@ angular
     .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
 
     .component(names.Components.serverStatus, new ServerStatusComponent())
-
-    //<system-info></system-info> PARENT CONTROLLER OF 
-    .component(names.Components.systemInfo, new SystemInfoComponent())
-    .component(names.Components.hourOfOperations, new HoursOfOperation())
     ;
   
