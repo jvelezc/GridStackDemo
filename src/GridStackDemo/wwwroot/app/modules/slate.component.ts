@@ -14,6 +14,7 @@ import {KendoGaugeComponent} from "../components/kendogauge/kendogauge.component
 import {FilterTimelineComponent} from "../components/filtertimeline/filtertimeline.component";
 import {ClaimProgressComponent} from "../components/claimsprogress/claimprogress.component";
 import {ServerStatusComponent} from "../components/serverstatus/serverstatus.component";
+import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component"; 
 angular.module(names.Modules.components, []);
 
 angular
@@ -32,7 +33,7 @@ angular
     .component(names.Components.flaggedClaimsPanel, new FlaggedClaimsComponent())
     //<open-claims-grid key=primarykey></open-claims-grid>
     .component(names.Components.openClaimsGrid, new OpenClaimsGridComponent())
-     //<activity-grid key=primarykey></activity-grid>
+    //<activity-grid key=primarykey></activity-grid>
     .component(names.Components.activityGrid, new ActivityGridComponent())
     //<dashboard-config key=primarykey></dashboard-config>
     .component(names.Components.dashboardConfig, new DashboardConfigComponent())
@@ -46,5 +47,9 @@ angular
     .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
 
     .component(names.Components.serverStatus, new ServerStatusComponent())
+
+    //<system-info></system-info> PARENT CONTROLLER OF 
+    .component(names.Components.systemInfo, new SystemInfoComponent())
+    .component(names.Components.hourOfOperations, new HoursOfOperation())
     ;
   
