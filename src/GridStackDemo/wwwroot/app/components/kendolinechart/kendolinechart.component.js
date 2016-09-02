@@ -1,56 +1,62 @@
-"use strict";
-/// <reference path="../../../../typings/index.d.ts" />
-var KendoLineChartComponentController = (function () {
-    function KendoLineChartComponentController(scope, $http) {
-        this.scope = scope;
-        this.$http = $http;
-        this.$ = angular.element;
-    }
-    KendoLineChartComponentController.prototype.$onInit = function () {
-        var _this = this;
-        //There are 4 caveats in this code.
-        // 1.) 
-        this.Series = [
-            { field: 'reopenedclaims', name: 'assigned claims' },
-            { field: 'transferred', name: 'assigned claims' },
-            { field: 'assignedclaims', name: 'assigned claims' },
-            { field: 'flaggedclaims', name: 'flagged claims' },
-            { field: 'closedclaims', name: 'closed claims' },
-            { field: 'openclaims', name: 'open claims' }
-        ];
-        this.ClaimsData = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "/app/components/kendolinechart/GraphFakeData.json",
-                    dataType: "json"
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var KendoLineChartComponentController, KendoLineChartComponentComponent;
+    return {
+        setters:[],
+        execute: function() {
+            /// <reference path="../../../../typings/index.d.ts" />
+            class KendoLineChartComponentController {
+                constructor(scope, $http) {
+                    this.scope = scope;
+                    this.$http = $http;
+                    this.$ = angular.element;
                 }
-            },
-            sort: {
-                field: "year",
-                dir: "asc"
+                $onInit() {
+                    //There are 4 caveats in this code.
+                    // 1.) 
+                    this.Series = [
+                        { field: 'reopenedclaims', name: 'assigned claims' },
+                        { field: 'transferred', name: 'assigned claims' },
+                        { field: 'assignedclaims', name: 'assigned claims' },
+                        { field: 'flaggedclaims', name: 'flagged claims' },
+                        { field: 'closedclaims', name: 'closed claims' },
+                        { field: 'openclaims', name: 'open claims' }
+                    ];
+                    this.ClaimsData = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: "/app/components/kendolinechart/GraphFakeData.json",
+                                dataType: "json"
+                            }
+                        },
+                        sort: {
+                            field: "year",
+                            dir: "asc"
+                        }
+                    });
+                    this.scope.$on("kendoRendered", () => {
+                        this.MyDashBoardClaimsChartInstance.setOptions({
+                            tooltip: {
+                                visible: true,
+                                format: "{0}%",
+                                template: "#= series.name #: #= value #"
+                            }
+                        });
+                    });
+                }
             }
-        });
-        this.scope.$on("kendoRendered", function () {
-            _this.MyDashBoardClaimsChartInstance.setOptions({
-                tooltip: {
-                    visible: true,
-                    format: "{0}%",
-                    template: "#= series.name #: #= value #"
+            class KendoLineChartComponentComponent {
+                constructor() {
+                    this.templateUrl = "/app/components/kendolinechart/kendolinechart.component.html";
+                    this.controllerAs = "Vm";
+                    this.controller = ["$scope", "$http", KendoLineChartComponentController];
+                    this.bindings = {
+                        key: "@",
+                    };
                 }
-            });
-        });
-    };
-    return KendoLineChartComponentController;
-}());
-var KendoLineChartComponentComponent = (function () {
-    function KendoLineChartComponentComponent() {
-        this.templateUrl = "/app/components/kendolinechart/kendolinechart.component.html";
-        this.controllerAs = "Vm";
-        this.controller = ["$scope", "$http", KendoLineChartComponentController];
-        this.bindings = {
-            key: "@",
-        };
+            }
+            exports_1("KendoLineChartComponentComponent", KendoLineChartComponentComponent);
+        }
     }
-    return KendoLineChartComponentComponent;
-}());
-exports.KendoLineChartComponentComponent = KendoLineChartComponentComponent;
+});

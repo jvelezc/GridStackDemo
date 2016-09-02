@@ -1,24 +1,30 @@
 /// <reference path="../../../../typings/index.d.ts" />
-"use strict";
-var OperationHoursComponentController = (function () {
-    function OperationHoursComponentController($http) {
-        this.$http = $http;
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var OperationHoursComponentController, OperationHoursComponent;
+    return {
+        setters:[],
+        execute: function() {
+            class OperationHoursComponentController {
+                constructor($http) {
+                    this.$http = $http;
+                }
+                $onInit() {
+                    this.$http.get("app/components/operationhours/operationHoursFakeData.json").success((response) => {
+                        this.type = response.type;
+                        this.businessHours = response.businessHours;
+                    });
+                }
+            }
+            class OperationHoursComponent {
+                constructor() {
+                    this.templateUrl = "/app/components/operationhours/operationhours.component.html";
+                    this.controllerAs = "Vm";
+                    this.controller = ["$http", OperationHoursComponentController];
+                }
+            }
+            exports_1("OperationHoursComponent", OperationHoursComponent);
+        }
     }
-    OperationHoursComponentController.prototype.$onInit = function () {
-        var _this = this;
-        this.$http.get("app/components/operationhours/operationHoursFakeData.json").success(function (response) {
-            _this.type = response.type;
-            _this.businessHours = response.businessHours;
-        });
-    };
-    return OperationHoursComponentController;
-}());
-var OperationHoursComponent = (function () {
-    function OperationHoursComponent() {
-        this.templateUrl = "/app/components/operationhours/operationhours.component.html";
-        this.controllerAs = "Vm";
-        this.controller = ["$http", OperationHoursComponentController];
-    }
-    return OperationHoursComponent;
-}());
-exports.OperationHoursComponent = OperationHoursComponent;
+});

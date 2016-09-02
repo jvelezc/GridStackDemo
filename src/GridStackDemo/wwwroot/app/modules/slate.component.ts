@@ -16,6 +16,7 @@ import {ClaimProgressComponent} from "../components/claimsprogress/claimprogress
 import {ServerStatusComponent} from "../components/serverstatus/serverstatus.component";
 import {OperationHoursComponent} from "../components/operationhours/operationhours.component";
 import {PrettyNotificationsComponent} from "../components/prettynotificationbox/prettynotificatiobox.component";
+import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component";
 
 angular.module(names.Modules.components, []);
 
@@ -49,5 +50,8 @@ angular
     .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
 
     .component(names.Components.serverStatus, new ServerStatusComponent())
+    //<operation-hours></operation-hours>
+    .component(names.Components.operationHours, new OperationHoursComponent())
+    .component(names.Components.systemInfo, new SystemInfoComponent())
     ;
   

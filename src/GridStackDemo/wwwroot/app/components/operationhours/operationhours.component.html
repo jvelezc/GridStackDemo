@@ -1,24 +1,194 @@
-﻿<div class="form-group">
-    <label class="col-sm-2 control-label">Hours</label>
+﻿
 
-    <div class="col-sm-10">
-        <div>
-            <label>
-                <input type="radio" ng-value="0" id="24HoursRadio" name="businessHoursRadios" ng-model="Vm.type">24/7 Business hours
-            </label>
+
+
+
+
+<div class="ibox float-e-margins">
+
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 style="text-align:center">Business Hours</h1>
+            </div>
+            <div class="col-md-6">
+                <h1 style="text-align:center">After Hours</h1>
+            </div>
+       
         </div>
-        <div>
-            <label>
-                <input type="radio" value="1" id="definedHoursRadio" name="businessHoursRadios" ng-model="Vm.type"> Define Business hours
-            </label>
+    
+        <div class="row">
+
+            <div class="col-md-6">
+            <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Week Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+
+        <!--Sunday-->
+        <tr>
+            <td>Sunday</td>
+            <td><input kendo-time-picker
+                   ng-model="str"
+                   k-ng-model="obj"
+                   style="width: 100%;" />
+            
+            </td>
+            <td><input kendo-time-picker
+                   ng-model="str"
+                   k-ng-model="obj"
+                   style="width: 100%;" /></td>
+            
+        </tr>
+        <!--Monday-->
+        <tr>
+            <td>Monday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.MondayStartTime"
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.MondayEndTime"
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+        <!--Tuesday-->
+        <tr>
+            <td>Tuesday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.TuesdayStartDay"
+                     
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.TuesdayEndTime"
+                     
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+        <!--Wednesday-->
+        <tr>
+            <td>Wednesday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.WednesdayStartTime"
+                      
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.WednesdayEndTime"
+                      
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+        <!--Thursday-->
+        <tr>
+            <td>Thursday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.ThursdayStartTime"
+                      
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.ThursdayEndTime"
+                  
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+        <!--Friday-->
+        <tr>
+            <td>Friday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vn.FridayStartTime"
+                     
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.FridayEndTime"
+                   
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+        <!--Saturday-->
+        <tr>
+            <td>Saturday</td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.SaturdayStartTime"
+                    
+                       style="width: 100%;" />
+
+            </td>
+            <td>
+                <input kendo-time-picker
+                       ng-model="Vm.SaturdayEndTime"
+                       k-ng-model="obj"
+                       style="width: 100%;" />
+            </td>
+
+        </tr>
+      
+
+
+    </tbody>
+</table></div>
+            <div class="col-md-5 col-md-offset-1">
+
+            <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>*:01</td>
+                 
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>*:04</td>
+
+                </tr>
+             
+            </tbody>
+        </table>
+
+
+            </div>
         </div>
+
     </div>
 </div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-    </div>
 
-</div>
+
+
+

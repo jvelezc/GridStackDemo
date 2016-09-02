@@ -73,7 +73,9 @@ System.register([], function(exports_1, context_1) {
                 Components.filterTimeline = "filterTimeline";
                 Components.claimsProgressBar = "claimsProgressBar";
                 Components.serverStatus = "serverStatus";
+                Components.operationHours = "operationHours";
                 Components.prettyNotifications = "prettyNotifications";
+                Components.systemInfo = "systemInfo";
                 names.Components = Components;
                 class Controllers {
                 }

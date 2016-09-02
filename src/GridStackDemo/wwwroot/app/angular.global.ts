@@ -64,6 +64,7 @@ export module names {
         public static serverStatus = "serverStatus";
         public static operationHours = "operationHours";
         public static prettyNotifications = "prettyNotifications"; 
+        public static systemInfo = "systemInfo"; 
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";
