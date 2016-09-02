@@ -1,7 +1,7 @@
-System.register(['../angular.global', '../components/reopenedclaims/reopenedclaims.component', "../components/transferredclaims/transferredclaims.component", "../components/closedclaims/closedclaims.component", "../components/assigned/assignedclaims.component", "../components/flaggedclaims/flaggedclaims.component", "../components/openclaimsgrid/openclaimsgrid.component", "../components/activityGrid/activitygrid.component", "../components/dashboardconfig/dashboardconfig.component", "../components/kendolinechart/kendolinechart.component", "../components/kendogauge/kendogauge.component", "../components/filtertimeline/filtertimeline.component", "../components/claimsprogress/claimprogress.component", "../components/serverstatus/serverstatus.component"], function(exports_1, context_1) {
+System.register(['../angular.global', '../components/reopenedclaims/reopenedclaims.component', "../components/transferredclaims/transferredclaims.component", "../components/closedclaims/closedclaims.component", "../components/assigned/assignedclaims.component", "../components/flaggedclaims/flaggedclaims.component", "../components/openclaimsgrid/openclaimsgrid.component", "../components/activityGrid/activitygrid.component", "../components/dashboardconfig/dashboardconfig.component", "../components/kendolinechart/kendolinechart.component", "../components/kendogauge/kendogauge.component", "../components/filtertimeline/filtertimeline.component", "../components/claimsprogress/claimprogress.component", "../components/serverstatus/serverstatus.component", "../components/prettynotificationbox/prettynotificatiobox.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var angular_global_1, reopenedclaims_component_1, transferredclaims_component_1, closedclaims_component_1, assignedclaims_component_1, flaggedclaims_component_1, openclaimsgrid_component_1, activitygrid_component_1, dashboardconfig_component_1, kendolinechart_component_1, kendogauge_component_1, filtertimeline_component_1, claimprogress_component_1, serverstatus_component_1;
+    var angular_global_1, reopenedclaims_component_1, transferredclaims_component_1, closedclaims_component_1, assignedclaims_component_1, flaggedclaims_component_1, openclaimsgrid_component_1, activitygrid_component_1, dashboardconfig_component_1, kendolinechart_component_1, kendogauge_component_1, filtertimeline_component_1, claimprogress_component_1, serverstatus_component_1, prettynotificatiobox_component_1;
     return {
         setters:[
             function (angular_global_1_1) {
@@ -45,6 +45,9 @@ System.register(['../angular.global', '../components/reopenedclaims/reopenedclai
             },
             function (serverstatus_component_1_1) {
                 serverstatus_component_1 = serverstatus_component_1_1;
+            },
+            function (prettynotificatiobox_component_1_1) {
+                prettynotificatiobox_component_1 = prettynotificatiobox_component_1_1;
             }],
         execute: function() {
             angular.module(angular_global_1.names.Modules.components, []);
@@ -63,7 +66,8 @@ System.register(['../angular.global', '../components/reopenedclaims/reopenedclai
                 .component(angular_global_1.names.Components.kendoGauge, new kendogauge_component_1.KendoGaugeComponent())
                 .component(angular_global_1.names.Components.filterTimeline, new filtertimeline_component_1.FilterTimelineComponent())
                 .component(angular_global_1.names.Components.claimsProgressBar, new claimprogress_component_1.ClaimProgressComponent())
-                .component(angular_global_1.names.Components.serverStatus, new serverstatus_component_1.ServerStatusComponent());
+                .component(angular_global_1.names.Components.serverStatus, new serverstatus_component_1.ServerStatusComponent())
+                .component(angular_global_1.names.Components.prettyNotifications, new prettynotificatiobox_component_1.PrettyNotificationsComponent());
         }
     }
 });

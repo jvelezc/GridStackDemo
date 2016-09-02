@@ -2,7 +2,7 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html>
+<html >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,8 +22,14 @@
 
 </head>
 <body class="md-skin">
+    <div class="row">
+        <div class="col-lg-6"><pretty-notifications key="Hello World"></pretty-notifications></div>
+        
 
-<dashboard-config></dashboard-config>
+    </div>
+
+
+@*<dashboard-config></dashboard-config>*@
 <environment names="Development">
         <!--Core libraries look for a way to bundle these together-->
         <script type="text/javascript" src="~/lib/lodash/dist/lodash.min.js"></script>
@@ -55,6 +61,8 @@
         </script>
        
     </environment>
+
+
 
 </body>
 </html>

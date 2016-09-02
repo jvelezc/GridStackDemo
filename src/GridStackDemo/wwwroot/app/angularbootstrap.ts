@@ -24,3 +24,5 @@ export default app;
 angular.element(document).ready(() => {
     angular.bootstrap(document, ["slate"]);
 });
+
+

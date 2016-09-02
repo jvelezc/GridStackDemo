@@ -14,6 +14,8 @@ import {KendoGaugeComponent} from "../components/kendogauge/kendogauge.component
 import {FilterTimelineComponent} from "../components/filtertimeline/filtertimeline.component";
 import {ClaimProgressComponent} from "../components/claimsprogress/claimprogress.component";
 import {ServerStatusComponent} from "../components/serverstatus/serverstatus.component";
+import {PrettyNotificationsComponent} from "../components/prettynotificationbox/prettynotificatiobox.component";
+
 angular.module(names.Modules.components, []);
 
 angular
@@ -46,5 +48,7 @@ angular
     .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
 
     .component(names.Components.serverStatus, new ServerStatusComponent())
+    //<pretty-notifications key="VariableYouPutHere"></pretty-notifications>
+    .component(names.Components.prettyNotifications, new PrettyNotificationsComponent())
     ;
   

@@ -17,6 +17,7 @@
 /// <reference path="app/components/kendolinechart/kendolinechart.component.js" />
 /// <reference path="app/components/openclaims/openedclaims.component.js" />
 /// <reference path="app/components/openclaimsgrid/openclaimsgrid.component.js" />
+/// <reference path="app/components/prettynotificationbox/prettynotificatiobox.component.js" />
 /// <reference path="app/components/reopenedclaims/reopenedclaims.component.js" />
 /// <reference path="app/components/serverstatus/serverstatus.component.js" />
 /// <reference path="app/components/transferredclaims/transferredclaims.component.js" />
