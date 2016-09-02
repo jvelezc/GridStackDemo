@@ -17,8 +17,6 @@ import {ServerStatusComponent} from "../components/serverstatus/serverstatus.com
 import {OperationHoursComponent} from "../components/operationhours/operationhours.component";
 import {PrettyNotificationsComponent} from "../components/prettynotificationbox/prettynotificatiobox.component";
 import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component";
-
-import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component"; 
 angular.module(names.Modules.components, []);
 
 angular
@@ -51,5 +49,11 @@ angular
     .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
 
     .component(names.Components.serverStatus, new ServerStatusComponent())
+
+
+    //System info utilzies operation hours component
+    .component(names.Components.systemInfo, new SystemInfoComponent())
+    .component(names.Components.operationHours, new OperationHoursComponent())
+
     ;
   
