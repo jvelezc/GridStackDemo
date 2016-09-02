@@ -145,10 +145,11 @@
                         <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
                         <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
                         <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
+                        <li ng-click="Vm.AddOperationHoursWidget()">Add Operation Hours Widget  |</li>
                     </ul>
                 </nav>
             </section>
-
+            <operation-hours></operation-hours>
             <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
                  options="Vm.Options"
                  on-change="Vm.OnChange(event,items)"
@@ -168,22 +169,23 @@
                      on-item-added="Vm.OnItemAdded(item)"
                      on-item-removed="Vm.OnItemRemoved(item)">
 
+            <p>a</p>
 
 
-                    <div class="grid-stack-item-content">
-                        <div ng-if="w.id === Vm.WidgetLookUpName.TimelineFilterInstance">
-                            <div class='row show-grid'>
+            <div class="grid-stack-item-content">
+                <div ng-if="w.id === 'TimelineFilterInstance'">
+                    <div class='row show-grid'>
 
-                                <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div>
-                                <div ng-click="Vm.SetWeekAsActiveFilter()" class="col-md-3" id="vrxDashBoardWeek">Week </div>
-                                <div ng-click="Vm.SetMonthAsActiveFilter()" class="col-md-3" id="vrxDashBoardMonth">Month</div>
-                                <div ng-click="Vm.SetYearAsActiveFilter()" class="col-md-3" id="vrxDashBoardYear">Year</div>
-                            </div>
+                        <div ng-click="Vm.SetTodayAsActiveFilter()" class="col-md-3" id="vrxDashBoardToday">Today</div> 
+                        <div ng-click="Vm.SetWeekAsActiveFilter()"  class="col-md-3" id="vrxDashBoardWeek">Week </div>
+                        <div ng-click="Vm.SetMonthAsActiveFilter()"  class="col-md-3" id="vrxDashBoardMonth">Month</div>
+                        <div ng-click="Vm.SetYearAsActiveFilter()"  class="col-md-3" id="vrxDashBoardYear">Year</div>
+                    </div>
 
-                            <div>
-                                <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
-                            </div>
-                        </div>
+                    <div>
+                        <a class="btn btn-primary" ng-click="Vm.RemoveWidget(w)">Remove</a>
+                    </div>
+                </div>
 
                         <div ng-if="w.id === Vm.WidgetLookUpName.MyDashBoardClaimsChartInstance">
 

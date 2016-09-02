@@ -15,6 +15,7 @@ interface IFlaggedClaimsComponentController {
     AddReOpenedPanelWidget(): void;
     AddAssignedPanelWidget(): void;
     AddOpenClaimsGridWidget(): void;
+    AddOperationHoursWidget(): void;
     AddTimelineWidget(): void;
     SetTodayAsActiveFilter(): void;
     SetWeekAsActiveFilter(): void;
@@ -127,7 +128,6 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
         }
     }
 
-
     public AddClosedPanelWidget(): void {
 
         if (!this.$("#" + WidgetLookUp.ClosedPanelInstance).length) {
@@ -159,6 +159,14 @@ class DashboardConfigComponentController implements IFlaggedClaimsComponentContr
             this.Widgets.push(newWidget);
         }
     }
+
+    public AddOperationHoursWidget(): void {
+        if (!this.$("#" + WidgetLookUp.OpenedPanelInstance).length) {
+            let newWidget = { id: WidgetLookUp.OpenedPanelInstance, x: 0, y: 0, width: 3, height: 2 };
+            this.Widgets.push(newWidget);
+        }
+    }
+
     public RemoveWidgetFromSideBar(WidgetToTrigger:string)
     {
         let index = _.findIndex(this.Widgets, { id: WidgetToTrigger });
