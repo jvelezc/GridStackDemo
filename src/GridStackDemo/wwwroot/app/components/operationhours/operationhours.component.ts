@@ -13,6 +13,9 @@ interface IOperationHoursComponentController {
 
 }
 
+class OperationHoursForm {
+
+}
 class OperationHoursComponentController implements IOperationHoursComponentController {
     public type: string;
     public businessHours: Array<IHours>;
@@ -34,28 +37,19 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
 
     }
     $doCheck() {
-
-        let currentValue = this.OperationHoursForm;
-        let previousValue = this.CopyOfOperationHoursForm
-        if (currentValue && !_.isEqual(currentValue, previousValue)) {
-            //do nothing
-            console.log("was it equal?");
             this.onSelected({
                 OperationHoursForm: this.OperationHoursForm
             });
-            this.CopyOfOperationHoursForm = this.OperationHoursForm;
-        }
-       
     }
 
     public ProvitionalSave()
     {
-        console.log("I am the child");
-        this.OperationHoursForm = { name: "jose" };
-        console.log(this.OperationHoursForm);
-        this.onSelected({
-            OperationHoursForm: this.OperationHoursForm
-        });
+        //console.log("I am the child");
+        //this.OperationHoursForm = { name: "jose" };
+        //console.log(this.OperationHoursForm);
+        //this.onSelected({
+        //    OperationHoursForm: this.OperationHoursForm
+        //});
     }
 
 }
