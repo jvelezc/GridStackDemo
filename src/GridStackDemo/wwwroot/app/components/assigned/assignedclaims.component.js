@@ -1,37 +1,30 @@
-System.register([], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var AssignedClaimsComponentController, AssignedClaimsComponent;
-    return {
-        setters:[],
-        execute: function() {
-            /// <reference path="../../../../typings/index.d.ts" />
-            class AssignedClaimsComponentController {
-                constructor($http) {
-                    this.$http = $http;
-                }
-                $onInit() {
-                }
-                $onChanges(changeObj) {
-                    console.log(changeObj);
-                }
-                OnChange(time) {
-                    console.log("time changed");
-                    console.log(time);
-                }
-            }
-            class AssignedClaimsComponent {
-                constructor() {
-                    this.templateUrl = "/app/components/assigned/assignedclaims.component.html";
-                    this.controllerAs = "Vm";
-                    this.controller = ["$http", AssignedClaimsComponentController];
-                    this.bindings = {
-                        key: "@",
-                        time: "="
-                    };
-                }
-            }
-            exports_1("AssignedClaimsComponent", AssignedClaimsComponent);
-        }
+"use strict";
+/// <reference path="../../../../typings/index.d.ts" />
+var AssignedClaimsComponentController = (function () {
+    function AssignedClaimsComponentController($http) {
+        this.$http = $http;
     }
-});
+    AssignedClaimsComponentController.prototype.$onInit = function () {
+    };
+    AssignedClaimsComponentController.prototype.$onChanges = function (changeObj) {
+        console.log(changeObj);
+    };
+    AssignedClaimsComponentController.prototype.OnChange = function (time) {
+        console.log("time changed");
+        console.log(time);
+    };
+    return AssignedClaimsComponentController;
+}());
+var AssignedClaimsComponent = (function () {
+    function AssignedClaimsComponent() {
+        this.templateUrl = "/app/components/assigned/assignedclaims.component.html";
+        this.controllerAs = "Vm";
+        this.controller = ["$http", AssignedClaimsComponentController];
+        this.bindings = {
+            key: "@",
+            time: "="
+        };
+    }
+    return AssignedClaimsComponent;
+}());
+exports.AssignedClaimsComponent = AssignedClaimsComponent;

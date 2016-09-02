@@ -62,6 +62,7 @@ export module names {
         public static filterTimeline = "filterTimeline";
         public static claimsProgressBar = "claimsProgressBar";
         public static serverStatus = "serverStatus";
+        public static operationHours = "operationHours";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";
