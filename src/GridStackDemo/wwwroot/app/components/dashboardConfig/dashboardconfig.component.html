@@ -145,10 +145,11 @@
                         <li ng-click="Vm.AddClosedPanelWidget()">Add Closed Panel |</li>
                         <li ng-click="Vm.AddFlaggedPanelWidget()">Add Flagged Panel |</li>
                         <li ng-click="Vm.AddOpenClaimsGridWidget()">Add Open Claims Grid  |</li>
+                        <li ng-click="Vm.AddOperationHoursWidget()">Add Operation Hours Widget  |</li>
                     </ul>
                 </nav>
             </section>
-
+            <operation-hours></operation-hours>
             <div gridstack gridstack-handler="Gridstacker" class="grid-stack grid1"
                  options="Vm.Options"
                  on-change="Vm.OnChange(event,items)"
