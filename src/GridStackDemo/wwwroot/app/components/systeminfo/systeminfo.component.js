@@ -12,6 +12,7 @@ System.register([], function(exports_1, context_1) {
                 $onInit() {
                 }
             }
+            exports_1("SystemInfoComponentController", SystemInfoComponentController);
             class SystemInfoComponent {
                 constructor() {
                     this.templateUrl = "/app/components/systeminfo/systeminfo.component.html";

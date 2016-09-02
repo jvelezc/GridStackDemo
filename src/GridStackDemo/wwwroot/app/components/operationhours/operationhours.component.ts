@@ -33,5 +33,6 @@ export class OperationHoursComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/operationhours/operationhours.component.html";
     controllerAs = "Vm";
 
+   // require?: string | string[] | { [controller: string]: string };
     controller = ["$http", OperationHoursComponentController];
 }

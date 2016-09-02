@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
 
 
-class SystemInfoComponentController   {
+export class SystemInfoComponentController   {
 
 
     constructor() {

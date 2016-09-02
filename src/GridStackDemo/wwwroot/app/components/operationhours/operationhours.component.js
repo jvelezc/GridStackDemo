@@ -21,6 +21,7 @@ System.register([], function(exports_1, context_1) {
                 constructor() {
                     this.templateUrl = "/app/components/operationhours/operationhours.component.html";
                     this.controllerAs = "Vm";
+                    // require?: string | string[] | { [controller: string]: string };
                     this.controller = ["$http", OperationHoursComponentController];
                 }
             }
