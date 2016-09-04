@@ -1,11 +1,12 @@
 ﻿{
-  "type": 0,
-  "businessHours": [
+  "type": 1,
+  "operationHours": [
     {
-      "weekdayNum": 1,
       "weekDay": "Monday",
-      "startTime": "08:00:00 AM",
-      "endTIme": "05:00:00 PM"
+      "businessStartTime": "08:00:00 AM",
+      "businessendTIme": "05:00:00 PM",
+      "afterHoursStartTime": null,
+      "afterHoursEndTime": null
     },
     {
       "weekdayNum": 2,
