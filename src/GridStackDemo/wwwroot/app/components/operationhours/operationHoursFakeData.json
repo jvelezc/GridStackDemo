@@ -2,47 +2,54 @@
   "type": 1,
   "operationHours": [
     {
-      "weekDay": "Monday",
-      "businessStartTime": "08:00:00 AM",
-      "businessendTIme": "05:00:00 PM",
-      "afterHoursStartTime": null,
-      "afterHoursEndTime": null
+      "weekday": "monday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     },
     {
-      "weekdayNum": 2,
-      "weekDay": "Tuesday",
-      "startTime": "08:00:00 AM",
-      "endTIme": "06:00:00 PM"
+      "weekday": "tuesday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     },
     {
-      "weekdayNum": 3,
-      "weekDay": "Wednesday",
-      "startTime": "08:00:00 AM",
-      "endTIme": "05:00:00 PM"
+      "weekday": "wednesday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     },
     {
-      "weekdayNum": 4,
-      "weekDay": "Thursday",
-      "startTime": "08:00:00 AM",
-      "endTIme": "06:00:00 PM"
+      "weekday": "thursday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     },
     {
-      "weekdayNum": 5,
-      "weekDay": "Friday",
-      "startTime": "08:00:00 AM",
-      "endTIme": "05:00:00 PM"
+      "weekday": "friday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
+
     },
     {
-      "weekdayNum": 6,
-      "weekDay": "Saturday",
-      "startTime": null,
-      "endTIme": null
+      "weekday": "saturday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     },
     {
-      "weekdayNum": 7,
-      "weekDay": "Sunday",
-      "startTime": null,
-      "endTIme": null
+      "weekday": "sunday",
+      "startTime": "08:00 AM",
+      "endTime": "05:00 PM",
+      "afterHourStartTime": null,
+      "afterHourEndTime": null
     }
   ]
 }

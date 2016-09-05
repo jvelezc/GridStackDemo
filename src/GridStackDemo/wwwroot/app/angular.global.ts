@@ -25,12 +25,13 @@ export module names {
         public static KENDO_DIRECTIVES = "kendo.directives";
         public static ANGULAR_LADDA = "angular-ladda";
         public static TOASTR = "toastr";
-        public static GRISTACKANGULAR ="gridstack-angular";
+        public static GRISTACKANGULAR = "gridstack-angular";
+        public static SWEETALERT = "oitozero.ngSweetAlert";
+
     };
 
     export class ServicesExternal {
         public static uib_Modal = "$uibModal";
-
     };
 
     export class Modules {
@@ -65,7 +66,6 @@ export module names {
         public static operationHours = "operationHours";
         public static prettyNotifications = "prettyNotifications"; 
         public static systemInfo = "systemInfo"; 
-        public static systemInfo = "systemInfo";
         public static hourOfOperations = "hourOfOperations";
     }
     export class Controllers {

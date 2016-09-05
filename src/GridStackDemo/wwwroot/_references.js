@@ -53,5 +53,7 @@
 /// <reference path="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" />
 /// <reference path="lib/kendo-ui/js/kendo.all.min.js" />
 /// <reference path="lib/metisMenu/dist/metisMenu.js" />
+/// <reference path="lib/ngsweetalert/SweetAlert.js" />
+/// <reference path="lib/sweetalert/dist/sweetalert.min.js" />
 /// <reference path="wwwroot/lib/angular/angular.js" />
 /// <reference path="wwwroot/lib/angular/index.js" />

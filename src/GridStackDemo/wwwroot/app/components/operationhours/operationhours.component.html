@@ -34,17 +34,20 @@
         </div>
 
         <div class="row">
-                <form name="Vm.operationHoursForm">
-                    <div class="col-md-6">
+                <form name="Vm.operationHoursForm" novalidate>
+                    <div class="col-md-12">
                         <!--<pre>
                             {{Vm.operationHoursForm | json}}
                         </pre>-->
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Week Day</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
+                                    <th class="col-sm-2">Week Day</th>
+                                    <th class="col-sm-2">Start Time</th>
+                                    <th class="col-sm-2">End Time</th>
+                                    <th class="col-sm-2"></th>
+                                    <th class="col-sm-2">Start Time</th>
+                                    <th class="col-sm-2">End Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +70,9 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.sunday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.sunday.afterHourEndTime}}</td>
                                 </tr>
                                 <!--Monday-->
                                 <tr>
@@ -88,13 +94,16 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.monday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.monday.afterHourEndTime}}</td>
                                 </tr>
                                 <!--Tuesday-->
                                 <tr>
                                     <td>Tuesday</td>
                                     <td>
                                         <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.tuesday.startDay"
+                                               ng-model="Vm.operationHoursForm.tuesday.startTime"
                                                k-ng-model="Vm.operationHoursForm.tuesday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.tuesday.startTimeObj, 'tuesday', 'start')"
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
@@ -109,6 +118,9 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.tuesday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.tuesday.afterHourEndTime}}</td>
 
                                 </tr>
                                 <!--Wednesday-->
@@ -131,6 +143,9 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.wednesday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.wednesday.afterHourEndTime}}</td>
 
                                 </tr>
                                 <!--Thursday-->
@@ -153,6 +168,9 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.thursday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.thursday.afterHourEndTime}}</td>
                                 </tr>
                                 <!--Friday-->
                                 <tr>
@@ -174,6 +192,9 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
+                                    <td></td>
+                                    <td>{{Vm.operationHoursForm.friday.afterHourStartTime}}</td>
+                                    <td>{{Vm.operationHoursForm.friday.afterHourEndTime}}</td>
                                 </tr>
                                 <!--Saturday-->
                                 <tr>
@@ -195,53 +216,7 @@
                                                k-ng-disabled = "!Vm.areBusinessHoursDefined()"
                                                style="width: 100%;" />
                                     </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-5 col-md-offset-1">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Sunday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.sunday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.sunday.afterHourEndTime}}</td>
-
-                                </tr>
-                                <!-- Monday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.monday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.monday.afterHourEndTime}}</td>
-                                </tr>
-                                <!-- Tuesday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.tuesday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.tuesday.afterHourEndTime}}</td>
-                                </tr>
-                                <!-- Wednesday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.wednesday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.wednesday.afterHourEndTime}}</td>
-                                </tr>
-                                <!-- Thursday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.thursday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.thursday.afterHourEndTime}}</td>
-                                </tr>
-                                <!-- Friday -->
-                                <tr>
-                                    <td>{{Vm.operationHoursForm.friday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.friday.afterHourEndTime}}</td>
-                                </tr>
-                                <!-- Saturday -->
-                                <tr>
+                                    <td></td>
                                     <td>{{Vm.operationHoursForm.saturday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.saturday.afterHourEndTime}}</td>
                                 </tr>

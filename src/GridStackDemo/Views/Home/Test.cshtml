@@ -14,6 +14,7 @@
         <link href="~/lib/kendo-ui/styles/kendo.common.min.css" rel="stylesheet" />
         <link href="~/lib/kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
         <link href="~/lib/kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
+        <link href="~/lib/sweetalert/dist/sweetalert.css" rel="stylesheet" />
         <link href="~/css/inspinia.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
        
@@ -24,13 +25,13 @@
 <body class="md-skin">
     <div class="row">
         <div class="col-lg-6"></div>
-        
+
 
     </div>
 
 
-@*<dashboard-config></dashboard-config>*@
-<environment names="Development">
+    @*<dashboard-config></dashboard-config>*@
+    <environment names="Development">
         <!--Core libraries look for a way to bundle these together-->
         <script type="text/javascript" src="~/lib/lodash/dist/lodash.min.js"></script>
         <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -52,31 +53,34 @@
         <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.aspnetmvc.min.js"></script>
         <script type="text/javascript" src="~/lib/kendo-ui/js/kendo.angular.min.js"></script>
 
+        <script src="~/lib/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="~/lib/ngSweetAlert/SweetAlert.js"></script>
+
         <script type="text/javascript" src="~/lib/gridstack/dist/gridstack.js"></script>
         <script src="~/lib/gridstackangularimproved/dist/gridstack-angular.js"></script>
         <script src="~/jspm_packages/system.js"></script>
         <script src="~/config.js"></script>
         <script>
-        System.import("app/angularbootstrap");
-    </script>
-    @*<script src="~/troubleshooting/system.tap.js"></script>
-        <script src="~/troubleshooting/system.yuml.js"></script>*@
-</environment>
+            System.import("app/angularbootstrap");
+        </script>
+        @*<script src="~/troubleshooting/system.tap.js"></script>
+            <script src="~/troubleshooting/system.yuml.js"></script>*@
+    </environment>
 
 
-<div class="wrapper wrapper-content  animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox ">
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
 
-          <system-info></system-info>
-             
-               
-            
+                    <system-info></system-info>
+
+
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
