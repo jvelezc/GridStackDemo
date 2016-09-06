@@ -41,9 +41,7 @@ export class PostageComponentController implements IPostageComponentControllerIn
                 //set the previous values
                 this.previousPostageValues = new Postage();
 
-                this.previousPostageValues.domesticFee = response.domestic;
-                this.previousPostageValues.internationalFee = response.international;
-                this.previousPostageValues.fee = response.fee;
+                this.previousPostageValues = angular.copy(this.postage);
             } else {
                 //nothing?
             }

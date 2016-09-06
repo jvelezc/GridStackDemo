@@ -24,9 +24,7 @@ var PostageComponentController = (function () {
                 _this.postage.fee = response.fee;
                 //set the previous values
                 _this.previousPostageValues = new Postage();
-                _this.previousPostageValues.domesticFee = response.domestic;
-                _this.previousPostageValues.internationalFee = response.international;
-                _this.previousPostageValues.fee = response.fee;
+                _this.previousPostageValues = angular.copy(_this.postage);
             }
             else {
             }

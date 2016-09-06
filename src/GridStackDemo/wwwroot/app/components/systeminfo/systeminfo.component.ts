@@ -1,9 +1,14 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
 
-export class SystemInfoComponentController   {
+export class SystemInfoComponentController {
+
+    //operation tab
     public operationHoursForm: any;
     public postageForm: any;
     public ropSettingsForm: any;
+
+    //claims department tab
+    public claimSettingsForm: any;
 
     constructor() {
     }
@@ -11,8 +16,8 @@ export class SystemInfoComponentController   {
     $onInit() {
 
     }
+
     public getOperationHoursFormData(operationHoursForm) {
-        //console.log(" I am the parent");
         this.operationHoursForm = operationHoursForm;
     }
 
@@ -22,7 +27,10 @@ export class SystemInfoComponentController   {
 
     public getRopSettingsForm(ropSettingsForm) {
         this.ropSettingsForm = ropSettingsForm;
-        console.log(ropSettingsForm);
+    }
+
+    public getClaimSettingsForm(claimSettingsForm) {
+        this.claimSettingsForm = claimSettingsForm;
     }
 }
 

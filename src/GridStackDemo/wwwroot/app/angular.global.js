@@ -92,6 +92,7 @@ var names;
         Components.holidayDates = "holidayDates";
         Components.postage = "postage";
         Components.ropSettings = "ropSettings";
+        Components.claimsDepartmentSettings = "claimsDepartmentSettings";
         return Components;
     }());
     names.Components = Components;

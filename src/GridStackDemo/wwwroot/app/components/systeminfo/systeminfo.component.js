@@ -6,7 +6,6 @@ var SystemInfoComponentController = (function () {
     SystemInfoComponentController.prototype.$onInit = function () {
     };
     SystemInfoComponentController.prototype.getOperationHoursFormData = function (operationHoursForm) {
-        //console.log(" I am the parent");
         this.operationHoursForm = operationHoursForm;
     };
     SystemInfoComponentController.prototype.getPostageForm = function (postageForm) {
@@ -14,7 +13,9 @@ var SystemInfoComponentController = (function () {
     };
     SystemInfoComponentController.prototype.getRopSettingsForm = function (ropSettingsForm) {
         this.ropSettingsForm = ropSettingsForm;
-        console.log(ropSettingsForm);
+    };
+    SystemInfoComponentController.prototype.getClaimSettingsForm = function (claimSettingsForm) {
+        this.claimSettingsForm = claimSettingsForm;
     };
     return SystemInfoComponentController;
 }());

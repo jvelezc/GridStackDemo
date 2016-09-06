@@ -20,6 +20,7 @@ import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component
 import {HolidayDatesComponent} from "../components/holidaydates/holidaydates.component";
 import {PostageComponent} from "../components/postage/postage.component";
 import {ROPSettingsComponent} from "../components/ropsettings/ropsettings.component";
+import {ClaimsDepartmentSettingsComponent} from "../components/claimsDepartmentSettings/claimsDepartmentSettings.component";
 
 angular.module(names.Modules.components, []);
 
@@ -66,5 +67,7 @@ angular
     .component(names.Components.postage, new PostageComponent())
     //<rop-settings></rop-settings>
     .component(names.Components.ropSettings, new ROPSettingsComponent())
+    //<claims-department-settings></claims-department-settings>
+    .component(names.Components.claimsDepartmentSettings, new ClaimsDepartmentSettingsComponent())
     ;
   

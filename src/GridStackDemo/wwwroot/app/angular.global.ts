@@ -70,6 +70,7 @@ export module names {
         public static holidayDates = "holidayDates";
         public static postage = "postage";
         public static ropSettings = "ropSettings";
+        public static claimsDepartmentSettings = "claimsDepartmentSettings";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

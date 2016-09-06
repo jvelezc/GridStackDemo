@@ -6,6 +6,7 @@
 /// <reference path="app/common/strategycontext.js" />
 /// <reference path="app/components/activitygrid/activitygrid.component.js" />
 /// <reference path="app/components/assigned/assignedclaims.component.js" />
+/// <reference path="app/components/claimsdepartmentsettings/claimsdepartmentsettings.component.js" />
 /// <reference path="app/components/claimsprogress/claimprogress.component.js" />
 /// <reference path="app/components/closedclaims/closedclaims.component.js" />
 /// <reference path="app/components/dashboardConfig/dashboardconfig.component.js" />

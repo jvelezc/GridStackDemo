@@ -1,0 +1,33 @@
+﻿<div class="ibox float-e-margins">
+    <div class="ibox-content">
+
+        <form class="form-horizontal ng-pristine ng-valid" name="Vm.claimSettingsForm">
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">E-Messaging</label>
+                <div class="col-sm-10" style="padding-top: 9px;">
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" class="onoffswitch-checkbox" id="eMessaging" ng-model="Vm.claimSettings.eMessaging">
+                            <label class="onoffswitch-label" for="eMessaging">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <span class="help-block m-b-none">This will only effect E-messages from the claims department.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Days of prior claim shown</label>
+
+                <div class="col-lg-10">
+                    <input kendo-numeric-text-box k-ng-model="Vm.claimSettings.daysOfPriorClaimShown" k-options="Vm.claimSettingsOptions" style="width: 20%;" />
+                    <span class="help-block m-b-none">How far back should Slate search for claims that belong to the client?</span>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

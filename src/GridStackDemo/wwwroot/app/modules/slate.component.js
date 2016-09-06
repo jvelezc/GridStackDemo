@@ -19,6 +19,7 @@ var systeminfo_component_1 = require("../components/systeminfo/systeminfo.compon
 var holidaydates_component_1 = require("../components/holidaydates/holidaydates.component");
 var postage_component_1 = require("../components/postage/postage.component");
 var ropsettings_component_1 = require("../components/ropsettings/ropsettings.component");
+var claimsDepartmentSettings_component_1 = require("../components/claimsDepartmentSettings/claimsDepartmentSettings.component");
 angular.module(angular_global_1.names.Modules.components, []);
 angular
     .module(angular_global_1.names.Modules.components)
@@ -40,4 +41,5 @@ angular
     .component(angular_global_1.names.Components.operationHours, new operationhours_component_1.OperationHoursComponent())
     .component(angular_global_1.names.Components.holidayDates, new holidaydates_component_1.HolidayDatesComponent())
     .component(angular_global_1.names.Components.postage, new postage_component_1.PostageComponent())
-    .component(angular_global_1.names.Components.ropSettings, new ropsettings_component_1.ROPSettingsComponent());
+    .component(angular_global_1.names.Components.ropSettings, new ropsettings_component_1.ROPSettingsComponent())
+    .component(angular_global_1.names.Components.claimsDepartmentSettings, new claimsDepartmentSettings_component_1.ClaimsDepartmentSettingsComponent());

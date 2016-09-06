@@ -50,7 +50,6 @@ var HolidayDatesComponentController = (function () {
         };
     };
     HolidayDatesComponentController.prototype.$doCheck = function () {
-        console.log(this.HolidayDatesGridInstance);
     };
     return HolidayDatesComponentController;
 }());

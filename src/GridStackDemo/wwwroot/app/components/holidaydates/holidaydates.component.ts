@@ -58,8 +58,6 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
     }
 
     $doCheck() {
-        console.log(this.HolidayDatesGridInstance);
-
     }
 
     public HolidayDatesGridInstance: kendo.ui.Grid;

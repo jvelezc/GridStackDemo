@@ -1,5 +1,5 @@
-"use strict";
 /// <reference path="../../../../typings/index.d.ts" />
+"use strict";
 var ROPSettings = (function () {
     function ROPSettings() {
     }
@@ -24,7 +24,7 @@ var ROPSettingsComponentController = (function () {
                 _this.ropSettings.daysOfHistoryShown = response.daysOfHistoryShown;
                 //save previous value
                 _this.previousRopSettings = new ROPSettings();
-                _this.previousRopSettings.daysOfHistoryShown = response.daysOfHistoryShown;
+                _this.previousRopSettings = angular.copy(_this.ropSettings);
             }
             else {
             }

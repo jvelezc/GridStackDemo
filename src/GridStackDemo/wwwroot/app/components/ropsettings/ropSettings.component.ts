@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+
 class ROPSettings {
     public daysOfHistoryShown: number;
 }
@@ -34,7 +35,7 @@ export class ROPSettingsComponentController implements ROPSettingsComponentContr
 
                 //save previous value
                 this.previousRopSettings = new ROPSettings();
-                this.previousRopSettings.daysOfHistoryShown = response.daysOfHistoryShown;
+                this.previousRopSettings = angular.copy(this.ropSettings);
 
             } else {
                 //nothing?
