@@ -33,7 +33,7 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
     }
 
     cancel() {
-
+        // unimplemented
     }
 
     $doCheck() {

@@ -17,6 +17,9 @@ import {ServerStatusComponent} from "../components/serverstatus/serverstatus.com
 import {OperationHoursComponent} from "../components/operationhours/operationhours.component";
 import {PrettyNotificationsComponent} from "../components/prettynotificationbox/prettynotificatiobox.component";
 import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component";
+import {HolidayDatesComponent} from "../components/holidaydates/holidaydates.component";
+import {PostageComponent} from "../components/postage/postage.component";
+
 angular.module(names.Modules.components, []);
 
 angular
@@ -51,9 +54,14 @@ angular
     .component(names.Components.serverStatus, new ServerStatusComponent())
 
 
-    //System info utilzies operation hours component
+    //System info utilzies operation hours, holiday dates components
+    //<system-info></system-info>
     .component(names.Components.systemInfo, new SystemInfoComponent())
+    //<operation-hours on-change=function></operation-hours>
     .component(names.Components.operationHours, new OperationHoursComponent())
-
+    //<holiday-dates></holiday-dates>
+    .component(names.Components.holidayDates, new HolidayDatesComponent())
+    //<postage></postage>
+    .component(names.Components.postage, new PostageComponent())
     ;
   

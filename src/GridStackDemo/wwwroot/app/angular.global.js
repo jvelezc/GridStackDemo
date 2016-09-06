@@ -89,6 +89,8 @@ var names;
         Components.prettyNotifications = "prettyNotifications";
         Components.systemInfo = "systemInfo";
         Components.hourOfOperations = "hourOfOperations";
+        Components.holidayDates = "holidayDates";
+        Components.postage = "postage";
         return Components;
     }());
     names.Components = Components;

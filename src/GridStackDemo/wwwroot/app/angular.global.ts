@@ -67,6 +67,8 @@ export module names {
         public static prettyNotifications = "prettyNotifications"; 
         public static systemInfo = "systemInfo"; 
         public static hourOfOperations = "hourOfOperations";
+        public static holidayDates = "holidayDates";
+        public static postage = "postage";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

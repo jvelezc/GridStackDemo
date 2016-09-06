@@ -36,6 +36,7 @@ var OperationHoursComponentController = (function () {
         });
     };
     OperationHoursComponentController.prototype.cancel = function () {
+        // unimplemented
     };
     OperationHoursComponentController.prototype.$doCheck = function () {
         if (!this.areBusinessHoursDefined()) {

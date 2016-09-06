@@ -1,0 +1,34 @@
+﻿<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h1>Postage</h1>
+
+        <!--<pre>
+            {{ Vm.postageForm || json}}
+        </pre>-->
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal ng-pristine ng-valid" name="Vm.postageForm">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Domestic</label>
+
+                <div class="col-lg-10">
+                    <input kendo-numeric-text-box k-min="0" k-max="100" k-ng-model="Vm.postage.domesticFee" k-options="Vm.generalFeeOptions" style="width: 20%;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">International</label>
+
+                <div class="col-lg-10">
+                    <input kendo-numeric-text-box k-min="0" k-max="100" k-ng-model="Vm.postage.internationalFee" k-options="Vm.generalFeeOptions"  style="width: 20%;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Fee</label>
+
+                <div class="col-lg-10">
+                    <input kendo-numeric-text-box k-min="0" k-max="100" k-ng-model="Vm.postage.fee" k-options="Vm.generalFeeOptions" style="width: 20%;" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
