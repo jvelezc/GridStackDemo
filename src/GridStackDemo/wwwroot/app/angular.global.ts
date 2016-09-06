@@ -69,6 +69,7 @@ export module names {
         public static hourOfOperations = "hourOfOperations";
         public static holidayDates = "holidayDates";
         public static postage = "postage";
+        public static ropSettings = "ropSettings";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

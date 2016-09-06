@@ -74,7 +74,7 @@ export class PostageComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            onChange: '&',
+            onChange: "&",
         };
 
     }

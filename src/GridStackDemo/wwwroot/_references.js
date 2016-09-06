@@ -22,6 +22,7 @@
 /// <reference path="app/components/postage/postage.component.js" />
 /// <reference path="app/components/prettynotificationbox/prettynotificatiobox.component.js" />
 /// <reference path="app/components/reopenedclaims/reopenedclaims.component.js" />
+/// <reference path="app/components/ropsettings/ropsettings.component.js" />
 /// <reference path="app/components/serverstatus/serverstatus.component.js" />
 /// <reference path="app/components/systeminfo/systeminfo.component.js" />
 /// <reference path="app/components/transferredclaims/transferredclaims.component.js" />

@@ -8,12 +8,13 @@ var SystemInfoComponentController = (function () {
     SystemInfoComponentController.prototype.getOperationHoursFormData = function (operationHoursForm) {
         //console.log(" I am the parent");
         this.operationHoursForm = operationHoursForm;
-        console.log(this.operationHoursForm);
     };
     SystemInfoComponentController.prototype.getPostageForm = function (postageForm) {
-        console.log("I'm the parent");
         this.postageForm = postageForm;
-        console.log(postageForm);
+    };
+    SystemInfoComponentController.prototype.getRopSettingsForm = function (ropSettingsForm) {
+        this.ropSettingsForm = ropSettingsForm;
+        console.log(ropSettingsForm);
     };
     return SystemInfoComponentController;
 }());

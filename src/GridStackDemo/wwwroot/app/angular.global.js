@@ -91,6 +91,7 @@ var names;
         Components.hourOfOperations = "hourOfOperations";
         Components.holidayDates = "holidayDates";
         Components.postage = "postage";
+        Components.ropSettings = "ropSettings";
         return Components;
     }());
     names.Components = Components;

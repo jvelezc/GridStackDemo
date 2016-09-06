@@ -19,6 +19,7 @@ import {PrettyNotificationsComponent} from "../components/prettynotificationbox/
 import {SystemInfoComponent} from "../components/systeminfo/systeminfo.component";
 import {HolidayDatesComponent} from "../components/holidaydates/holidaydates.component";
 import {PostageComponent} from "../components/postage/postage.component";
+import {ROPSettingsComponent} from "../components/ropsettings/ropsettings.component";
 
 angular.module(names.Modules.components, []);
 
@@ -63,5 +64,7 @@ angular
     .component(names.Components.holidayDates, new HolidayDatesComponent())
     //<postage></postage>
     .component(names.Components.postage, new PostageComponent())
+    //<rop-settings></rop-settings>
+    .component(names.Components.ropSettings, new ROPSettingsComponent())
     ;
   

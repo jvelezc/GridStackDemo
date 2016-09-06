@@ -53,7 +53,7 @@ var PostageComponent = (function () {
         this.controllerAs = "Vm";
         this.controller = ["$http", PostageComponentController];
         this.bindings = {
-            onChange: '&',
+            onChange: "&",
         };
     }
     return PostageComponent;

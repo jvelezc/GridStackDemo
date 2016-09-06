@@ -3,6 +3,7 @@
 export class SystemInfoComponentController   {
     public operationHoursForm: any;
     public postageForm: any;
+    public ropSettingsForm: any;
 
     constructor() {
     }
@@ -13,15 +14,15 @@ export class SystemInfoComponentController   {
     public getOperationHoursFormData(operationHoursForm) {
         //console.log(" I am the parent");
         this.operationHoursForm = operationHoursForm;
-
-        console.log(this.operationHoursForm);
     }
 
     public getPostageForm(postageForm) {
-        console.log("I'm the parent");
         this.postageForm = postageForm;
+    }
 
-        console.log(postageForm);
+    public getRopSettingsForm(ropSettingsForm) {
+        this.ropSettingsForm = ropSettingsForm;
+        console.log(ropSettingsForm);
     }
 }
 
