@@ -2,21 +2,21 @@
 <div class="container">
 
     <ul class="nav nav-tabs">
-        <li><a data-toggle="tab" href="#operations">Operations</a></li> <!-- TODO: Change back to active!-->
+        <li class="active"><a data-toggle="tab" href="#operations">Operations</a></li>
 
-        <li class="active"><a data-toggle="tab" href="#claims-department">Claim Department</a></li>
+        <li><a data-toggle="tab" href="#claims-department">Claim Department</a></li>
 
     </ul>
 
     <div class="tab-content">
-        <div id="operations" class="tab-pane fade">
+        <div id="operations" class="tab-pane fade  in active">
             <operation-hours on-change="Vm.getOperationHoursFormData(operationHoursForm)"></operation-hours>
             <holiday-dates></holiday-dates>
             <postage on-change="Vm.getPostageForm(postageForm)"></postage>
             <rop-settings on-change="Vm.getRopSettingsForm(ropSettingsForm)"></rop-settings>
         </div>
 
-        <div id="claims-department" class="tab-pane fade in active"> <!-- TODO: Change back to active!-->
+        <div id="claims-department" class="tab-pane fade">
             <claims-department-settings  on-change="Vm.getClaimSettingsForm(claimSettingsForm)"></claims-department-settings>
         </div>
 
