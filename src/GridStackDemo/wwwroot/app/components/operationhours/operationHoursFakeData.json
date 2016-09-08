@@ -5,51 +5,53 @@
       "weekday": "monday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM"
     },
     {
       "weekday": "tuesday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM"
     },
     {
       "weekday": "wednesday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM"
     },
     {
       "weekday": "thursday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM"
     },
     {
       "weekday": "friday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM"
 
     },
     {
       "weekday": "saturday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM",
+      "closed": true
     },
     {
       "weekday": "sunday",
       "startTime": "08:00 AM",
       "endTime": "05:00 PM",
-      "afterHourStartTime": null,
-      "afterHourEndTime": null
+      "afterHourStartTime": "05:01 PM",
+      "afterHourEndTime": "07:59 AM",
+      "closed": true
     }
   ]
 }

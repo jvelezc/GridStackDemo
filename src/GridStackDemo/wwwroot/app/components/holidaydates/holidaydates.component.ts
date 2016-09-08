@@ -40,7 +40,7 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
                         }
                     }
                 },
-                pagesize: 20,
+                pagesize: 10,
                 batch: true
             },
             sortable: true,
@@ -50,8 +50,7 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
             columns: [
                 { field: "Date", format: "{0:MM/dd/yyyy}" },
                 { field: "Description" },
-                //{ command: [{ name: "destroy", text: "Remove", click: this.showDeleteAlert }], title: " " }
-                { command: { text: "Remove", click: this.showDeleteAlert }, title: " " }
+                { command: [{ name: "destroy", text: "Remove"}], title: " " }
             ],
             editable: true
         };

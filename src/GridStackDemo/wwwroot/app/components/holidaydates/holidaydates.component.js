@@ -33,7 +33,7 @@ var HolidayDatesComponentController = (function () {
                         }
                     }
                 },
-                pagesize: 20,
+                pagesize: 10,
                 batch: true
             },
             sortable: true,
@@ -43,8 +43,7 @@ var HolidayDatesComponentController = (function () {
             columns: [
                 { field: "Date", format: "{0:MM/dd/yyyy}" },
                 { field: "Description" },
-                //{ command: [{ name: "destroy", text: "Remove", click: this.showDeleteAlert }], title: " " }
-                { command: { text: "Remove", click: this.showDeleteAlert }, title: " " }
+                { command: [{ name: "destroy", text: "Remove" }], title: " " }
             ],
             editable: true
         };

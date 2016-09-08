@@ -32,14 +32,16 @@ var OperationHoursComponentController = (function () {
         this.$http.get("app/components/operationhours/operationHoursFakeData.json").success(function (response) {
             _this.transformResponseData(response);
             //this is going to be used when the user cancels saving the form, it will revert to its previous values
-            _this.previousOperationHoursForm = _this.previousOperationHoursForm;
+            _this.previousOperationHoursForm = angular.copy(_this.operationHoursForm);
         });
     };
     OperationHoursComponentController.prototype.cancel = function () {
         // unimplemented
+        this.operationHoursForm = angular.copy(this.previousOperationHoursForm);
+        ;
     };
     OperationHoursComponentController.prototype.$doCheck = function () {
-        if (!this.areBusinessHoursDefined()) {
+        if (this.type == "0") {
             //blank out the fields...
             this.operationHoursForm = null;
         }
@@ -47,6 +49,35 @@ var OperationHoursComponentController = (function () {
         this.onChange({
             operationHoursForm: operationHoursObj
         });
+    };
+    OperationHoursComponentController.prototype.setDayToClosed = function (day) {
+        if (this.operationHoursForm !== undefined && day !== undefined && this.operationHoursForm[day].closed) {
+            this.operationHoursForm[day].startTime = undefined;
+            this.operationHoursForm[day].endTime = undefined;
+            this.operationHoursForm[day].afterHourStartTime = undefined;
+            this.operationHoursForm[day].afterHourEndTime = undefined;
+            this.operationHoursForm[day].startTimeObj = undefined;
+            this.operationHoursForm[day].endTimeObj = undefined;
+        }
+    };
+    //utlity function created to convert a short date '12:00 AM' to 24 hour format
+    OperationHoursComponentController.prototype.formatShortDateTime = function (shortDateString) {
+        var today = new Date();
+        if (shortDateString !== undefined && shortDateString.trim() !== "") {
+            var hourMinutes = shortDateString.split(":");
+            var hoursStr = hourMinutes[0];
+            var minutesAmPm = hourMinutes[1].split(" ");
+            var minutesStr = minutesAmPm[0];
+            var amPmStr = minutesAmPm[1].toLowerCase();
+            var amPm = (amPmStr === "pm") ? 12 : 0;
+            var hours = parseInt(hoursStr);
+            var minutes = parseInt(minutesStr);
+            var formatedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours + amPm, minutes);
+            return formatedDate;
+        }
+        else {
+            return today;
+        }
     };
     OperationHoursComponentController.prototype.transformResponseData = function (responseData) {
         var _this = this;
@@ -61,23 +92,33 @@ var OperationHoursComponentController = (function () {
                 this.operationHoursForm = {};
                 angular.forEach(responseData.operationHours, function (operationDay) {
                     var day = operationDay.weekday;
+                    var startTimeObj = _this.formatShortDateTime(operationDay.startTime);
+                    var endTimeObj = _this.formatShortDateTime(operationDay.endTime);
+                    var closed = (operationDay.closed) ? operationDay.closed : false;
                     _this.operationHoursForm[day] = {
                         startTime: operationDay.startTime,
                         endTime: operationDay.endTime,
                         afterHourStartTime: operationDay.afterHourStartTime,
-                        afterHourEndTime: operationDay.afterHouEndTime
+                        startTimeObj: startTimeObj,
+                        afterHourEndTime: operationDay.afterHourEndTime,
+                        endTimeObj: endTimeObj,
+                        closed: closed
                     };
+                    //if it's marked as closed, make sure and close it.
+                    if (closed) {
+                        _this.setDayToClosed(day);
+                    }
                 });
             }
         }
     };
     OperationHoursComponentController.prototype.getOperationHoursForm = function () {
         //let's transform the form to an object more consistent with the data
-        if (this.operationHoursForm !== null) {
-            var operationHoursObj = {
-                type: this.type,
-                operationHours: []
-            };
+        var operationHoursObj = {
+            type: this.type,
+            operationHours: []
+        };
+        if (this.operationHoursForm !== undefined) {
             var operationHoursList = [];
             for (var i = 0; i < OperationHoursConstants.WEEKDAYS.length; i++) {
                 var day = OperationHoursConstants.WEEKDAYS[i];
@@ -87,7 +128,8 @@ var OperationHoursComponentController = (function () {
                         startTime: this.operationHoursForm[day].startTime,
                         endTime: this.operationHoursForm[day].endTime,
                         afterHourStartTime: this.operationHoursForm[day].afterHourStartTime,
-                        afterHourEndTime: this.operationHoursForm[day].afterHourEndTime
+                        afterHourEndTime: this.operationHoursForm[day].afterHourEndTime,
+                        closed: this.operationHoursForm[day].closed
                     });
                 }
                 else {
@@ -101,14 +143,22 @@ var OperationHoursComponentController = (function () {
                 }
             }
             operationHoursObj.operationHours = operationHoursList;
-            return operationHoursObj;
         }
-        else {
-            return null;
-        }
+        return operationHoursObj;
     };
-    OperationHoursComponentController.prototype.areBusinessHoursDefined = function () {
-        return this.type == "1";
+    OperationHoursComponentController.prototype.isClosed = function (day) {
+        var isClosed = false;
+        if (this.operationHoursForm !== undefined && day !== undefined) {
+            isClosed = (this.operationHoursForm[day].closed);
+        }
+        return isClosed;
+    };
+    OperationHoursComponentController.prototype.areBusinessHoursDefined = function (day) {
+        var isDefined = false;
+        if (this.type == "1") {
+            isDefined = true;
+        }
+        return isDefined;
     };
     OperationHoursComponentController.prototype.isBusinessHoursValid = function (operationDay, day) {
         var isValid = false;
@@ -131,6 +181,18 @@ var OperationHoursComponentController = (function () {
             closeOnConfirm: true
         });
     };
+    OperationHoursComponentController.prototype.clearOperationHours = function (day) {
+        if (this.operationHoursForm !== undefined && day !== undefined) {
+            this.operationHoursForm[day].startTime = "";
+            this.operationHoursForm[day].endTime = "";
+        }
+    };
+    OperationHoursComponentController.prototype.clearAfterHours = function (day) {
+        if (this.operationHoursForm !== undefined && day !== undefined) {
+            this.operationHoursForm[day].afterHourStartTime = "";
+            this.operationHoursForm[day].afterHourEndTime = "";
+        }
+    };
     OperationHoursComponentController.prototype.updateAfterHours = function (operationDay, day, action) {
         day = day.toLowerCase();
         var isEndTime = false;
@@ -139,8 +201,7 @@ var OperationHoursComponentController = (function () {
         }
         if (operationDay == null) {
             //set them to blank
-            this.operationHoursForm[day].afterHourStartTime = "";
-            this.operationHoursForm[day].afterHourEndTime = "";
+            this.clearAfterHours(day);
         }
         else if (this.isBusinessHoursValid(operationDay, day)) {
             if (isEndTime) {

@@ -45,7 +45,7 @@
                                     <th class="col-sm-2">Week Day</th>
                                     <th class="col-sm-2">Start Time</th>
                                     <th class="col-sm-2">End Time</th>
-                                    <th class="col-sm-2"></th>
+                                    <th class="col-sm-2 text-center">Closed</th>
                                     <th class="col-sm-2">Start Time</th>
                                     <th class="col-sm-2">End Time</th>
                                 </tr>
@@ -59,7 +59,7 @@
                                                ng-model="Vm.operationHoursForm.sunday.startTime"
                                                k-ng-model="Vm.operationHoursForm.sunday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.sunday.startTimeObj, 'sunday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled= "!Vm.areBusinessHoursDefined('sunday') || Vm.operationHoursForm.sunday.closed"
                                                style="width: 100%;" />
                                     </td>
                                     <td>
@@ -67,10 +67,12 @@
                                                ng-model="Vm.operationHoursForm.sunday.endTime"
                                                k-ng-model="Vm.operationHoursForm.sunday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.sunday.endTimeObj, 'sunday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('sunday') || Vm.operationHoursForm.sunday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.sunday.closed" ng-click="Vm.setDayToClosed('sunday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.sunday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.sunday.afterHourEndTime}}</td>
                                 </tr>
@@ -82,7 +84,7 @@
                                                ng-model="Vm.operationHoursForm.monday.startTime"
                                                k-ng-model="Vm.operationHoursForm.monday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.monday.startTimeObj, 'monday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('monday') || Vm.operationHoursForm.monday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -91,10 +93,12 @@
                                                ng-model="Vm.operationHoursForm.monday.endTime"
                                                k-ng-model="Vm.operationHoursForm.monday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.monday.endTimeObj, 'monday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('monday') || Vm.operationHoursForm.monday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.monday.closed" ng-click="Vm.setDayToClosed('monday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.monday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.monday.afterHourEndTime}}</td>
                                 </tr>
@@ -106,7 +110,7 @@
                                                ng-model="Vm.operationHoursForm.tuesday.startTime"
                                                k-ng-model="Vm.operationHoursForm.tuesday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.tuesday.startTimeObj, 'tuesday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('tuesday') || Vm.operationHoursForm.tuesday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -115,10 +119,12 @@
                                                ng-model="Vm.operationHoursForm.tuesday.endTime"
                                                k-ng-model="Vm.operationHoursForm.tuesday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.tuesday.endTimeObj, 'tuesday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('tuesday') || Vm.operationHoursForm.tuesday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.tuesday.closed" ng-click="Vm.setDayToClosed('tuesday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.tuesday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.tuesday.afterHourEndTime}}</td>
 
@@ -131,7 +137,7 @@
                                                ng-model="Vm.operationHoursForm.wednesday.startTime"
                                                k-ng-model="Vm.operationHoursForm.wednesday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.wednesday.startTimeObj, 'wednesday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('wednesday') || Vm.operationHoursForm.wednesday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -140,10 +146,12 @@
                                                ng-model="Vm.operationHoursForm.wednesday.endTime"
                                                k-ng-model="Vm.operationHoursForm.wednesday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.wednesday.endTimeObj, 'wednesday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('wednesday') || Vm.operationHoursForm.wednesday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.wednesday.closed" ng-click="Vm.setDayToClosed('wednesday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.wednesday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.wednesday.afterHourEndTime}}</td>
 
@@ -156,7 +164,7 @@
                                                ng-model="Vm.operationHoursForm.thursday.startTime"
                                                k-ng-model="Vm.operationHoursForm.thursday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.thursday.startTimeObj, 'thursday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('thursday') || Vm.operationHoursForm.thursday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -165,10 +173,12 @@
                                                ng-model="Vm.operationHoursForm.thursday.endTime"
                                                k-ng-model="Vm.operationHoursForm.thursday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.thursday.endTimeObj, 'thursday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('thursday') || Vm.operationHoursForm.thursday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.thursday.closed" ng-click="Vm.setDayToClosed('thursday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.thursday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.thursday.afterHourEndTime}}</td>
                                 </tr>
@@ -180,7 +190,7 @@
                                                ng-model="Vm.operationHoursForm.friday.startTime"
                                                k-ng-model="Vm.operationHoursForm.friday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.friday.startTimeObj, 'friday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('friday') || Vm.operationHoursForm.friday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -189,10 +199,12 @@
                                                ng-model="Vm.operationHoursForm.friday.endTime"
                                                k-ng-model="Vm.operationHoursForm.friday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.friday.endTimeObj, 'friday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('friday') || Vm.operationHoursForm.friday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.friday.closed"  ng-click="Vm.setDayToClosed('friday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.friday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.friday.afterHourEndTime}}</td>
                                 </tr>
@@ -204,7 +216,7 @@
                                                ng-model="Vm.operationHoursForm.saturday.startTime"
                                                k-ng-model="Vm.operationHoursForm.saturday.startTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.saturday.startTimeObj, 'saturday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('saturday') || Vm.operationHoursForm.saturday.closed"
                                                style="width: 100%;" />
 
                                     </td>
@@ -213,10 +225,12 @@
                                                ng-model="Vm.operationHoursForm.saturday.endTime"
                                                k-ng-model="Vm.operationHoursForm.saturday.endTimeObj"
                                                k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.saturday.endTimeObj, 'saturday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined()"
+                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('saturday') || Vm.operationHoursForm.saturday.closed"
                                                style="width: 100%;" />
                                     </td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.saturday.closed"  ng-click="Vm.setDayToClosed('saturday')">
+                                    </td>
                                     <td>{{Vm.operationHoursForm.saturday.afterHourStartTime}}</td>
                                     <td>{{Vm.operationHoursForm.saturday.afterHourEndTime}}</td>
                                 </tr>

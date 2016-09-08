@@ -7,9 +7,6 @@ class Postage {
 
 interface IPostageComponentControllerInterface {
     postage: Postage;
-    domesticFee: number;
-    internationalFee: number;
-    fee: number;
 }
 
 export class PostageComponentController implements IPostageComponentControllerInterface {
