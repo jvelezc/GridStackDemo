@@ -1,11 +1,13 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
+
 interface IHolidayDatesComponentController {
 }
 
 export class HolidayDatesComponentController implements IHolidayDatesComponentController {
 
     public onChange: Function;
-    private sweetAlert: any;
+    public source: GeneralDataSource;
 
     constructor(private $http: ng.IHttpService, public SweetAlert: any) {
     }
@@ -27,7 +29,7 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
         this.HolidayDatesGridOptions = {
             dataSource: {
                 transport: {
-                    read: "/app/components/holidaydates/holidayDatesFakeData.json",
+                    read: this.source.data.url,
                     dataType: "json"
                 },
                 schema: {
@@ -67,5 +69,12 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
 export class HolidayDatesComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/holidaydates/holidaydates.component.html";
     controllerAs = "Vm";
+    bindings: any;
+    constructor() {
+        this.bindings = {
+            source: "<",
+        };
+
+    }
     controller = ["$http", "SweetAlert",  HolidayDatesComponentController];
 }

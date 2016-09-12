@@ -1,4 +1,3 @@
-/// <reference path="../../../../typings/index.d.ts" />
 "use strict";
 var OperationHoursConstants = (function () {
     function OperationHoursConstants() {
@@ -29,7 +28,7 @@ var OperationHoursComponentController = (function () {
     }
     OperationHoursComponentController.prototype.$onInit = function () {
         var _this = this;
-        this.$http.get("app/components/operationhours/operationHoursFakeData.json").success(function (response) {
+        this.$http.get(this.source.data.url).success(function (response) {
             _this.transformResponseData(response);
             //this is going to be used when the user cancels saving the form, it will revert to its previous values
             _this.previousOperationHoursForm = angular.copy(_this.operationHoursForm);
@@ -234,6 +233,7 @@ var OperationHoursComponent = (function () {
         this.controller = ["$http", "$filter", "SweetAlert", OperationHoursComponentController];
         this.bindings = {
             onChange: '&',
+            source: '<'
         };
     }
     return OperationHoursComponent;

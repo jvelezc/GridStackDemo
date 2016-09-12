@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
 
 export class SystemInfoComponentController {
 
@@ -14,6 +15,36 @@ export class SystemInfoComponentController {
     }
 
     $onInit() {
+        // defining data sources for it's child components
+        this.operationHourDataSource = {
+            data: {
+                url: "app/components/operationhours/operationHoursFakeData.json"
+            }
+        };
+
+        this.holidayDatesDataSource = {
+            data: {
+                url: "/app/components/holidaydates/holidayDatesFakeData.json"
+            }
+        };
+
+        this.postageDataSource = {
+            data: {
+                url: "app/components/postage/postageFakeData.json"
+            }
+        };
+
+        this.ropSetingsDataSource = {
+            data: {
+                url: "app/components/ropsettings/ropSettingsFakeData.json"
+            }
+        };
+
+        this.claimSettingsHourDataSource = {
+            data: {
+                url: "app/components/claimsDepartmentSettings/claimsDepartmentSettingsFakeData.json"
+            }
+        };
 
     }
 
@@ -32,6 +63,12 @@ export class SystemInfoComponentController {
     public getClaimSettingsForm(claimSettingsForm) {
         this.claimSettingsForm = claimSettingsForm;
     }
+
+    public operationHourDataSource: GeneralDataSource;
+    public holidayDatesDataSource: GeneralDataSource;
+    public postageDataSource: GeneralDataSource;
+    public ropSetingsDataSource: GeneralDataSource;
+    public claimSettingsHourDataSource: GeneralDataSource;
 }
 
 export class SystemInfoComponent implements ng.IComponentOptions {

@@ -1,4 +1,5 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
 
 class OperationHoursConstants {
     public static get ONE_MINUTE(): number { return 60000; }
@@ -18,13 +19,15 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
 
     public operationHoursForm: any;
     public previousOperationHoursForm: any;
+
     public onChange: Function;
+    public source: GeneralDataSource;
 
     constructor(private $http: ng.IHttpService, private $filter: ng.IFilterService, private SweetAlert: any) {
     }
 
     $onInit() {
-        this.$http.get("app/components/operationhours/operationHoursFakeData.json").success((response: any) => {
+        this.$http.get(this.source.data.url).success((response: any) => {
             this.transformResponseData(response);
 
             //this is going to be used when the user cancels saving the form, it will revert to its previous values
@@ -275,6 +278,7 @@ export class OperationHoursComponent implements ng.IComponentOptions {
     constructor() {
         this.bindings = {
             onChange: '&',
+            source: '<'
         };
 
     }

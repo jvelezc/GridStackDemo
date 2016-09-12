@@ -1,4 +1,6 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
+
 class Postage {
     public domesticFee: number;
     public internationalFee: number;
@@ -16,6 +18,7 @@ export class PostageComponentController implements IPostageComponentControllerIn
     public postage: Postage;
 
     public onChange: Function;
+    public source: GeneralDataSource;
 
     constructor(private $http) {
     }
@@ -27,7 +30,7 @@ export class PostageComponentController implements IPostageComponentControllerIn
         };
 
         //call API to retrieve the data as well...
-        this.$http.get("app/components/postage/postageFakeData.json").success((response: any) => {
+        this.$http.get(this.source.data.url).success((response: any) => {
             if (response !== undefined) {
                 this.postage = new Postage();
 
@@ -70,6 +73,7 @@ export class PostageComponent implements ng.IComponentOptions {
     constructor() {
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
 
     }

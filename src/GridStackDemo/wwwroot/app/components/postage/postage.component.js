@@ -1,5 +1,4 @@
 "use strict";
-/// <reference path="../../../../typings/index.d.ts" />
 var Postage = (function () {
     function Postage() {
     }
@@ -16,7 +15,7 @@ var PostageComponentController = (function () {
             decimals: 3
         };
         //call API to retrieve the data as well...
-        this.$http.get("app/components/postage/postageFakeData.json").success(function (response) {
+        this.$http.get(this.source.data.url).success(function (response) {
             if (response !== undefined) {
                 _this.postage = new Postage();
                 _this.postage.domesticFee = response.domestic;
@@ -52,6 +51,7 @@ var PostageComponent = (function () {
         this.controller = ["$http", PostageComponentController];
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
     }
     return PostageComponent;

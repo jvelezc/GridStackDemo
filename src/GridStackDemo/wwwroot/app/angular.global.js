@@ -93,6 +93,7 @@ var names;
         Components.postage = "postage";
         Components.ropSettings = "ropSettings";
         Components.claimsDepartmentSettings = "claimsDepartmentSettings";
+        Components.fnol = "fnol";
         return Components;
     }());
     names.Components = Components;

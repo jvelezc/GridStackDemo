@@ -71,6 +71,7 @@ export module names {
         public static postage = "postage";
         public static ropSettings = "ropSettings";
         public static claimsDepartmentSettings = "claimsDepartmentSettings";
+        public static fnol = "fnol";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

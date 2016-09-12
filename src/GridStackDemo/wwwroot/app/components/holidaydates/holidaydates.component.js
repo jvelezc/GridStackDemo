@@ -1,5 +1,4 @@
 "use strict";
-/// <reference path="../../../../typings/index.d.ts" />
 var HolidayDatesComponentController = (function () {
     function HolidayDatesComponentController($http, SweetAlert) {
         this.$http = $http;
@@ -20,7 +19,7 @@ var HolidayDatesComponentController = (function () {
         this.HolidayDatesGridOptions = {
             dataSource: {
                 transport: {
-                    read: "/app/components/holidaydates/holidayDatesFakeData.json",
+                    read: this.source.data.url,
                     dataType: "json"
                 },
                 schema: {
@@ -58,6 +57,9 @@ var HolidayDatesComponent = (function () {
         this.templateUrl = "/app/components/holidaydates/holidaydates.component.html";
         this.controllerAs = "Vm";
         this.controller = ["$http", "SweetAlert", HolidayDatesComponentController];
+        this.bindings = {
+            source: "<",
+        };
     }
     return HolidayDatesComponent;
 }());

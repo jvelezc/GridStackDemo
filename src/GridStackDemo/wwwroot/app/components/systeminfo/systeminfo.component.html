@@ -10,14 +10,14 @@
 
     <div class="tab-content">
         <div id="operations" class="tab-pane fade  in active">
-            <operation-hours on-change="Vm.getOperationHoursFormData(operationHoursForm)"></operation-hours>
-            <holiday-dates></holiday-dates>
-            <postage on-change="Vm.getPostageForm(postageForm)"></postage>
-            <rop-settings on-change="Vm.getRopSettingsForm(ropSettingsForm)"></rop-settings>
+            <operation-hours on-change="Vm.getOperationHoursFormData(operationHoursForm)" source="Vm.operationHourDataSource"></operation-hours>
+            <holiday-dates source="Vm.holidayDatesDataSource"></holiday-dates>
+            <postage on-change="Vm.getPostageForm(postageForm)" source="Vm.postageDataSource"></postage>
+            <rop-settings on-change="Vm.getRopSettingsForm(ropSettingsForm)" source="Vm.ropSetingsDataSource"></rop-settings>
         </div>
 
         <div id="claims-department" class="tab-pane fade">
-            <claims-department-settings  on-change="Vm.getClaimSettingsForm(claimSettingsForm)"></claims-department-settings>
+            <claims-department-settings  on-change="Vm.getClaimSettingsForm(claimSettingsForm)" source="Vm.claimSettingsHourDataSource"></claims-department-settings>
         </div>
 
     </div>

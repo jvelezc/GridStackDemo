@@ -1,5 +1,4 @@
 "use strict";
-/// <reference path="../../../../typings/index.d.ts" />
 var ClaimSettingsConstants = (function () {
     function ClaimSettingsConstants() {
     }
@@ -29,7 +28,7 @@ var ClaimsDepartmentSettingsComponentController = (function () {
         this.claimSettings = new ClaimsSettings();
         this.previousClaimSettings = new ClaimsSettings();
         //call the Api
-        this.$http.get("app/components/claimsDepartmentSettings/claimsDepartmentSettingsFakeData.json").success(function (response) {
+        this.$http.get(this.source.data.url).success(function (response) {
             if (response !== undefined) {
                 _this.claimSettings.eMessaging = response.eMessaging;
                 _this.claimSettings.daysOfPriorClaimShown = (response.daysOfPriorClaimShown) ? response.daysOfPriorClaimShown : ClaimSettingsConstants.DEFAULT_DAYS_OF_PRIOR_CLAIM_SHOWN;
@@ -62,6 +61,7 @@ var ClaimsDepartmentSettingsComponent = (function () {
         this.controller = ["$http", ClaimsDepartmentSettingsComponentController];
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
     }
     return ClaimsDepartmentSettingsComponent;

@@ -21,6 +21,7 @@ import {HolidayDatesComponent} from "../components/holidaydates/holidaydates.com
 import {PostageComponent} from "../components/postage/postage.component";
 import {ROPSettingsComponent} from "../components/ropsettings/ropsettings.component";
 import {ClaimsDepartmentSettingsComponent} from "../components/claimsDepartmentSettings/claimsDepartmentSettings.component";
+import {FnolComponent} from "../components/fnol/fnol.component";
 
 angular.module(names.Modules.components, []);
 
@@ -69,5 +70,7 @@ angular
     .component(names.Components.ropSettings, new ROPSettingsComponent())
     //<claims-department-settings></claims-department-settings>
     .component(names.Components.claimsDepartmentSettings, new ClaimsDepartmentSettingsComponent())
+    //<fnol></fnol>
+    .component(names.Components.fnol, new FnolComponent())
     ;
   

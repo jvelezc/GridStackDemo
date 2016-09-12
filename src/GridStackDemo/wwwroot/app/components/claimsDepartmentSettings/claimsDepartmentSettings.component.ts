@@ -1,4 +1,6 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
+
 class ClaimSettingsConstants {
     public static get DEFAULT_DAYS_OF_PRIOR_CLAIM_SHOWN(): number { return 180; }
 }
@@ -18,6 +20,7 @@ export class ClaimsDepartmentSettingsComponentController implements ClaimsDepart
     public claimSettingsForm: any;
 
     public onChange: Function;
+    public source: GeneralDataSource;
 
     constructor(private $http) {
     }
@@ -33,7 +36,7 @@ export class ClaimsDepartmentSettingsComponentController implements ClaimsDepart
         this.previousClaimSettings = new ClaimsSettings();
 
         //call the Api
-        this.$http.get("app/components/claimsDepartmentSettings/claimsDepartmentSettingsFakeData.json").success((response: any) => {
+        this.$http.get(this.source.data.url).success((response: any) => {
             if (response !== undefined) {
                 this.claimSettings.eMessaging = response.eMessaging;
                 this.claimSettings.daysOfPriorClaimShown = (response.daysOfPriorClaimShown) ? response.daysOfPriorClaimShown : ClaimSettingsConstants.DEFAULT_DAYS_OF_PRIOR_CLAIM_SHOWN;
@@ -71,6 +74,7 @@ export class ClaimsDepartmentSettingsComponent implements ng.IComponentOptions {
     constructor() {
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
 
     }

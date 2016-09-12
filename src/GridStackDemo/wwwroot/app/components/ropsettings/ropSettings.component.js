@@ -1,4 +1,3 @@
-/// <reference path="../../../../typings/index.d.ts" />
 "use strict";
 var ROPSettings = (function () {
     function ROPSettings() {
@@ -52,6 +51,7 @@ var ROPSettingsComponent = (function () {
         this.controller = ["$http", ROPSettingsComponentController];
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
     }
     return ROPSettingsComponent;

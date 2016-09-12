@@ -1,4 +1,6 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
+import {GeneralDataSource} from "../common/GeneralDataSource";
+
 
 class ROPSettings {
     public daysOfHistoryShown: number;
@@ -15,6 +17,7 @@ export class ROPSettingsComponentController implements ROPSettingsComponentContr
     public ropSettingsForm:any;
 
     public onChange: Function;
+    public source: GeneralDataSource;
 
     constructor(private $http) {
     }
@@ -68,6 +71,7 @@ export class ROPSettingsComponent implements ng.IComponentOptions {
     constructor() {
         this.bindings = {
             onChange: "&",
+            source: "<",
         };
 
     }
