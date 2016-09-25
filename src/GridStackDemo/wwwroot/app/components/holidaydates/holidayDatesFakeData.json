@@ -1,12 +1,12 @@
 ﻿[
   {
-    "Id":  1,
-    "Date": "9/8/2016",
+    "Id": 1,
+    "HolidayDate": "07/04/2016",
     "Description": "Independence Day"
   },
   {
     "Id": 2,
-    "Date": "9/5/2016",
+    "HolidayDate": "09/05/2016",
     "Description": "Labor Day"
   }
 ]

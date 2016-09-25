@@ -4,4 +4,8 @@
 
 export interface GeneralDataSource {
     data: GeneralSource;
+    post?: GeneralSource;
+    update?: GeneralSource;
+    delete?: GeneralSource;
+
 }

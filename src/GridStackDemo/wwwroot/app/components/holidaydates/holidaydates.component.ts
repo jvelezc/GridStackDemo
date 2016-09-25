@@ -4,40 +4,66 @@ import {GeneralDataSource} from "../common/GeneralDataSource";
 interface IHolidayDatesComponentController {
 }
 
+
 export class HolidayDatesComponentController implements IHolidayDatesComponentController {
 
     public onChange: Function;
     public source: GeneralDataSource;
+    public ownerid: number;
 
-    constructor(private $http: ng.IHttpService, public SweetAlert: any) {
+    constructor(private $http: ng.IHttpService) {
     }
 
-    public showDeleteAlert(e):void {
-        this.SweetAlert.swal({
-            title: "Hey",
-            text: "Deleting something?",
-            type: "warning",
-            showCancelButton: false,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Ok",
-            closeOnConfirm: true
-        });
+    public setHolidayDatesGridOptions() {
 
-    }
+        // because this kendo grid has batch editing, APIs will need to support batch editing as well
+        // DELETE, POST and UPDATE have to be capable of editing multiple entities in 1 request.
 
-    $onInit() {
+        /*
+         - this.source.data.url contains the url that will be used to retrieve the data, it can be hardcoded or passed from a
+            parent component through the source binding.
+         - This component supports data refresh. When the source changes, this component refreshes with the new urls.
+        */
+
         this.HolidayDatesGridOptions = {
             dataSource: {
+                dataType: "json",
                 transport: {
-                    read: this.source.data.url,
-                    dataType: "json"
+                    read: {
+                        url: this.source.data.url,
+                        dataType: "json"
+                    },
+                    update: {
+                        url: this.source.update.url,
+                        type: "POST",
+                        contentType: "application/json",
+                        dataType: "json"
+                    },
+                    destroy: {
+                        url: this.source.delete.url,
+                        type: "DELETE",
+                        contentType: "application/json",
+                        dataType: "json"
+                    },
+                    create: {
+                        url: this.source.post.url,
+                        type: "POST",
+                        contentType: "application/json",
+                        dataType: "json"
+                    },
+                    parameterMap: function (options, operation) {
+                        //specify all operations besides read to send a request body
+                        if (operation !== "read" && options.models) {
+                            return JSON.stringify(options.models);
+                        }
+                    }
                 },
                 schema: {
                     model: {
                         id: "Id",
                         fields: {
                             Id: { editable: false, nullable: true },
-                            Date: { type: "date" },
+                            HolidayDate: { type: "date" },
                             Description: { type: "string" }
                         }
                     }
@@ -50,15 +76,36 @@ export class HolidayDatesComponentController implements IHolidayDatesComponentCo
             pageable: true,
             toolbar: [{ name: "create", text: "Add Date" }, "save", "cancel"],
             columns: [
-                { field: "Date", format: "{0:MM/dd/yyyy}" },
+                { field: "HolidayDate", format: "{0:MM/dd/yyyy}", title: "Date" },
                 { field: "Description" },
-                { command: [{ name: "destroy", text: "Remove"}], title: " " }
+                { command: [{ name: "destroy", text: "Remove" }], title: " " }
             ],
             editable: true
         };
+
+    }
+
+    $onInit() {
+        this.setHolidayDatesGridOptions();
     }
 
     $doCheck() {
+    }
+
+    $onChanges(changesObj) {
+        if (changesObj.source !== undefined) {
+            var sourceCurrentValue = changesObj.source.currentValue;
+            var sourcePreviousValue = changesObj.source.previousValue;
+
+            if (sourceCurrentValue !== sourcePreviousValue) {
+
+                if (this.HolidayDatesGridOptions !== undefined) {
+                    this.HolidayDatesGridOptions.dataSource.transport.read = sourceCurrentValue.data.url;
+                    this.HolidayDatesGridInstance.setOptions(this.HolidayDatesGridOptions);
+                }
+
+            }
+        }
     }
 
     public HolidayDatesGridInstance: kendo.ui.Grid;
@@ -73,8 +120,9 @@ export class HolidayDatesComponent implements ng.IComponentOptions {
     constructor() {
         this.bindings = {
             source: "<",
+            ownerid: "<"
         };
 
     }
-    controller = ["$http", "SweetAlert",  HolidayDatesComponentController];
+    controller = ["$http", HolidayDatesComponentController];
 }

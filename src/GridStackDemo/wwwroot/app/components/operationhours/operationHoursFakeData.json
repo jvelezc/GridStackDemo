@@ -1,57 +1,68 @@
 ﻿{
-  "type": 1,
-  "operationHours": [
+  "Type": 1,
+  "WeekDaysHoursOfOperation": [
     {
-      "weekday": "monday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM"
+      "Id": 1,
+      "Weekday": "Monday",
+      "StartTime": "08:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "07:59:00",
+      "IsClosed": false
     },
     {
-      "weekday": "tuesday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM"
+      "Id": 3,
+      "Weekday": "Tuesday",
+      "StartTime": "08:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "07:59:00",
+      "IsClosed": false
     },
     {
-      "weekday": "wednesday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM"
+      "Id": 4,
+      "Weekday": "Wednesday",
+      "StartTime": "08:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "07:59:00",
+      "IsClosed": false
     },
     {
-      "weekday": "thursday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM"
+      "Id": 5,
+      "Weekday": "Thursday",
+      "StartTime": "08:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "07:59:00",
+      "IsClosed": false
     },
     {
-      "weekday": "friday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM"
-
+      "Id": 6,
+      "Weekday": "Friday",
+      "StartTime": "08:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "07:59:00",
+      "IsClosed": false
     },
     {
-      "weekday": "saturday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM",
-      "closed": true
+      "Id": 7,
+      "Weekday": "Saturday",
+      "StartTime": "00:00:00",
+      "EndTime": "00:00:00",
+      "AfterHourStartTime": "00:00:00",
+      "AfterHourEndTime": "00:00:00",
+      "IsClosed": true
     },
     {
-      "weekday": "sunday",
-      "startTime": "08:00 AM",
-      "endTime": "05:00 PM",
-      "afterHourStartTime": "05:01 PM",
-      "afterHourEndTime": "07:59 AM",
-      "closed": true
+      "Id": 11,
+      "Weekday": "Sunday",
+      "StartTime": "09:00:00",
+      "EndTime": "17:00:00",
+      "AfterHourStartTime": "17:01:00",
+      "AfterHourEndTime": "08:59:00",
+      "IsClosed": true
     }
   ]
 }

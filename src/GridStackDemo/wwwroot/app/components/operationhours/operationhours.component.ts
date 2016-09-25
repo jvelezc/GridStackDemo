@@ -15,10 +15,13 @@ interface IOperationHoursComponentController {
 }
 
 class OperationHoursComponentController implements IOperationHoursComponentController {
-    public type: string;
+    public Type: string;
 
-    public operationHoursForm: any;
+
+    public hoursOfOperationForm: any;
     public previousOperationHoursForm: any;
+
+    public WeekDaysHoursOfOperationForm: any;
 
     public onChange: Function;
     public source: GeneralDataSource;
@@ -31,42 +34,44 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
             this.transformResponseData(response);
 
             //this is going to be used when the user cancels saving the form, it will revert to its previous values
-            this.previousOperationHoursForm = angular.copy(this.operationHoursForm);
+            this.previousOperationHoursForm = angular.copy(this.WeekDaysHoursOfOperationForm);
         });
     }
 
     cancel() {
         // unimplemented
-        this.operationHoursForm = angular.copy(this.previousOperationHoursForm);;
+        this.WeekDaysHoursOfOperationForm = angular.copy(this.previousOperationHoursForm);;
     }
 
     $doCheck() {
-        if (this.type == "0") {
+        if (this.Type == "0") {
             //blank out the fields...
-            this.operationHoursForm = null;
+            this.WeekDaysHoursOfOperationForm = undefined;
         }
 
-        var operationHoursObj = this.getOperationHoursForm();
+        if (this.hoursOfOperationForm !== undefined && this.hoursOfOperationForm.$dirty) {
+            var operationHoursObj = this.getOperationHoursForm();
 
-        this.onChange({
-            operationHoursForm: operationHoursObj
-        });
+            this.onChange({
+                operationHoursForm: operationHoursObj
+            });
+        }
     }
 
     public setDayToClosed(day: string): void {
-        if (this.operationHoursForm !== undefined && day !== undefined && this.operationHoursForm[day].closed) {
-            this.operationHoursForm[day].startTime = undefined;
-            this.operationHoursForm[day].endTime = undefined;
+        if (this.WeekDaysHoursOfOperationForm !== undefined && day !== undefined && this.WeekDaysHoursOfOperationForm[day].IsClosed) {
+            this.WeekDaysHoursOfOperationForm[day].StartTime = undefined;
+            this.WeekDaysHoursOfOperationForm[day].EndTime = undefined;
 
-            this.operationHoursForm[day].afterHourStartTime = undefined;
-            this.operationHoursForm[day].afterHourEndTime = undefined;
+            this.WeekDaysHoursOfOperationForm[day].AfterHourStartTime = undefined;
+            this.WeekDaysHoursOfOperationForm[day].AfterHourEndTime = undefined;
 
-            this.operationHoursForm[day].startTimeObj = undefined;
-            this.operationHoursForm[day].endTimeObj = undefined;
+            this.WeekDaysHoursOfOperationForm[day].StartTimeObj = undefined;
+            this.WeekDaysHoursOfOperationForm[day].EndTimeObj = undefined;
         }
     }
 
-    //utlity function created to convert a short date '12:00 AM' to 24 hour format
+    //utlity function created to convert a short date '12:00:00' to Date
     public formatShortDateTime(shortDateString: string): Date {
         var today = new Date();
 
@@ -74,16 +79,11 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
             var hourMinutes = shortDateString.split(":");
             var hoursStr = hourMinutes[0];
 
-            var minutesAmPm = hourMinutes[1].split(" ");
-
-            var minutesStr = minutesAmPm[0];
-
-            var amPmStr = minutesAmPm[1].toLowerCase();
-            var amPm = (amPmStr === "pm") ? 12 : 0;
+            var minutesStr = hourMinutes[1];
 
             var hours = parseInt(hoursStr);
             var minutes = parseInt(minutesStr);
-            var formatedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours + amPm, minutes);
+            var formatedDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours, minutes);
 
             return formatedDate;
         } else {
@@ -93,35 +93,46 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
 
     public transformResponseData(responseData): any {
         if (responseData !== undefined) {
-            if (responseData.type !== undefined) {
-                this.type = responseData.type;
+            if (responseData.Type !== undefined) {
+                this.Type = responseData.Type;
             } else {
-                this.type = "0";
+                this.Type = "0";
             }
 
-            if (responseData.operationHours !== undefined && this.type == "1") {
-                this.operationHoursForm = {};
+            if (responseData.WeekDaysHoursOfOperation !== undefined && this.Type == "1") {
+                this.WeekDaysHoursOfOperationForm = {};
 
-                angular.forEach(responseData.operationHours, (operationDay: any) => {
-                    var day = operationDay.weekday;
-                                
-                    var startTimeObj = this.formatShortDateTime(operationDay.startTime);
-                    var endTimeObj = this.formatShortDateTime(operationDay.endTime);
+                angular.forEach(responseData.WeekDaysHoursOfOperation, (operationDay: any) => {
+                    var day = operationDay.Weekday.toLowerCase();
 
-                    var closed = (operationDay.closed) ? operationDay.closed : false;
+                    //format the date related Objects
+                    var StartTimeObj = this.formatShortDateTime(operationDay.StartTime);
+                    var StartTime = this.$filter('date')(StartTimeObj.getTime(), OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
 
-                    this.operationHoursForm[day] = {
-                        startTime: operationDay.startTime,
-                        endTime: operationDay.endTime,
-                        afterHourStartTime: operationDay.afterHourStartTime,
-                        startTimeObj: startTimeObj,
-                        afterHourEndTime: operationDay.afterHourEndTime,
-                        endTimeObj: endTimeObj,
-                        closed: closed
+                    var AfterHourStartTimeObj = this.formatShortDateTime(operationDay.AfterHourStartTime);
+                    var AfterHourStartTime = this.$filter('date')(AfterHourStartTimeObj.getTime(),
+                        OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
+
+
+                    var EndTimeObj = this.formatShortDateTime(operationDay.EndTime);
+                    var EndTime = this.$filter('date')(EndTimeObj.getTime(), OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
+
+                    var AfterHourEndTimeObj = this.formatShortDateTime(operationDay.AfterHourEndTime);
+                    var AfterHourEndTime = this.$filter('date')(AfterHourEndTimeObj.getTime(),
+                        OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
+
+                    this.WeekDaysHoursOfOperationForm[day] = {
+                        StartTime: StartTime,
+                        EndTime: EndTime,
+                        AfterHourStartTime: AfterHourStartTime,
+                        StartTimeObj: StartTimeObj,
+                        AfterHourEndTime: AfterHourEndTime,
+                        EndTimeObj: EndTimeObj,
+                        IsClosed: operationDay.IsClosed
                     }
 
                     //if it's marked as closed, make sure and close it.
-                    if (closed) {
+                    if (operationDay.IsClosed) {
                         this.setDayToClosed(day);
                     }
                 });
@@ -132,38 +143,39 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
 
         //let's transform the form to an object more consistent with the data
         var operationHoursObj = {
-            type: this.type,
-            operationHours: []
+            Type: this.Type,
+            WeekDaysHoursOfOperation: []
         };
 
-        if (this.operationHoursForm !== undefined) {
+        if (this.WeekDaysHoursOfOperationForm !== undefined) {
 
             var operationHoursList = [];
 
             for (let i = 0; i < OperationHoursConstants.WEEKDAYS.length; i++) {
                 var day = OperationHoursConstants.WEEKDAYS[i];
 
-                if (this.operationHoursForm[day] !== undefined) {
+                if (this.WeekDaysHoursOfOperationForm[day] !== undefined) {
                     operationHoursList.push({
-                        weekday: day,
-                        startTime: this.operationHoursForm[day].startTime,
-                        endTime: this.operationHoursForm[day].endTime,
-                        afterHourStartTime: this.operationHoursForm[day].afterHourStartTime,
-                        afterHourEndTime: this.operationHoursForm[day].afterHourEndTime,
-                        closed: this.operationHoursForm[day].closed
+                        Weekday: day,
+                        StartTime: this.WeekDaysHoursOfOperationForm[day].StartTime,
+                        EndTime: this.WeekDaysHoursOfOperationForm[day].EndTime,
+                        AfterHourStartTime: this.WeekDaysHoursOfOperationForm[day].AfterHourStartTime,
+                        AfterHourEndTime: this.WeekDaysHoursOfOperationForm[day].AfterHourEndTime,
+                        IsClosed: this.WeekDaysHoursOfOperationForm[day].IsClosed
                     });
                 } else {
                     operationHoursList.push({
-                        weekday: day,
-                        startTime: null,
-                        endTime: null,
-                        afterHourStartTime: null,
-                        afterHourEndTime: null
+                        Weekday: day,
+                        StartTime: null,
+                        EndTime: null,
+                        AfterHourStartTime: null,
+                        AfterHourEndTime: null,
+                        IsClosed: false
                     });
                 }
             }
 
-            operationHoursObj.operationHours = operationHoursList;
+            operationHoursObj.WeekDaysHoursOfOperation = operationHoursList;
         } 
 
         return operationHoursObj;
@@ -172,8 +184,8 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
     public isClosed(day: string): boolean {
         var isClosed: boolean = false;
 
-        if (this.operationHoursForm !== undefined && day !== undefined) {
-            isClosed = (this.operationHoursForm[day].closed);
+        if (this.WeekDaysHoursOfOperationForm !== undefined && day !== undefined) {
+            isClosed = (this.WeekDaysHoursOfOperationForm[day].IsClosed);
         }
         return isClosed;
     }
@@ -181,7 +193,7 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
     public areBusinessHoursDefined(day:string): boolean {
         var isDefined = false;
 
-        if (this.type == "1") {
+        if (this.Type == "1") {
             isDefined = true;
         }
 
@@ -191,11 +203,11 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
     public isBusinessHoursValid(operationDay: any, day: string): boolean {
         var isValid = false;
 
-        if (operationDay === null || this.operationHoursForm[day].startTimeObj === undefined || this.operationHoursForm[day].endTimeObj === undefined) {
+        if (operationDay === null || this.WeekDaysHoursOfOperationForm[day].StartTimeObj === undefined || this.WeekDaysHoursOfOperationForm[day].EndTimeObj === undefined) {
             return true;
         }
 
-        if (operationDay !== null && this.operationHoursForm[day].startTimeObj.getTime() < this.operationHoursForm[day].endTimeObj.getTime()) {
+        if (operationDay !== null && this.WeekDaysHoursOfOperationForm[day].StartTimeObj.getTime() < this.WeekDaysHoursOfOperationForm[day].EndTimeObj.getTime()) {
             isValid = true;
         }
 
@@ -217,16 +229,16 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
     }
 
     public clearOperationHours(day: string): void {
-        if (this.operationHoursForm !== undefined && day !== undefined) {
-            this.operationHoursForm[day].startTime = "";
-            this.operationHoursForm[day].endTime = "";
+        if (this.WeekDaysHoursOfOperationForm !== undefined && day !== undefined) {
+            this.WeekDaysHoursOfOperationForm[day].StartTime = "";
+            this.WeekDaysHoursOfOperationForm[day].EndTime = "";
         }
     }
 
     public clearAfterHours(day: string): void {
-        if (this.operationHoursForm !== undefined && day !== undefined) {
-            this.operationHoursForm[day].afterHourStartTime = "";
-            this.operationHoursForm[day].afterHourEndTime = "";
+        if (this.WeekDaysHoursOfOperationForm !== undefined && day !== undefined) {
+            this.WeekDaysHoursOfOperationForm[day].AfterHourStartTime = "";
+            this.WeekDaysHoursOfOperationForm[day].AfterHourEndTime = "";
         }
     }
 
@@ -248,10 +260,10 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
         else if (this.isBusinessHoursValid(operationDay, day)) {
 
             if (isEndTime) {
-                this.operationHoursForm[day].afterHourStartTime = this.$filter('date')(operationDay.getTime() + OperationHoursConstants.ONE_MINUTE,
+                this.WeekDaysHoursOfOperationForm[day].AfterHourStartTime = this.$filter('date')(operationDay.getTime() + OperationHoursConstants.ONE_MINUTE,
                     OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
             } else {
-                this.operationHoursForm[day].afterHourEndTime = this.$filter('date')(operationDay.getTime() - OperationHoursConstants.ONE_MINUTE,
+                this.WeekDaysHoursOfOperationForm[day].AfterHourEndTime = this.$filter('date')(operationDay.getTime() - OperationHoursConstants.ONE_MINUTE,
                     OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
             }
         } else {
@@ -261,12 +273,30 @@ class OperationHoursComponentController implements IOperationHoursComponentContr
             var text = "The Start Time cannot be after the End Time. ";
             this.showAlert(title, text);
 
-            //reset the hours of that day
+            //reset the hours of that day, and it's after hours as well
             if (isEndTime) {
-                this.operationHoursForm[day].endTime = "";
+                if (this.WeekDaysHoursOfOperationForm[day].StartTimeObj !== undefined) {
+                    this.WeekDaysHoursOfOperationForm[day].EndTimeObj = new Date(this.WeekDaysHoursOfOperationForm[day].StartTimeObj.getTime() + OperationHoursConstants.ONE_MINUTE);
+
+                    this.WeekDaysHoursOfOperationForm[day].AfterHourStartTime = this.$filter('date')(this.WeekDaysHoursOfOperationForm[day].EndTimeObj.getTime()
+                        + OperationHoursConstants.ONE_MINUTE,
+                        OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
+                } else {
+                    this.WeekDaysHoursOfOperationForm[day].EndTime = undefined;
+                }
             } else {
-                this.operationHoursForm[day].startTime = "";
+                if (this.WeekDaysHoursOfOperationForm[day].EndTimeObj !== undefined) {
+                    this.WeekDaysHoursOfOperationForm[day].StartTimeObj = new Date(this.WeekDaysHoursOfOperationForm[day].EndTimeObj.getTime() - OperationHoursConstants.ONE_MINUTE);
+
+                    this.WeekDaysHoursOfOperationForm[day].AfterHourEndTime = this.$filter('date')(this.WeekDaysHoursOfOperationForm[day].StartTimeObj.getTime()
+                        - OperationHoursConstants.ONE_MINUTE,
+                        OperationHoursConstants.ANGULAR_SHORT_TIME_FORMAT);
+                } else {
+                    this.WeekDaysHoursOfOperationForm[day].StartTimeObj = undefined;
+                }
             }
+
+            console.log(this.WeekDaysHoursOfOperationForm[day].StartTimeObj.getTime());
         }
     }
 }

@@ -4,242 +4,238 @@
 
         <small>This will set the hours of operation of the entire company.</small>
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">
-            Hours
-        </label>
+    <form name="Vm.hoursOfOperationForm" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">
+                Hours
+            </label>
 
-        <div class="col-sm-10">
-            <div>
-                <label>
-                    <input type="radio" value="0" id="operationAllHoursRadio" name="optionsRadios" ng-model="Vm.type"> 24/7 Business Hours
-                </label>
-            </div>
-            <div>
-                <label>
-                    <input type="radio" value="1" id="operationDefinedHoursRadio" name="optionsRadios" ng-model="Vm.type"> Define Business Hours
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="ibox-content">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 style="text-align:center">Business Hours</h2>
-            </div>
-            <div class="col-md-6">
-                <h2 style="text-align:center">After Hours</h2>
+            <div class="col-sm-10">
+                <div>
+                    <label>
+                        <input type="radio" value="0" id="operationAllHoursRadio" name="optionsRadios" ng-model="Vm.Type"> 24/7 Business Hours
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" value="1" id="operationDefinedHoursRadio" name="optionsRadios" ng-model="Vm.Type"> Define Business Hours
+                    </label>
+                </div>
             </div>
         </div>
 
-        <div class="row">
-                <form name="Vm.operationHoursForm" novalidate>
-                    <div class="col-md-12">
-                        <!--<pre>
-                            {{Vm.operationHoursForm | json}}
-                        </pre>-->
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="col-sm-2">Week Day</th>
-                                    <th class="col-sm-2">Start Time</th>
-                                    <th class="col-sm-2">End Time</th>
-                                    <th class="col-sm-2 text-center">Closed</th>
-                                    <th class="col-sm-2">Start Time</th>
-                                    <th class="col-sm-2">End Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!--Sunday-->
-                                <tr>
-                                    <td>Sunday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.sunday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.sunday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.sunday.startTimeObj, 'sunday', 'start')"
-                                               k-ng-disabled= "!Vm.areBusinessHoursDefined('sunday') || Vm.operationHoursForm.sunday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.sunday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.sunday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.sunday.endTimeObj, 'sunday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('sunday') || Vm.operationHoursForm.sunday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.sunday.closed" ng-click="Vm.setDayToClosed('sunday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.sunday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.sunday.afterHourEndTime}}</td>
-                                </tr>
-                                <!--Monday-->
-                                <tr>
-                                    <td>Monday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.monday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.monday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.monday.startTimeObj, 'monday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('monday') || Vm.operationHoursForm.monday.closed"
-                                               style="width: 100%;" />
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 style="text-align:center">Business Hours</h2>
+                </div>
+                <div class="col-md-6">
+                    <h2 style="text-align:center">After Hours</h2>
+                </div>
+            </div>
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.monday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.monday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.monday.endTimeObj, 'monday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('monday') || Vm.operationHoursForm.monday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.monday.closed" ng-click="Vm.setDayToClosed('monday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.monday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.monday.afterHourEndTime}}</td>
-                                </tr>
-                                <!--Tuesday-->
-                                <tr>
-                                    <td>Tuesday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.tuesday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.tuesday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.tuesday.startTimeObj, 'tuesday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('tuesday') || Vm.operationHoursForm.tuesday.closed"
-                                               style="width: 100%;" />
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2">Week Day</th>
+                                <th class="col-sm-2">Start Time</th>
+                                <th class="col-sm-2">End Time</th>
+                                <th class="col-sm-2 text-center">Closed</th>
+                                <th class="col-sm-2">Start Time</th>
+                                <th class="col-sm-2">End Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Sunday-->
+                            <tr>
+                                <td>Sunday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.sunday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.sunday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.sunday.StartTimeObj, 'sunday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('sunday') || Vm.WeekDaysHoursOfOperationForm.sunday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.sunday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.sunday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.sunday.EndTimeObj, 'sunday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('sunday') || Vm.WeekDaysHoursOfOperationForm.sunday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.sunday.IsClosed" ng-click="Vm.setDayToClosed('sunday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.sunday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.sunday.AfterHourEndTime}}</td>
+                            </tr>
+                            <!--Monday-->
+                            <tr>
+                                <td>Monday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.monday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.monday.StartTimeObj, 'monday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('monday') || Vm.WeekDaysHoursOfOperationForm.monday.IsClosed"
+                                           style="width: 100%;" />
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.tuesday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.tuesday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.tuesday.endTimeObj, 'tuesday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('tuesday') || Vm.operationHoursForm.tuesday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.tuesday.closed" ng-click="Vm.setDayToClosed('tuesday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.tuesday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.tuesday.afterHourEndTime}}</td>
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.monday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.monday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.monday.EndTimeObj, 'monday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('monday') || Vm.WeekDaysHoursOfOperationForm.monday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.monday.IsClosed" ng-click="Vm.setDayToClosed('monday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.monday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.monday.AfterHourEndTime}}</td>
+                            </tr>
+                            <!--Tuesday-->
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.tuesday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.tuesday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.tuesday.StartTimeObj, 'tuesday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('tuesday') || Vm.WeekDaysHoursOfOperationForm.tuesday.IsClosed"
+                                           style="width: 100%;" />
 
-                                </tr>
-                                <!--Wednesday-->
-                                <tr>
-                                    <td>Wednesday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.wednesday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.wednesday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.wednesday.startTimeObj, 'wednesday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('wednesday') || Vm.operationHoursForm.wednesday.closed"
-                                               style="width: 100%;" />
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.tuesday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.tuesday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.tuesday.EndTimeObj, 'tuesday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('tuesday') || Vm.WeekDaysHoursOfOperationForm.tuesday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.tuesday.IsClosed" ng-click="Vm.setDayToClosed('tuesday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.tuesday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.tuesday.AfterHourEndTime}}</td>
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.wednesday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.wednesday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.wednesday.endTimeObj, 'wednesday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('wednesday') || Vm.operationHoursForm.wednesday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.wednesday.closed" ng-click="Vm.setDayToClosed('wednesday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.wednesday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.wednesday.afterHourEndTime}}</td>
+                            </tr>
+                            <!--Wednesday-->
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.wednesday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.wednesday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.wednesday.StartTimeObj, 'wednesday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('wednesday') || Vm.WeekDaysHoursOfOperationForm.wednesday.IsClosed"
+                                           style="width: 100%;" />
 
-                                </tr>
-                                <!--Thursday-->
-                                <tr>
-                                    <td>Thursday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.thursday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.thursday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.thursday.startTimeObj, 'thursday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('thursday') || Vm.operationHoursForm.thursday.closed"
-                                               style="width: 100%;" />
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.wednesday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.wednesday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.wednesday.EndTimeObj, 'wednesday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('wednesday') || Vm.WeekDaysHoursOfOperationForm.wednesday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.wednesday.IsClosed" ng-click="Vm.setDayToClosed('wednesday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.wednesday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.wednesday.AfterHourEndTime}}</td>
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.thursday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.thursday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.thursday.endTimeObj, 'thursday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('thursday') || Vm.operationHoursForm.thursday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.thursday.closed" ng-click="Vm.setDayToClosed('thursday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.thursday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.thursday.afterHourEndTime}}</td>
-                                </tr>
-                                <!--Friday-->
-                                <tr>
-                                    <td>Friday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.friday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.friday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.friday.startTimeObj, 'friday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('friday') || Vm.operationHoursForm.friday.closed"
-                                               style="width: 100%;" />
+                            </tr>
+                            <!--Thursday-->
+                            <tr>
+                                <td>Thursday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.thursday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.thursday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.thursday.StartTimeObj, 'thursday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('thursday') || Vm.WeekDaysHoursOfOperationForm.thursday.IsClosed"
+                                           style="width: 100%;" />
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.friday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.friday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.friday.endTimeObj, 'friday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('friday') || Vm.operationHoursForm.friday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.friday.closed"  ng-click="Vm.setDayToClosed('friday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.friday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.friday.afterHourEndTime}}</td>
-                                </tr>
-                                <!--Saturday-->
-                                <tr>
-                                    <td>Saturday</td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.saturday.startTime"
-                                               k-ng-model="Vm.operationHoursForm.saturday.startTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.saturday.startTimeObj, 'saturday', 'start')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('saturday') || Vm.operationHoursForm.saturday.closed"
-                                               style="width: 100%;" />
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.thursday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.thursday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.thursday.EndTimeObj, 'thursday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('thursday') || Vm.WeekDaysHoursOfOperationForm.thursday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.thursday.IsClosed" ng-click="Vm.setDayToClosed('thursday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.thursday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.thursday.AfterHourEndTime}}</td>
+                            </tr>
+                            <!--Friday-->
+                            <tr>
+                                <td>Friday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.friday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.friday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.friday.StartTimeObj, 'friday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('friday') || Vm.WeekDaysHoursOfOperationForm.friday.IsClosed"
+                                           style="width: 100%;" />
 
-                                    </td>
-                                    <td>
-                                        <input kendo-time-picker
-                                               ng-model="Vm.operationHoursForm.saturday.endTime"
-                                               k-ng-model="Vm.operationHoursForm.saturday.endTimeObj"
-                                               k-on-change="Vm.updateAfterHours(Vm.operationHoursForm.saturday.endTimeObj, 'saturday', 'end')"
-                                               k-ng-disabled = "!Vm.areBusinessHoursDefined('saturday') || Vm.operationHoursForm.saturday.closed"
-                                               style="width: 100%;" />
-                                    </td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="optionsRadios" ng-model="Vm.operationHoursForm.saturday.closed"  ng-click="Vm.setDayToClosed('saturday')">
-                                    </td>
-                                    <td>{{Vm.operationHoursForm.saturday.afterHourStartTime}}</td>
-                                    <td>{{Vm.operationHoursForm.saturday.afterHourEndTime}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.friday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.friday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.friday.EndTimeObj, 'friday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('friday') || Vm.WeekDaysHoursOfOperationForm.friday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.friday.IsClosed" ng-click="Vm.setDayToClosed('friday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.friday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.friday.AfterHourEndTime}}</td>
+                            </tr>
+                            <!--Saturday-->
+                            <tr>
+                                <td>Saturday</td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.saturday.StartTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.saturday.StartTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.saturday.StartTimeObj, 'saturday', 'start')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('saturday') || Vm.WeekDaysHoursOfOperationForm.saturday.IsClosed"
+                                           style="width: 100%;" />
+
+                                </td>
+                                <td>
+                                    <input kendo-time-picker
+                                           ng-model="Vm.WeekDaysHoursOfOperationForm.saturday.EndTime"
+                                           k-ng-model="Vm.WeekDaysHoursOfOperationForm.saturday.EndTimeObj"
+                                           k-on-change="Vm.updateAfterHours(Vm.WeekDaysHoursOfOperationForm.saturday.EndTimeObj, 'saturday', 'end')"
+                                           k-ng-disabled="!Vm.areBusinessHoursDefined('saturday') || Vm.WeekDaysHoursOfOperationForm.saturday.IsClosed"
+                                           style="width: 100%;" />
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" name="optionsRadios" ng-model="Vm.WeekDaysHoursOfOperationForm.saturday.IsClosed" ng-click="Vm.setDayToClosed('saturday')">
+                                </td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.saturday.AfterHourStartTime}}</td>
+                                <td>{{Vm.WeekDaysHoursOfOperationForm.saturday.AfterHourEndTime}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 

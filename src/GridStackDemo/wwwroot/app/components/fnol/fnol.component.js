@@ -1,19 +1,26 @@
 /// <reference path="../../../../typings/index.d.ts" />
-"use strict";
-var FnolComponentController = (function () {
-    function FnolComponentController() {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var FnolComponentController, FnolComponent;
+    return {
+        setters:[],
+        execute: function() {
+            class FnolComponentController {
+                constructor() {
+                }
+                $onInit() {
+                }
+            }
+            exports_1("FnolComponentController", FnolComponentController);
+            class FnolComponent {
+                constructor() {
+                    this.templateUrl = "/app/components/fnol/fnol.component.html";
+                    this.controllerAs = "Vm";
+                    this.controller = [FnolComponentController];
+                }
+            }
+            exports_1("FnolComponent", FnolComponent);
+        }
     }
-    FnolComponentController.prototype.$onInit = function () {
-    };
-    return FnolComponentController;
-}());
-exports.FnolComponentController = FnolComponentController;
-var FnolComponent = (function () {
-    function FnolComponent() {
-        this.templateUrl = "/app/components/fnol/fnol.component.html";
-        this.controllerAs = "Vm";
-        this.controller = [FnolComponentController];
-    }
-    return FnolComponent;
-}());
-exports.FnolComponent = FnolComponent;
+});
