@@ -25,15 +25,6 @@ export class SystemInfoComponentController {
         this.holidayDatesDataSource = {
             data: {
                 url: "/app/components/holidaydates/holidayDatesFakeData.json"
-            },
-            post: {
-                url: "/app/components/holidaydates/holidayDatesFakeData.json"
-            },
-            update: {
-                url: "/app/components/holidaydates/holidayDatesFakeData.json"
-            },
-            delete: {
-                url: "/app/components/holidaydates/holidayDatesFakeData.json"
             }
         };
 

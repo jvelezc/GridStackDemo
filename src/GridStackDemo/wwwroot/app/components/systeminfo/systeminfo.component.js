@@ -18,15 +18,6 @@ System.register([], function(exports_1, context_1) {
                     this.holidayDatesDataSource = {
                         data: {
                             url: "/app/components/holidaydates/holidayDatesFakeData.json"
-                        },
-                        post: {
-                            url: "/app/components/holidaydates/holidayDatesFakeData.json"
-                        },
-                        update: {
-                            url: "/app/components/holidaydates/holidayDatesFakeData.json"
-                        },
-                        delete: {
-                            url: "/app/components/holidaydates/holidayDatesFakeData.json"
                         }
                     };
                     this.postageDataSource = {
