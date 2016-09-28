@@ -48,6 +48,7 @@
 /// <reference path="config.js" />
 /// <reference path="dist/main.js" />
 /// <reference path="lib/angular/angular.js" />
+/// <reference path="lib/angular-wizard/dist/angular-wizard.min.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/gridstack/dist/gridstack.js" />
 /// <reference path="lib/gridstackangularimproved/dist/gridstack-angular.js" />

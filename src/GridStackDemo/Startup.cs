@@ -49,7 +49,7 @@ namespace GridStackDemo
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=test}/{id?}");
+                    template: "{controller=Home}/{action=Demos}/{id?}");
             });
         }
     }

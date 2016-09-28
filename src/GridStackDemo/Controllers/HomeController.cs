@@ -15,9 +15,20 @@ namespace GridStackDemo.Controllers
             return View();
         }
 
+
+        public IActionResult Demos()
+        {
+            return View();
+        }
         public IActionResult Test()
         {
             return View();
+        }
+
+        public IActionResult AngularWizardProofOfConcept()
+        {
+            return View();
+
         }
     }
 }
