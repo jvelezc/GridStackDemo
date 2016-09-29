@@ -1,0 +1,18 @@
+﻿<wizard indicators-position="top" on-finish="finishedWizard()"> 
+    <wz-step wz-title="Policy Search">
+        <fnol-policy-search></fnol-policy-search>
+    </wz-step>
+    <wz-step wz-title="Information">
+       <fnol-information></fnol-information>
+
+    </wz-step>
+    <wz-step wz-title="Claim Details" >
+        <fnol-claim-details on-change="Vm.onChange(disabled)"></fnol-claim-details>
+    </wz-step>
+    <wz-step wz-title="Services"  wz-disabled="{{Vm.disabled}}">
+        <fnol-services></fnol-services>
+    </wz-step>
+    <wz-step wz-title="Assign and Submit" wz-disabled="{{Vm.disabled}}">
+        <fnol-asign-submit></fnol-asign-submit>
+    </wz-step>
+</wizard>

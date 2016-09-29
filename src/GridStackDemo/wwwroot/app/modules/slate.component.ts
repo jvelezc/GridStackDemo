@@ -22,6 +22,12 @@ import {PostageComponent} from "../components/postage/postage.component";
 import {ROPSettingsComponent} from "../components/ropsettings/ropsettings.component";
 import {ClaimsDepartmentSettingsComponent} from "../components/claimsDepartmentSettings/claimsDepartmentSettings.component";
 import {FnolComponent} from "../components/fnol/fnol.component";
+import {FnolWizardComponent} from "../components/fnolwizard/fnolwizard.component";
+import {FnolPolicySearchComponent} from "../components/fnolpolicysearch/fnolpolicysearch.component";
+import {FnolInformationComponent} from "../components/fnolinformation/fnolinformation.component";
+import {FnolClaimDetailsComponent} from "../components/fnolclaimdetails/fnolclaimdetails.component";
+import {FnolAsignSubmitComponent} from "../components/fnolasignsubmit/fnolasignsubmit.component";
+import {FnolServicesComponent} from "../components/fnolservices/fnolservices.component";
 
 angular.module(names.Modules.components, []);
 
@@ -70,7 +76,21 @@ angular
     .component(names.Components.ropSettings, new ROPSettingsComponent())
     //<claims-department-settings></claims-department-settings>
     .component(names.Components.claimsDepartmentSettings, new ClaimsDepartmentSettingsComponent())
-    //<fnol></fnol>
+
+    //<fnol-wizard></fnol-wizard>
     .component(names.Components.fnol, new FnolComponent())
+
+    //<fnol-wizard></fnol-wizard>
+    .component(names.Components.fnolWizard, new FnolWizardComponent())
+
+    //<fnol-asign-submit></fnol-asign-submit>
+    .component(names.Components.fnolAsignSubmit, new FnolAsignSubmitComponent())
+    //<fnol-information></fnol-information>
+    .component(names.Components.fnolInformation, new FnolInformationComponent())
+    //<fnol-claim-details></fnol-claim-details>
+    .component(names.Components.fnolClaimDetails, new FnolClaimDetailsComponent())
+    //<fnol-services></fnol-services>
+    .component(names.Components.fnolServices, new FnolServicesComponent())
+    //<fnol-policy-search></fnol-policy-search>
+    .component(names.Components.fnolPolicySearch, new FnolPolicySearchComponent())
     ;
-  

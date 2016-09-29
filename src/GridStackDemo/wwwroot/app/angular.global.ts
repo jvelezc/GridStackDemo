@@ -27,6 +27,7 @@ export module names {
         public static TOASTR = "toastr";
         public static GRISTACKANGULAR = "gridstack-angular";
         public static SWEETALERT = "oitozero.ngSweetAlert";
+        public static ANGULAR_WIZARD = "mgo-angular-wizard";
 
     };
 
@@ -72,6 +73,12 @@ export module names {
         public static ropSettings = "ropSettings";
         public static claimsDepartmentSettings = "claimsDepartmentSettings";
         public static fnol = "fnol";
+        public static fnolWizard = "fnolWizard";
+        public static fnolAsignSubmit = "fnolAsignSubmit";
+        public static fnolInformation = "fnolInformation";
+        public static fnolPolicySearch = "fnolPolicySearch";
+        public static fnolServices = "fnolServices";
+        public static fnolClaimDetails = "fnolClaimDetails";
     }
     export class Controllers {
         public static contactController = "slate.contact.controller";

@@ -1,97 +1,57 @@
-System.register(['../angular.global', '../components/reopenedclaims/reopenedclaims.component', "../components/transferredclaims/transferredclaims.component", "../components/closedclaims/closedclaims.component", "../components/assigned/assignedclaims.component", "../components/flaggedclaims/flaggedclaims.component", "../components/openclaimsgrid/openclaimsgrid.component", "../components/activityGrid/activitygrid.component", "../components/dashboardconfig/dashboardconfig.component", "../components/kendolinechart/kendolinechart.component", "../components/kendogauge/kendogauge.component", "../components/filtertimeline/filtertimeline.component", "../components/claimsprogress/claimprogress.component", "../components/serverstatus/serverstatus.component", "../components/operationhours/operationhours.component", "../components/systeminfo/systeminfo.component", "../components/holidaydates/holidaydates.component", "../components/postage/postage.component", "../components/ropsettings/ropsettings.component", "../components/claimsDepartmentSettings/claimsDepartmentSettings.component", "../components/fnol/fnol.component"], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var angular_global_1, reopenedclaims_component_1, transferredclaims_component_1, closedclaims_component_1, assignedclaims_component_1, flaggedclaims_component_1, openclaimsgrid_component_1, activitygrid_component_1, dashboardconfig_component_1, kendolinechart_component_1, kendogauge_component_1, filtertimeline_component_1, claimprogress_component_1, serverstatus_component_1, operationhours_component_1, systeminfo_component_1, holidaydates_component_1, postage_component_1, ropsettings_component_1, claimsDepartmentSettings_component_1, fnol_component_1;
-    return {
-        setters:[
-            function (angular_global_1_1) {
-                angular_global_1 = angular_global_1_1;
-            },
-            function (reopenedclaims_component_1_1) {
-                reopenedclaims_component_1 = reopenedclaims_component_1_1;
-            },
-            function (transferredclaims_component_1_1) {
-                transferredclaims_component_1 = transferredclaims_component_1_1;
-            },
-            function (closedclaims_component_1_1) {
-                closedclaims_component_1 = closedclaims_component_1_1;
-            },
-            function (assignedclaims_component_1_1) {
-                assignedclaims_component_1 = assignedclaims_component_1_1;
-            },
-            function (flaggedclaims_component_1_1) {
-                flaggedclaims_component_1 = flaggedclaims_component_1_1;
-            },
-            function (openclaimsgrid_component_1_1) {
-                openclaimsgrid_component_1 = openclaimsgrid_component_1_1;
-            },
-            function (activitygrid_component_1_1) {
-                activitygrid_component_1 = activitygrid_component_1_1;
-            },
-            function (dashboardconfig_component_1_1) {
-                dashboardconfig_component_1 = dashboardconfig_component_1_1;
-            },
-            function (kendolinechart_component_1_1) {
-                kendolinechart_component_1 = kendolinechart_component_1_1;
-            },
-            function (kendogauge_component_1_1) {
-                kendogauge_component_1 = kendogauge_component_1_1;
-            },
-            function (filtertimeline_component_1_1) {
-                filtertimeline_component_1 = filtertimeline_component_1_1;
-            },
-            function (claimprogress_component_1_1) {
-                claimprogress_component_1 = claimprogress_component_1_1;
-            },
-            function (serverstatus_component_1_1) {
-                serverstatus_component_1 = serverstatus_component_1_1;
-            },
-            function (operationhours_component_1_1) {
-                operationhours_component_1 = operationhours_component_1_1;
-            },
-            function (systeminfo_component_1_1) {
-                systeminfo_component_1 = systeminfo_component_1_1;
-            },
-            function (holidaydates_component_1_1) {
-                holidaydates_component_1 = holidaydates_component_1_1;
-            },
-            function (postage_component_1_1) {
-                postage_component_1 = postage_component_1_1;
-            },
-            function (ropsettings_component_1_1) {
-                ropsettings_component_1 = ropsettings_component_1_1;
-            },
-            function (claimsDepartmentSettings_component_1_1) {
-                claimsDepartmentSettings_component_1 = claimsDepartmentSettings_component_1_1;
-            },
-            function (fnol_component_1_1) {
-                fnol_component_1 = fnol_component_1_1;
-            }],
-        execute: function() {
-            angular.module(angular_global_1.names.Modules.components, []);
-            angular
-                .module(angular_global_1.names.Modules.components)
-                .component(angular_global_1.names.Components.reOpenedClaimsPanel, new reopenedclaims_component_1.ReOpenedClaimsComponent())
-                .component(angular_global_1.names.Components.openClaimsPanel, new reopenedclaims_component_1.ReOpenedClaimsComponent())
-                .component(angular_global_1.names.Components.transferredClaimsPanel, new transferredclaims_component_1.TransferredClaimsComponent())
-                .component(angular_global_1.names.Components.closedClaimsPanel, new closedclaims_component_1.ClosedClaimsComponent())
-                .component(angular_global_1.names.Components.assignedClaimsPanel, new assignedclaims_component_1.AssignedClaimsComponent())
-                .component(angular_global_1.names.Components.flaggedClaimsPanel, new flaggedclaims_component_1.FlaggedClaimsComponent())
-                .component(angular_global_1.names.Components.openClaimsGrid, new openclaimsgrid_component_1.OpenClaimsGridComponent())
-                .component(angular_global_1.names.Components.activityGrid, new activitygrid_component_1.ActivityGridComponent())
-                .component(angular_global_1.names.Components.dashboardConfig, new dashboardconfig_component_1.DashboardConfigComponent())
-                .component(angular_global_1.names.Components.kendoLineChart, new kendolinechart_component_1.KendoLineChartComponentComponent())
-                .component(angular_global_1.names.Components.kendoGauge, new kendogauge_component_1.KendoGaugeComponent())
-                .component(angular_global_1.names.Components.filterTimeline, new filtertimeline_component_1.FilterTimelineComponent())
-                .component(angular_global_1.names.Components.claimsProgressBar, new claimprogress_component_1.ClaimProgressComponent())
-                .component(angular_global_1.names.Components.serverStatus, new serverstatus_component_1.ServerStatusComponent())
-                .component(angular_global_1.names.Components.systemInfo, new systeminfo_component_1.SystemInfoComponent())
-                .component(angular_global_1.names.Components.operationHours, new operationhours_component_1.OperationHoursComponent())
-                .component(angular_global_1.names.Components.holidayDates, new holidaydates_component_1.HolidayDatesComponent())
-                .component(angular_global_1.names.Components.postage, new postage_component_1.PostageComponent())
-                .component(angular_global_1.names.Components.ropSettings, new ropsettings_component_1.ROPSettingsComponent())
-                .component(angular_global_1.names.Components.claimsDepartmentSettings, new claimsDepartmentSettings_component_1.ClaimsDepartmentSettingsComponent())
-                .component(angular_global_1.names.Components.fnol, new fnol_component_1.FnolComponent());
-        }
-    }
-});
+import { names } from '../angular.global';
+import { ReOpenedClaimsComponent } from '../components/reopenedclaims/reopenedclaims.component';
+import { TransferredClaimsComponent } from "../components/transferredclaims/transferredclaims.component";
+import { ClosedClaimsComponent } from "../components/closedclaims/closedclaims.component";
+import { AssignedClaimsComponent } from "../components/assigned/assignedclaims.component";
+import { FlaggedClaimsComponent } from "../components/flaggedclaims/flaggedclaims.component";
+import { OpenClaimsGridComponent } from "../components/openclaimsgrid/openclaimsgrid.component";
+import { ActivityGridComponent } from "../components/activityGrid/activitygrid.component";
+import { DashboardConfigComponent } from "../components/dashboardconfig/dashboardconfig.component";
+import { KendoLineChartComponentComponent } from "../components/kendolinechart/kendolinechart.component";
+import { KendoGaugeComponent } from "../components/kendogauge/kendogauge.component";
+import { FilterTimelineComponent } from "../components/filtertimeline/filtertimeline.component";
+import { ClaimProgressComponent } from "../components/claimsprogress/claimprogress.component";
+import { ServerStatusComponent } from "../components/serverstatus/serverstatus.component";
+import { OperationHoursComponent } from "../components/operationhours/operationhours.component";
+import { SystemInfoComponent } from "../components/systeminfo/systeminfo.component";
+import { HolidayDatesComponent } from "../components/holidaydates/holidaydates.component";
+import { PostageComponent } from "../components/postage/postage.component";
+import { ROPSettingsComponent } from "../components/ropsettings/ropsettings.component";
+import { ClaimsDepartmentSettingsComponent } from "../components/claimsDepartmentSettings/claimsDepartmentSettings.component";
+import { FnolComponent } from "../components/fnol/fnol.component";
+import { FnolWizardComponent } from "../components/fnolwizard/fnolwizard.component";
+import { FnolPolicySearchComponent } from "../components/fnolpolicysearch/fnolpolicysearch.component";
+import { FnolInformationComponent } from "../components/fnolinformation/fnolinformation.component";
+import { FnolClaimDetailsComponent } from "../components/fnolclaimdetails/fnolclaimdetails.component";
+import { FnolAsignSubmitComponent } from "../components/fnolasignsubmit/fnolasignsubmit.component";
+import { FnolServicesComponent } from "../components/fnolservices/fnolservices.component";
+angular.module(names.Modules.components, []);
+angular
+    .module(names.Modules.components)
+    .component(names.Components.reOpenedClaimsPanel, new ReOpenedClaimsComponent())
+    .component(names.Components.openClaimsPanel, new ReOpenedClaimsComponent())
+    .component(names.Components.transferredClaimsPanel, new TransferredClaimsComponent())
+    .component(names.Components.closedClaimsPanel, new ClosedClaimsComponent())
+    .component(names.Components.assignedClaimsPanel, new AssignedClaimsComponent())
+    .component(names.Components.flaggedClaimsPanel, new FlaggedClaimsComponent())
+    .component(names.Components.openClaimsGrid, new OpenClaimsGridComponent())
+    .component(names.Components.activityGrid, new ActivityGridComponent())
+    .component(names.Components.dashboardConfig, new DashboardConfigComponent())
+    .component(names.Components.kendoLineChart, new KendoLineChartComponentComponent())
+    .component(names.Components.kendoGauge, new KendoGaugeComponent())
+    .component(names.Components.filterTimeline, new FilterTimelineComponent())
+    .component(names.Components.claimsProgressBar, new ClaimProgressComponent())
+    .component(names.Components.serverStatus, new ServerStatusComponent())
+    .component(names.Components.systemInfo, new SystemInfoComponent())
+    .component(names.Components.operationHours, new OperationHoursComponent())
+    .component(names.Components.holidayDates, new HolidayDatesComponent())
+    .component(names.Components.postage, new PostageComponent())
+    .component(names.Components.ropSettings, new ROPSettingsComponent())
+    .component(names.Components.claimsDepartmentSettings, new ClaimsDepartmentSettingsComponent())
+    .component(names.Components.fnol, new FnolComponent())
+    .component(names.Components.fnolWizard, new FnolWizardComponent())
+    .component(names.Components.fnolAsignSubmit, new FnolAsignSubmitComponent())
+    .component(names.Components.fnolInformation, new FnolInformationComponent())
+    .component(names.Components.fnolClaimDetails, new FnolClaimDetailsComponent())
+    .component(names.Components.fnolServices, new FnolServicesComponent())
+    .component(names.Components.fnolPolicySearch, new FnolPolicySearchComponent());
