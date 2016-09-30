@@ -3,6 +3,7 @@
 interface IFnolWizardComponentController {
    disabled: Boolean;
    onChange: Function;
+   prioritySearch: Function;
 }
 
 export class FnolWizardComponentController implements IFnolWizardComponentController {
@@ -19,6 +20,11 @@ export class FnolWizardComponentController implements IFnolWizardComponentContro
 
     public onChange(disabled) {
         this.disabled = disabled;
+    }
+
+    public prioritySearch(form) {
+        console.log("Father");
+        console.log(form);
     }
 }
 

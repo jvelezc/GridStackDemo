@@ -1,10 +1,9 @@
 ﻿<wizard indicators-position="top" on-finish="finishedWizard()"> 
     <wz-step wz-title="Policy Search">
-        <fnol-policy-search></fnol-policy-search>
+        <fnol-policy-search next-tab="Vm.prioritySearch()"></fnol-policy-search>
     </wz-step>
     <wz-step wz-title="Information">
        <fnol-information></fnol-information>
-
     </wz-step>
     <wz-step wz-title="Claim Details" >
         <fnol-claim-details on-change="Vm.onChange(disabled)"></fnol-claim-details>

@@ -7,6 +7,10 @@ export class FnolWizardComponentController {
     onChange(disabled) {
         this.disabled = disabled;
     }
+    prioritySearch(form) {
+        console.log("Father");
+        console.log(form);
+    }
 }
 export class FnolWizardComponent {
     constructor() {

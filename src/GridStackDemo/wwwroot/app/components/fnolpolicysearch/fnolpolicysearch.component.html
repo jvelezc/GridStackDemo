@@ -1,3 +1,82 @@
-﻿<h1>Policy Search</h1>
-<input class="btn btn-info pull-right btn-wizard" type="submit" wz-next value="Next" />
-<input class="btn pull-right btn-wizard" type="submit" wz-next value="Cancel" />
+﻿<div class="margin-top-lg">
+    <div class="ibox-title">
+        <h3><b>Policy Search</b></h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Policy Number</label>
+
+                <div class="col-lg-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Date and time of loss</label>
+
+                <div class="col-lg-10">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" placeholder="MM/DD/YYYY HH:MM AM/PM" value="03/04/2014">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Name</label>
+
+                <div class="col-lg-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Phone</label>
+
+                <div class="col-lg-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Email</label>
+
+                <div class="col-lg-10">
+                    <input type="email" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Adress</label>
+
+                <div class="col-lg-10">
+                    <input type="text" placeholder="Adress" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label"></label>
+
+                <div class="col-lg-10">
+                    <input type="text" placeholder="City" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label"></label>
+
+                <div class="col-lg-10">
+                    <input type="text" placeholder="State" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label"></label>
+
+                <div class="col-lg-10">
+                    <input type="text" placeholder="Zip" class="form-control">
+                </div>
+            </div>
+
+        </div>
+
+        <input class="btn btn-info pull-right btn-wizard" type="submit" wz-next ng-click="Vm.next()" value="Next" />
+        <input class="btn pull-right btn-wizard" type="submit" wz-next value="Cancel" />
+    </form>
+</div>
+            
+ 
