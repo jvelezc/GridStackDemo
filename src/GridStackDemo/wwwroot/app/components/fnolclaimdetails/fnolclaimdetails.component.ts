@@ -3,12 +3,17 @@
 interface IFnolClaimDetailComponentController{
     disabled: Boolean;
     onChange: Function;
+    saveTab: Function;
+    save: Function;
+    submitForm: Function;
+    submit: Function;
 }
 
 export class FnolClaimDetailComponentController {
 	public disabled:Boolean;
     public onChange: Function;
-
+    public saveTab: Function;
+    public submitForm: Function;
 
     constructor() {
 
@@ -18,17 +23,15 @@ export class FnolClaimDetailComponentController {
 
     }
 
-    //$doCheck() {
-    //    if (this.disabled) {
-    //        this.onChange({
-    //            disabled: this.disabled
-    //        });
-    //    }
-    //}
+    public save() {
+        this.saveTab();
+    }
+
+    public submit() {
+        this.submitForm();
+    }
 
     public onChangeEvent(){
-        console.log("Event");
-        console.log(this.onChange);
         this.onChange({ disabled: this.disabled });
     }
 }
@@ -40,7 +43,9 @@ export class FnolClaimDetailsComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            onChange: "&",
+            saveTab: "&",
+            submitForm: "&",
+            onChange:"&"
         };
     }
 }

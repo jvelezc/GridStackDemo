@@ -4,16 +4,13 @@ export class FnolClaimDetailComponentController {
     }
     $onInit() {
     }
-    //$doCheck() {
-    //    if (this.disabled) {
-    //        this.onChange({
-    //            disabled: this.disabled
-    //        });
-    //    }
-    //}
+    save() {
+        this.saveTab();
+    }
+    submit() {
+        this.submitForm();
+    }
     onChangeEvent() {
-        console.log("Event");
-        console.log(this.onChange);
         this.onChange({ disabled: this.disabled });
     }
 }
@@ -23,7 +20,9 @@ export class FnolClaimDetailsComponent {
         this.controllerAs = "Vm";
         this.controller = [FnolClaimDetailComponentController];
         this.bindings = {
-            onChange: "&",
+            saveTab: "&",
+            submitForm: "&",
+            onChange: "&"
         };
     }
 }

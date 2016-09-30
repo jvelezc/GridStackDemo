@@ -7,8 +7,8 @@
     <input type="radio" name="name" ng-value="true" ng-model="Vm.disabled" ng-change="Vm.onChangeEvent()" />
     <input type="radio" name="name" ng-value="false" ng-model="Vm.disabled" ng-change="Vm.onChangeEvent()" />
 
-    <input class="btn btn-info pull-right btn-wizard" type="submit" ng-hide="Vm.disabled" wz-next value="Next" />
-    <input class="btn btn-info pull-right btn-wizard" type="submit" ng-show="Vm.disabled" wz-next value="Submit" />
+    <input class="btn btn-info pull-right btn-wizard" type="submit" ng-hide="Vm.disabled" wz-next value="Next" ng-click="Vm.save()" />
+    <input class="btn btn-info pull-right btn-wizard" type="submit" ng-show="Vm.disabled" wz-next value="Submit" ng-click="Vm.submit()" />
     <input class="btn pull-right btn-wizard" type="submit" wz-previous value="Back" />
     <input class="btn pull-right btn-wizard" type="submit" wz-next value="Cancel" />
 

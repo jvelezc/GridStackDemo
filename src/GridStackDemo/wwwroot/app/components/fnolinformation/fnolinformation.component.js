@@ -4,11 +4,17 @@ export class FnolInformationComponentController {
     }
     $onInit() {
     }
+    save() {
+        this.saveTab();
+    }
 }
 export class FnolInformationComponent {
     constructor() {
         this.templateUrl = "/app/components/fnolinformation/fnolinformation.component.html";
         this.controllerAs = "Vm";
         this.controller = [FnolInformationComponentController];
+        this.bindings = {
+            saveTab: "&",
+        };
     }
 }

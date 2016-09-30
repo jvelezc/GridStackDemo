@@ -1,6 +1,14 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
 
-export class FnolInformationComponentController {
+interface IFnolInformationComponentController {
+    saveTab: Function;
+    save: Function;
+
+}
+
+export class FnolInformationComponentController implements IFnolInformationComponentController {
+    public saveTab: Function;
+
     constructor() {
 
     }
@@ -8,10 +16,20 @@ export class FnolInformationComponentController {
     $onInit() {
 
     }
+
+    public save() {
+        this.saveTab();
+    }
 }
 
 export class FnolInformationComponent implements ng.IComponentOptions {
     templateUrl = "/app/components/fnolinformation/fnolinformation.component.html";
     controllerAs = "Vm";
     controller = [FnolInformationComponentController];
+    bindings: any;
+    constructor() {
+        this.bindings = {
+            saveTab: "&",
+        };
+    }
 }

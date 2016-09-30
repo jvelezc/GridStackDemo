@@ -1,13 +1,13 @@
 ﻿/// <reference path="../../../../typings/index.d.ts" />
 
 interface IFnolPolicySearchComponentController {
-    nextTab(): Function;
-    next(): Function;
+    saveTab: Function;
+    save: Function;
 
 }
 
 export class FnolPolicySearchComponentController {
-    public nextTab: Function;
+    public saveTab: Function;
 
     constructor() {
 
@@ -17,9 +17,8 @@ export class FnolPolicySearchComponentController {
 
     }
 
-    public next() {
-        console.log("Child submit");
-        this.nextTab();
+    public save() {
+        this.saveTab();
     }
 }
 
@@ -30,7 +29,7 @@ export class FnolPolicySearchComponent implements ng.IComponentOptions {
     bindings: any;
     constructor() {
         this.bindings = {
-            nextTab: "&",
+            saveTab: "&",
         };
     }
 }

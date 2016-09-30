@@ -4,9 +4,8 @@ export class FnolPolicySearchComponentController {
     }
     $onInit() {
     }
-    next() {
-        console.log("Child submit");
-        this.nextTab();
+    save() {
+        this.saveTab();
     }
 }
 export class FnolPolicySearchComponent {
@@ -15,7 +14,7 @@ export class FnolPolicySearchComponent {
         this.controllerAs = "Vm";
         this.controller = [FnolPolicySearchComponentController];
         this.bindings = {
-            nextTab: "&",
+            saveTab: "&",
         };
     }
 }

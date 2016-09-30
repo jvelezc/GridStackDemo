@@ -3,7 +3,8 @@
 interface IFnolWizardComponentController {
    disabled: Boolean;
    onChange: Function;
-   prioritySearch: Function;
+   savePrioritySearch: Function;
+   saveInformation: Function;
 }
 
 export class FnolWizardComponentController implements IFnolWizardComponentController {
@@ -22,9 +23,25 @@ export class FnolWizardComponentController implements IFnolWizardComponentContro
         this.disabled = disabled;
     }
 
-    public prioritySearch(form) {
-        console.log("Father");
-        console.log(form);
+    public savePrioritySearch(form) {
+        console.log("Father"," savePrioritySearch");
+    }
+
+    public saveInformation(form) {
+        console.log("Father" ,"saveInformation");
+
+    }
+
+    public saveClaimDetails(form) {
+        console.log("Father", "saveClaimDetails");
+    }
+
+    public submit(form) {
+        console.log("Father", "submit");
+    }
+
+    public saveServices(form) {
+        console.log("Father", "saveServices");
     }
 }
 

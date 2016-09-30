@@ -79,10 +79,8 @@ angular
 
     //<fnol-wizard></fnol-wizard>
     .component(names.Components.fnol, new FnolComponent())
-
     //<fnol-wizard></fnol-wizard>
     .component(names.Components.fnolWizard, new FnolWizardComponent())
-
     //<fnol-asign-submit></fnol-asign-submit>
     .component(names.Components.fnolAsignSubmit, new FnolAsignSubmitComponent())
     //<fnol-information></fnol-information>
