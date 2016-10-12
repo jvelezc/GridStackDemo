@@ -17,3 +17,9 @@ the package.json
 2.) Gridstack
 3.) GridStackAngularImproved * this is my fork of gridstackangular. GridstackAngular only provided a subset of what I needed so I "improved" it.
 </pre>
+
+
+<pre> Web Api Best Practices and Guidelines we try to follow
+1.) https://azure.microsoft.com/en-us/documentation/articles/best-practices-api-implementation/
+2.) https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md
+</pre>
